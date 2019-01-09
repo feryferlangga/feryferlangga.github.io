@@ -1,0 +1,64 @@
+﻿# Site settings
+title: Fery Ferlangga
+email: feryferlangga14@gmail.com
+url: https://feryferlangga.github.io
+description: "gaming creator , si pecinta gaming dan penggemar coding website"
+keywords: "fps, shooting gaming, fortnite tutorial, pubg god, tips gaming pc, tutorial Pubg mobile, free theme blogger"
+skills: "Web Developer - Gamer Creator - Writer"
+meta_author: Fery Ferlangga
+
+# Google webmaster tools
+google_verify:     <meta name="google-site-verification" content="AX28_il7ePohg5ylipvi0XlJMYCWCFj78TaH973HoUw" />
+
+
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify: <meta name="msvalidate.01" content="A8C722548365FE17F680A996B831E1AE" />
+
+# Contact form:
+# - static : pass through formspree.io to validate email sending
+# - disqus : replace contact form by disqus thread
+# - comment the line below if you want to stick with the default PHP contact form
+contact: static
+
+# If you use disqus you need disqus shortname
+# https://help.disqus.com/customer/portal/articles/466208
+disqus_shortname: feryferlanggacom
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary: 18bc9c #80B3FF
+  primary-rgb: "24,288,156" #"128,179,255"
+  secondary: 2c3e50 #FD6E8A
+  secondary-dark: 233140 #A2122F
+
+# Footer settings
+footer:
+  copyright: Fery Ferlangga
+  location: Lampung
+  social: Around the Web
+  credits: FFpeng
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: twitter
+    url: http://twitter.com/AfuckingAA
+  - title: facebook
+    url: https://facebook.com/fery.ferlangga
+  - title: stack-overflow
+    url: /
+  - title: bitbucket
+    url: /
+  - title: github
+    url: http://github.com/Feryferlangga
+
+# Postal address (add as many lines as necessary)
+address:
+  - line: Blok III TEKAD
+  - line: Tanggamus, 35679 Lampung
+
+# Credits content
+credits: 'Pecinta gaming dan penggemar coding 12 jam stay in internet by <a href="https://facebook.com/fery.ferlangga">contact Facebook</a>.'
+
+# Build settings
+markdown: kramdown
+permalink: pretty
