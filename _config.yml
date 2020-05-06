@@ -34,9 +34,9 @@ color:
 # Footer settings
 footer:
   copyright: Fery Ferlangga
-  location: Lampung
-  social: Around the Web
-  credits: F2P
+  location: Address
+  social: Sosial Media
+  credits: Credits
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
@@ -44,8 +44,8 @@ social:
     url: http://twitter.com/AfuckingAA
   - title: facebook
     url: https://facebook.com/fery.ferlangga
-  - title: stack-overflow
-    url: /
+  - title: linkedin
+    url: https://id.linkedin.com/in/feryferlangga
   - title: instagram
     url: https://www.instagram.com/feryferlangga
   - title: github
@@ -57,7 +57,7 @@ address:
   - line: Tanggamus, 35679 Lampung
 
 # Credits content
-credits: 'Pecinta gaming dan penggemar coding 12 jam stay in internet by <a href="https://facebook.com/fery.ferlangga">contact Facebook</a>.'
+credits: 'F2P A.K.a Fery Ferlangga'
 
 # Build settings
 markdown: kramdown
