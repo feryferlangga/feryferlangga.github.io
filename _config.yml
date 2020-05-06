@@ -1,7 +1,7 @@
 ﻿# Site settings
 title: Fery Ferlangga
 email: feryferlangga14@gmail.com
-url: https://feryferlangga.github.io
+url: https://fery.my.id
 description: "web portfolio Fery Ferlangga di host dari github , menampilkan sedikit data dari pemilik website dan menjembatani perkenalan melalui sebuah website public"
 keywords: "fps, shooting gaming, fortnite tutorial, pubg god, tips gaming pc, tutorial Pubg mobile, free theme blogger, web public"
 skills: "Web Developer - Gamer Creator - Writer"
@@ -36,7 +36,7 @@ footer:
   copyright: Fery Ferlangga
   location: Lampung
   social: Around the Web
-  credits: F2
+  credits: F2P
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
@@ -49,7 +49,7 @@ social:
   - title: bitbucket
     url: /
   - title: github
-    url: http://github.com/Feryferlangga
+    url: https://github.com/Feryferlangga
 
 # Postal address (add as many lines as necessary)
 address:
