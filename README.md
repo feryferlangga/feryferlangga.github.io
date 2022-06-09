@@ -1,2 +1,2 @@
-# feryferlangga.github.io
+# fery.my.id
 web portfolio fery ferlangga
