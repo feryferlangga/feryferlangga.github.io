@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fery — Streamer</title>
-  <meta name="description" content="Website resmi streamer Fery. Jadwal live, link sosial, tip/QRIS, dan highlight klip." />
+  <meta name="description" content="Website streamer Fery. Jadwal live, link sosial, dukungan QRIS, dan kontak." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
         extend: {
           colors: {
             base: { 50:'#f7f9fb', 100:'#eef2f7', 900:'#0b0f14' },
-            brand: { DEFAULT:'#8b5cf6', 500:'#8b5cf6', 600:'#7c3aed', 700:'#6d28d9' }
+            brand: { DEFAULT:'#8b5cf6', 600:'#7c3aed' }
           },
           boxShadow: {
             glow: '0 0 0 2px rgba(139,92,246,.35), 0 0 30px rgba(139,92,246,.25)'
@@ -29,26 +29,18 @@
     :root { color-scheme: dark; }
     html { scroll-behavior: smooth; }
     .glass { background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); backdrop-filter: blur(10px); }
-    .fade-in { opacity:0; transform: translateY(20px); transition: all .6s ease; }
-    .fade-in.visible { opacity:1; transform:none; }
   </style>
   <meta name="theme-color" content="#0b0f14" />
-  <meta property="og:title" content="Fery — Streamer" />
-  <meta property="og:description" content="Live ngobrol santai, karaoke, Q&A. Jadwal, klip, dan dukungan QRIS." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/og-image.jpg" />
-  <meta property="og:url" content="https://fery.my.id" />
   <link rel="icon" href="/favicon.ico" />
 </head>
 <body class="bg-base-900 text-white font-sans">
+  <!-- NAV -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-base-900/70 backdrop-blur">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#top" class="font-extrabold tracking-tight text-xl">Fery<span class="text-brand">.my.id</span></a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="#live" class="hover:text-brand">Live</a>
         <a href="#schedule" class="hover:text-brand">Jadwal</a>
-        <a href="#clips" class="hover:text-brand">Klip</a>
-        <a href="#gear" class="hover:text-brand">Gear</a>
         <a href="#support" class="hover:text-brand">Dukung</a>
         <a href="#contact" class="hover:text-brand">Kontak</a>
       </nav>
@@ -60,144 +52,241 @@
   </header>
 
   <!-- HERO -->
-  <section id="top" class="relative overflow-hidden fade-in">
+  <section id="top" class="relative overflow-hidden">
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
       <div class="w-[900px] h-[900px] bg-brand/20 blur-3xl rounded-full absolute -top-40 -right-40"></div>
     </div>
     <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-2 gap-10 items-center">
       <div>
         <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Halo, saya <span class="text-brand">Fery</span> 👋</h1>
-        <p class="mt-4 text-white/75 text-lg">Streamer & konten kreator. Live ngobrol santai, karaoke, dan Q&A. Jadwal fleksibel — follow untuk notifikasi live.</p>
+        <p class="mt-4 text-white/75 text-lg">Streamer & konten kreator. Live ngobrol santai, karaoke, dan Q&A. Ikuti untuk notifikasi live.</p>
         <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a href="#live" class="px-5 py-3 rounded-xl bg-brand hover:bg-brand-600 font-semibold shadow-glow">Tonton Live</a>
-          <a href="#clips" class="px-5 py-3 rounded-xl border border-white/10 hover:border-white/20">Lihat Klip</a>
+          <a id="btnLive" href="#live" class="px-5 py-3 rounded-xl bg-brand hover:bg-brand-600 font-semibold shadow-glow">Tonton Live</a>
+          <a href="#support" class="px-5 py-3 rounded-xl border border-white/10 hover:border-white/20">Dukung</a>
         </div>
         <div class="mt-6 flex items-center gap-4 text-sm text-white/70">
-          <a class="hover:text-brand" href="https://www.tiktok.com/@feryferlangga" target="_blank">TikTok</a>
+          <a class="hover:text-brand" id="socTikTok" href="#" target="_blank" rel="noreferrer">TikTok</a>
           <span>•</span>
-          <a class="hover:text-brand" href="https://youtube.com/" target="_blank">YouTube</a>
+          <a class="hover:text-brand" id="socYouTube" href="#" target="_blank" rel="noreferrer">YouTube</a>
           <span>•</span>
-          <a class="hover:text-brand" href="https://instagram.com/feryferlangga" target="_blank">Instagram</a>
+          <a class="hover:text-brand" id="socInstagram" href="#" target="_blank" rel="noreferrer">Instagram</a>
         </div>
       </div>
       <div>
+        <!-- Kotak pratinjau 16:9 sederhana (tanpa embed, aman di semua platform) -->
         <div class="aspect-video rounded-2xl border border-white/10 glass shadow-xl flex items-center justify-center">
           <div class="text-center p-8">
             <div class="text-xs uppercase tracking-widest text-white/60">Pratinjau</div>
             <h3 class="mt-2 text-2xl font-bold">Area Video 16:9</h3>
-            <p class="mt-2 text-white/70">Taruh <em>iframe</em> TikTok Live / OBS Virtual Cam / Video highlight di sini.</p>
+            <p class="mt-2 text-white/70">Gunakan tombol di bawah untuk membuka Live TikTok.</p>
           </div>
         </div>
-        <div class="mt-3 text-xs text-white/50">Catatan: TikTok kadang membatasi embed langsung. Alternatif: sematkan video highlight YouTube / clip.</div>
+        <div class="mt-3">
+          <a id="openLive" href="#" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 font-semibold">Buka Live</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sticky mini player -->
-  <div id="miniPlayer" class="hidden fixed bottom-4 right-4 w-80 aspect-video rounded-lg overflow-hidden shadow-lg border border-white/10 z-40 bg-black">
-    <iframe id="miniFrame" src="" frameborder="0" allowfullscreen class="w-full h-full"></iframe>
-  </div>
-
-  <!-- LIVE -->
-  <section id="live" class="py-12 border-t border-white/10 fade-in">
+  <!-- LIVE (info ringkas) -->
+  <section id="live" class="py-12 border-t border-white/10">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-end justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <div id="liveBadge" class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-red-500/15 text-red-400 border border-red-500/20 text-xs">
-            <span class="inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            <span id="liveText">SEDANG LIVE</span>
+      <div class="flex items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <div id="liveBadge" class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/10 text-white/70 border border-white/15 text-xs">
+            <span class="inline-block w-2 h-2 rounded-full bg-white/40" id="liveDot"></span>
+            <span id="liveText">OFFLINE</span>
           </div>
-          <div>
-            <h2 class="text-3xl font-extrabold">Sedang Live?</h2>
-            <p class="text-white/70 text-sm">Tombol di kanan akan membuka ruang live saat status live aktif.</p>
-          </div>
+          <h2 class="text-3xl font-extrabold">Status Live</h2>
         </div>
         <a id="liveBtn" href="#" target="_blank" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 font-semibold">Buka Live</a>
       </div>
       <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="aspect-video rounded-xl border border-white/10 glass flex items-center justify-center">
-          <span class="text-white/60">Sematkan video/iframe di sini</span>
-        </div>
         <div class="rounded-xl border border-white/10 p-6">
           <h3 class="text-xl font-bold">Agenda</h3>
           <ul class="mt-3 space-y-3 text-white/80">
             <li><span class="inline-block w-20 text-white/50">Sekarang</span> Just chatting + Q&A</li>
-            <li><span class="inline-block w-20 text-white/50">Berikut</span> Karaoke (request lagu)</li>
+            <li><span class="inline-block w-20 text-white/50">Berikut</span> Karaoke ringan</li>
             <li><span class="inline-block w-20 text-white/50">Besok</span> Ngobrol setup & tips live</li>
           </ul>
+        </div>
+        <div class="rounded-xl border border-white/10 p-6">
+          <h3 class="text-xl font-bold">Catatan</h3>
+          <p class="text-white/70">TikTok membatasi embed langsung. Tombol di atas akan membuka ruang live.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- REQUEST SONG -->
-  <section id="request" class="py-12 border-t border-white/10 fade-in">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-extrabold">Request Lagu / Topik</h2>
-      <p class="text-white/70 mt-2">Ketik nama lagu atau topik obrolan yang ingin dibahas di live berikutnya.</p>
-      <form onsubmit="event.preventDefault(); alert('Request terkirim!');" class="mt-6 grid sm:grid-cols-2 gap-4 max-w-xl mx-auto">
-        <input class="px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-brand outline-none" placeholder="Nama kamu" />
-        <input class="px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-brand outline-none sm:col-span-2" placeholder="Request lagu / topik" />
-        <button class="sm:col-span-2 px-4 py-3 rounded-lg bg-brand hover:bg-brand-600 font-semibold shadow-glow">Kirim</button>
-      </form>
+  <!-- SCHEDULE -->
+  <section id="schedule" class="py-12 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-extrabold">Jadwal</h2>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-xl border border-white/10 p-6">
+          <h4 class="font-semibold">Senin & Rabu</h4>
+          <p class="text-white/70">20.00 – 22.00 WIB</p>
+        </div>
+        <div class="rounded-xl border border-white/10 p-6">
+          <h4 class="font-semibold">Jumat</h4>
+          <p class="text-white/70">21.00 – 23.00 WIB</p>
+        </div>
+        <div class="rounded-xl border border-white/10 p-6">
+          <h4 class="font-semibold">Akhir Pekan</h4>
+          <p class="text-white/70">Random Pop-up</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- SCHEDULE -->
-  <section id="schedule" class="py-12 border-t border-white/10 fade-in">
-    ...
-  </section>
-
-  <!-- CLIPS -->
-  <section id="clips" class="py-12 border-t border-white/10 fade-in">
-    ...
-  </section>
-
-  <!-- GEAR -->
-  <section id="gear" class="py-12 border-t border-white/10 fade-in">
-    ...
-  </section>
-
   <!-- SUPPORT -->
-  <section id="support" class="py-12 border-t border-white/10 fade-in">
-    ...
+  <section id="support" class="py-12 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold">Dukung Fery</h2>
+          <p class="text-white/70 mt-2">Suka kontennya? Kamu bisa kirim tip via QRIS / Saweria / Trakteer. Terima kasih! 🙌</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <button id="copyLink" class="px-4 py-2 rounded-lg border border-white/10 hover:border-white/20 text-sm">Salin Link Tip</button>
+            <a id="tipLink" href="#" target="_blank" class="px-4 py-2 rounded-lg bg-brand hover:bg-brand-600 font-semibold">Buka Halaman Tip</a>
+            <button id="showQR" class="px-4 py-2 rounded-lg border border-white/10 hover:border-white/20">Tampilkan QRIS</button>
+          </div>
+          <div class="mt-5">
+            <div class="flex items-center justify-between text-sm text-white/70">
+              <span>Goal Bulanan</span>
+              <span id="goalLabel">Rp0 / Rp1.000.000</span>
+            </div>
+            <div class="mt-2 w-full h-3 rounded-full bg-white/10 overflow-hidden">
+              <div id="goalBar" class="h-full bg-emerald-500" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 glass">
+          <div class="text-center text-white/70">Tempat QRIS (PNG/SVG).</div>
+          <div class="mt-4 aspect-square bg-white/5 rounded-xl flex items-center justify-center">
+            <span class="text-white/50 text-sm">Taruh <code>qris.png</code> di root & ganti <code>src</code> pada script modal.</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- QR MODAL -->
+  <div id="qrModal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/70 p-6">
+    <div class="max-w-md w-full rounded-2xl border border-white/10 bg-base-900 p-5 relative">
+      <button id="closeQR" class="absolute right-3 top-3 text-white/60 hover:text-white">✕</button>
+      <h3 class="text-xl font-bold">QRIS</h3>
+      <p class="text-white/60 text-sm">Scan untuk dukung Fery.</p>
+      <img id="qrImg" src="qris.png" alt="QRIS" class="mt-4 w-full rounded-lg"/>
+    </div>
+  </div>
 
   <!-- CONTACT -->
-  <section id="contact" class="py-12 border-t border-white/10 fade-in">
-    ...
+  <section id="contact" class="py-12 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-extrabold">Kontak</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <form onsubmit="event.preventDefault(); alert('Terima kasih! Pesan terkirim.');" class="rounded-xl border border-white/10 p-6">
+          <label class="block text-sm">Nama</label>
+          <input class="mt-1 w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:border-brand outline-none" placeholder="Nama kamu" />
+          <label class="block text-sm mt-4">Email</label>
+          <input type="email" class="mt-1 w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:border-brand outline-none" placeholder="email@contoh.com" />
+          <label class="block text-sm mt-4">Pesan</label>
+          <textarea rows="4" class="mt-1 w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:border-brand outline-none" placeholder="Tulis pesan…"></textarea>
+          <button class="mt-4 px-4 py-2 rounded-lg bg-brand hover:bg-brand-600 font-semibold">Kirim</button>
+        </form>
+        <div class="rounded-xl border border-white/10 p-6">
+          <div class="font-semibold">Email</div>
+          <a class="text-brand hover:text-brand-600" id="contactEmail" href="#">halo@fery.my.id</a>
+          <div class="mt-4 font-semibold">Sosial</div>
+          <div class="mt-2 flex flex-wrap gap-3 text-white/80 text-sm">
+            <a class="hover:text-brand" id="socTelegram" href="#" target="_blank">Telegram</a>
+            <a class="hover:text-brand" id="socDiscord" href="#" target="_blank">Discord</a>
+            <a class="hover:text-brand" id="socTwitter" href="#" target="_blank">X (Twitter)</a>
+          </div>
+          <div class="mt-6 text-xs text-white/50">Sesuaikan tautan di bawah (lihat konfigurasi skrip).</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer class="py-10 border-t border-white/10 text-center text-white/50 text-sm">© <span id="y"></span> Fery. Dibuat dengan ♥.</footer>
 
   <script>
+    // ======= KONFIGURASI SEDERHANA (EDIT DI SINI) =======
     window.__SITE = {
       liveUrl: 'https://www.tiktok.com/@feryferlangga/live',
-      tipUrl: 'https://saweria.co/fery',
-      isLive: true,
+      tipUrl:  'https://saweria.co/F2PE',
+      contactEmail: 'mailto:admin@fery.my.id',
+      socials: {
+        tiktok: 'https://www.tiktok.com/@feryferlangga',
+        youtube: 'https://youtube.com/feryferlangga',
+        instagram: 'https://instagram.com/feryferlangga',
+        telegram: 'https://t.me/feryferlangga',
+        discord: 'https://discord.gg/',
+        twitter: 'https://x.com/Afuckingaa'
+      },
+      isLive: false, // ubah ke true saat live
       tipGoal: { current: 0, target: 1000000 }
     };
 
-    const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
-    const liveBtn=document.getElementById('liveBtn'); if(liveBtn) liveBtn.href=window.__SITE.liveUrl;
-    const tipLink=document.getElementById('tipLink'); if(tipLink) tipLink.href=window.__SITE.tipUrl;
+    // ======= PENERAPAN KONFIGURASI =======
+    const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+    const liveBtn = document.getElementById('liveBtn'); if (liveBtn) liveBtn.href = window.__SITE.liveUrl;
+    const openLive = document.getElementById('openLive'); if (openLive) openLive.href = window.__SITE.liveUrl;
+    const btnLive = document.getElementById('btnLive'); if (btnLive) btnLive.href = '#live';
 
-    // Animate fade-in
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
-    },{threshold:0.1});
-    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+    const tipLink = document.getElementById('tipLink'); if (tipLink) tipLink.href = window.__SITE.tipUrl;
+    const copyLink = document.getElementById('copyLink'); if (copyLink) copyLink.addEventListener('click', ()=>{
+      navigator.clipboard.writeText(window.__SITE.tipUrl);
+      copyLink.textContent = 'Tersalin!'; setTimeout(()=>copyLink.textContent='Salin Link Tip',1500);
+    });
 
-    // Sticky mini-player demo
-    window.addEventListener('scroll',()=>{
-      const hero=document.getElementById('top');
-      const mini=document.getElementById('miniPlayer');
-      const frame=document.getElementById('miniFrame');
-      if(hero && mini){
-        const rect=hero.getBoundingClientRect();
-        if(rect.bottom<0){ mini.classList.remove('hidden'); frame.src=window.__SITE.liveUrl; }
-        else{ mini.classList.add('hidden'); frame.src=''; }
-      }
+    const contactEmail = document.getElementById('contactEmail'); if (contactEmail) contactEmail.href = window.__SITE.contactEmail;
+
+    const socTikTok = document.getElementById('socTikTok'); if (socTikTok) socTikTok.href = window.__SITE.socials.tiktok;
+    const socYouTube = document.getElementById('socYouTube'); if (socYouTube) socYouTube.href = window.__SITE.socials.youtube;
+    const socInstagram = document.getElementById('socInstagram'); if (socInstagram) socInstagram.href = window.__SITE.socials.instagram;
+    const socTelegram = document.getElementById('socTelegram'); if (socTelegram) socTelegram.href = window.__SITE.socials.telegram;
+    const socDiscord = document.getElementById('socDiscord'); if (socDiscord) socDiscord.href = window.__SITE.socials.discord;
+    const socTwitter = document.getElementById('socTwitter'); if (socTwitter) socTwitter.href = window.__SITE.socials.twitter;
+
+    const liveBadge = document.getElementById('liveBadge');
+    const liveText  = document.getElementById('liveText');
+    const liveDot   = document.getElementById('liveDot');
+    if (window.__SITE.isLive) {
+      liveBadge.className = 'flex items-center gap-2 px-2.5 py-1 rounded-full bg-red-500/15 text-red-400 border border-red-500/20 text-xs';
+      liveText.textContent = 'SEDANG LIVE';
+      liveDot.className = 'inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse';
+    } else {
+      liveBadge.className = 'flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/10 text-white/70 border border-white/15 text-xs';
+      liveText.textContent = 'OFFLINE';
+      liveDot.className = 'inline-block w-2 h-2 rounded-full bg-white/40';
+    }
+
+    const goalBar = document.getElementById('goalBar');
+    const goalLabel = document.getElementById('goalLabel');
+    if (goalBar && goalLabel) {
+      const cur = Math.max(0, window.__SITE.tipGoal.current);
+      const target = Math.max(1, window.__SITE.tipGoal.target);
+      const pct = Math.min(100, Math.round((cur/target)*100));
+      goalBar.style.width = pct + '%';
+      goalLabel.textContent = new Intl.NumberFormat('id-ID', { style:'currency', currency:'IDR', maximumFractionDigits:0 }).format(cur) + ' / ' + new Intl.NumberFormat('id-ID', { style:'currency', currency:'IDR', maximumFractionDigits:0 }).format(target);
+    }
+
+    // QR modal
+    const qrModal = document.getElementById('qrModal');
+    const showQR  = document.getElementById('showQR');
+    const closeQR = document.getElementById('closeQR');
+    showQR && showQR.addEventListener('click', ()=> qrModal.classList.remove('hidden'));
+    closeQR && closeQR.addEventListener('click', ()=> qrModal.classList.add('hidden'));
+    qrModal && qrModal.addEventListener('click', (e)=>{ if (e.target === qrModal) qrModal.classList.add('hidden'); });
+
+    // Tema
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle && themeToggle.addEventListener('click', ()=>{
+      document.body.classList.toggle('bg-base-900');
+      document.body.classList.toggle('bg-black');
     });
   </script>
 </body>
