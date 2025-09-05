@@ -26,6 +26,14 @@
   <meta name="twitter:description" content="Portfolio, proyek, jadwal live, dan kontak. Freelancer gamer & live streamer dengan tampilan neon responsif." />
   <meta name="theme-color" content="#0e0e18"/>
 
+  <!-- i18n & SEO locales -->
+  <link rel="alternate" hreflang="id" href="https://fery.my.id/">
+  <link rel="alternate" hreflang="en" href="https://fery.my.id/?lang=en">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:locale:alternate" content="en_US">
+  <!-- Privacy-friendly analytics (remove if not used) -->
+  <script defer data-domain="fery.my.id" src="https://plausible.io/js/script.js"></script>
+
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {
@@ -101,7 +109,9 @@
     .menu{display:flex;gap:10px;list-style:none;margin:0;padding:0}
     .menu a{padding:10px 12px;border-radius:10px;display:inline-block}
     .btn-primary{background:linear-gradient(90deg,var(--s),var(--p));color:#0b0b12;border:0;padding:10px 16px;border-radius:12px;font-weight:800;box-shadow:var(--ring)}
-    .btn-ghost{border:1px solid #2b2b4a;padding:10px 16px;border-radius:12px;color:var(--text)}
+    .btn-ghost{border:1px solid #2b2b4a;padding:10px 16px;border-radius:12px;color:var(--text);background:#111126;font-weight:700;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+    .btn-ghost:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.35), 0 0 18px rgba(0,255,224,.12);border-color:#3a3a66}
+    .chips button.btn-ghost{background:#121228;color:var(--text);border:1px solid #2b2b4a}
 
     /* Theme toggle */
     .theme-toggle{border:1px solid #2b2b4a;border-radius:999px;padding:6px 10px;cursor:pointer;font-size:.9rem;background:#111126;color:var(--text)}
@@ -157,13 +167,32 @@
     .dot{margin-left:8px;color:#ff4d4f;text-shadow:0 0 10px rgba(255,77,79,.6)}
     .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#111126;border:1px solid #2b2b4a;color:var(--text);padding:10px 14px;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease}
     .toast.show{opacity:1}
+    /* Keyboard focus */
+    :focus-visible{outline:2px solid var(--s); outline-offset:2px; border-radius:8px}
+    /* Language toggle display */
+    :root[data-lang="id"] [lang="en"]{display:none}
+    :root[data-lang="en"] [lang="id"]{display:none}
+    /* Nav active */
+    .menu a.active{border-bottom:2px solid var(--s)}
+    /* Scroll progress */
+    #progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--s),var(--p));transform:scaleX(0);transform-origin:left;z-index:999}
+    /* Search bar */
+    .searchbar input{width:100%;background:#111126;border:1px solid #2b2b4a;border-radius:12px;color:var(--text);padding:10px 12px;margin:10px 0}
     @media (prefers-reduced-motion: reduce){
       .bg-anim::after{animation:none;opacity:.15}
       .icon-btn:hover,.card:hover{transform:none;box-shadow:none}
     }
     @media (max-width:680px){ .cta-float{position:fixed;right:14px;bottom:14px;z-index:20} }
 
-    /* Donate */
+    /* Video latest */
+    .video-card{position:relative;max-width:760px;margin:auto;border:1px solid #2b2b4a;border-radius:16px;overflow:hidden;background:#0b0b16}
+    .video-cover{display:block;width:100%;aspect-ratio:16/9;border:0;background:linear-gradient(135deg,#121228,#0b0b16);cursor:pointer;position:relative}
+    .video-thumb{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%, rgba(0,255,224,.15), transparent 60%)}
+    .video-cta{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:10px 14px;border-radius:12px;background:#111126;border:1px solid #2b2b4a;box-shadow:var(--ring)}
+    .video-iframe{width:100%;aspect-ratio:16/9;border:0}
+    /* Floating chat */
+    .cta-chat{position:fixed;right:14px;bottom:60px;z-index:20}
+    @media (min-width:681px){ .cta-chat{bottom:20px; right:120px;} }
     .donate .qris-card{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:linear-gradient(180deg,rgba(18,18,40,.8),rgba(18,18,40,.5));border:1px solid #2b2b4a;border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
     .qr-wrap{background:#fff;border-radius:12px;padding:12px;box-shadow:0 0 0 6px rgba(255,255,255,.02) inset}
     .qr-wrap img{display:block;width:256px;height:256px}
@@ -192,9 +221,7 @@
     .foot-socials a{display:inline-flex;padding:8px;border:1px solid #2b2b4a;border-radius:10px}
     .heart{color:var(--a);text-shadow:0 0 12px rgba(255,0,128,.6)}
 
-    /* Buttons */
-    .btn-primary{background:linear-gradient(90deg,var(--s),var(--p));color:#0b0b12;border:0;padding:8px 14px;border-radius:10px;font-weight:700;box-shadow:var(--ring);font-size:.85rem}
-    .btn-ghost{border:1px solid #2b2b4a;padding:8px 14px;border-radius:10px;color:var(--text);font-size:.85rem}
+    /* Buttons (merged with header styles; single source of truth) */
 
     /* Responsive */
     @media (max-width: 900px){
@@ -216,6 +243,7 @@
   </style>
 </head>
 <body>
+  <div id="progress" aria-hidden="true"></div>
   <div class="bg-anim" aria-hidden="true"></div>
   <a class="sr-only" href="#main">Lewati ke konten utama</a>
 
@@ -228,16 +256,17 @@
       </div>
       <div style="display:flex; gap:10px; align-items:center">
         <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema">🌙/☀️</button>
+        <button class="theme-toggle" id="langToggle" aria-label="Ganti bahasa">ID</button>
         <button class="hamburger" id="menuBtn" aria-expanded="false" aria-controls="mainmenu">
           <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </button>
       </div>
       <ul class="menu" id="mainmenu" role="menubar">
-        <li role="none"><a role="menuitem" href="#about">Tentang</a></li>
-        <li role="none"><a role="menuitem" href="#projects">Proyek</a></li>
-        <li role="none"><a role="menuitem" href="#stream">Jadwal</a></li>
-        <li role="none"><a role="menuitem" href="#donate">Donasi</a></li>
-        <li role="none"><a role="menuitem" href="#contact" class="btn-primary">Kontak</a></li>
+        <li role="none"><a role="menuitem" href="#about"><span lang="id">Tentang</span><span lang="en">About</span></a></li>
+        <li role="none"><a role="menuitem" href="#projects"><span lang="id">Game</span><span lang="en">Games</span></a></li>
+        <li role="none"><a role="menuitem" href="#stream"><span lang="id">Jadwal</span><span lang="en">Schedule</span></a></li>
+        <li role="none"><a role="menuitem" href="#donate"><span lang="id">Donasi</span><span lang="en">Donate</span></a></li>
+        <li role="none"><a role="menuitem" href="#contact" class="btn-primary"><span lang="id">Kontak</span><span lang="en">Contact</span></a></li>
       </ul>
     </nav>
   </header>
@@ -245,65 +274,45 @@
   <main id="main">
     <section class="hero container">
       <div class="hero-text">
-        <h1><span class="neon">Fery</span> — <span class="gradient">Freelancer Gamer & Live Streamer</span></h1>
-        <p class="muted">Freelancer gamer & live streamer. Bangun tools, produksi overlay, dan live secara konsisten. Portofolio, jadwal, dan kontak ada di sini.</p>
+        <h1><span class="neon">Fery</span> — <span class="gradient"><span lang="id">Freelancer Gamer & Live Streamer</span><span lang="en">Freelance Gamer & Live Streamer</span></span></h1>
+        <p class="muted"><span lang="id">Freelancer gamer & live streamer. Bangun tools, produksi overlay, dan live secara konsisten. Portofolio, jadwal, dan kontak ada di sini.</span><span lang="en">Freelance gamer & live streamer. I build tools, produce overlays, and stream consistently. Portfolio, schedule, and contact are here.</span></p>
         <div class="actions">
-          <a class="btn-primary" href="#donate">❤️ Donasi</a>
-          <a class="btn-ghost" href="#projects">Lihat Proyek</a>
-          <a class="btn-ghost" href="https://github.com/feryferlangga" target="_blank" rel="noopener" aria-label="Buka GitHub">GitHub</a>
-        </div>
-        <div class="socials" aria-label="Jejaring sosial">
-          <a class="icon-btn tiktok" href="https://tiktok.com/@feryferlangga" target="_blank" rel="noopener me" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 3c.3 2.2 1.7 3.9 3.8 4.2V10c-1.5 0-2.9-.5-4-1.3v5.4a5.6 5.6 0 1 1-2.8-4.9V11a2.8 2.8 0 1 0 1.4 2.4V3h1.6Z"/></svg>
-            <span>TikTok</span>
-          </a>
-          <a class="icon-btn youtube" href="https://youtube.com/@feryferlangga" target="_blank" rel="noopener me" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-2.3-.3-3.9-.6-4.6a2.5 2.5 0 0 0-1.8-1.8C18.9 5.2 12 5.2 12 5.2s-6.9 0-7.6.4A2.5 2.5 0 0 0 2.6 7.4C2.3 8.1 2 9.7 2 12s.3 3.9.6 4.6c.2.7.9 1.4 1.8 1.6.7.2 7.6.4 7.6.4s6.9 0 7.6-.4a2.5 2.5 0 0 0 1.8-1.6c.3-.7.6-2.3.6-4.6ZM10 9.8l5.2 2.2L10 14.2V9.8Z"/></svg>
-            <span>YouTube</span>
-          </a>
-          <a class="icon-btn instagram" href="https://instagram.com/feryferlangga" target="_blank" rel="noopener me" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-            <span>Instagram</span>
-          </a>
-          <a class="icon-btn discord" href="https://discord.gg/yourserver" target="_blank" rel="noopener" aria-label="Discord">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 6.6a14 14 0 0 0-3.6-1.2l-.3.6a12 12 0 0 1 2.8.9c-2.5-1.3-5.2-1.3-7.8 0a12 12 0 0 1 2.8-.9l-.3-.6A14 14 0 0 0 10 6.6C6.3 6.9 5 9.9 5 9.9s1.7 3.2 5.5 3.3l-.7-1.1c1.1 1 2.4 1 3.5 0l-.7 1.1c3.8-.1 5.5-3.3 5.5-3.3s-1.3-3-4.1-3.3Z"/></svg>
-            <span>Discord</span>
-          </a>
-          <a class="icon-btn email" href="mailto:admin@fery.my.id" aria-label="Email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
-            <span>Email</span>
-          </a>
+          <a class="btn-primary" href="#donate"><span lang="id">❤️ Donasi</span><span lang="en">❤️ Donate</span></a>
+          <a class="btn-ghost" href="#stream"><span lang="id">Jadwal</span><span lang="en">Schedule</span></a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <!-- Simple gamer avatar/illustration placeholder -->
-        <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gamer illustration">
+        <img id="avatarImg" src="/avatar.png" alt="Avatar Fery" loading="lazy" style="display:none;width:100%;height:auto"/>
+        <!-- Placeholder SVG jika avatar belum ada -->
+        <svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hero art">
           <defs>
-            <linearGradient id="g" x1="0" x2="1">
-              <stop offset="0" stop-color="#00ffe0" stop-opacity=".35"/>
-              <stop offset="1" stop-color="#8a2be2" stop-opacity=".35"/>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#00ffe0" stop-opacity=".3"/>
+              <stop offset="1" stop-color="#8a2be2" stop-opacity=".25"/>
             </linearGradient>
           </defs>
-          <rect width="600" height="320" fill="url(#g)"/>
-          <g fill="none" stroke="#00ffe0" opacity=".5">
-            <rect x="40" y="40" width="180" height="120" rx="12"/>
-            <circle cx="380" cy="120" r="60"/>
-            <path d="M280 220h200m-180 20h160m-140 20h120"/>
-          </g>
+          <rect width="600" height="360" fill="url(#g1)"/>
+          <circle cx="120" cy="100" r="80" fill="#00ffe022"/>
+          <circle cx="520" cy="260" r="70" fill="#ff008022"/>
+          <rect x="180" y="140" width="240" height="80" rx="12" fill="#121228" stroke="#2b2b4a"/>
+          <text x="300" y="190" fill="#e6e6ff" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">Gamer • Streamer</text>
         </svg>
       </div>
     </section>
 
     <section id="about" class="container section">
-      <h2>🕹️ Tentang</h2>
-      <p>Halo, saya <strong>Fery</strong> — <em>Freelancer Gamer & Live Streamer</em>. Saya membuat overlay neon, otomasi streaming, dan web tools untuk kreator. Tertarik kolaborasi? Hubungi lewat tombol di bawah.</p>
-      <ul class="chips">
-        <li>Live Streaming</li><li>OBS Overlay</li><li>Branding Neon</li><li>TypeScript</li><li>React</li><li>Node.js</li>
+      <h2><span lang="id">🕹️ Tentang</span><span lang="en">🕹️ About</span></h2>
+      <p class="muted">Halo! Saya <strong>Fery</strong>, seorang <em>Freelancer Gamer</em> dan <em>Live Streamer</em>. Fokus di konten <strong>GTA V</strong>, <strong>Genshin Impact</strong>, dan <strong>VALORANT</strong>. Terbuka untuk kolaborasi, sponsor, dan project freelance.</p>
+      <ul class="chips" aria-label="Keahlian singkat">
+        <li>Editing & Overlay</li>
+        <li>Live Production</li>
+        <li>Community</li>
       </ul>
     </section>
 
     <section id="projects" class="container section">
-      <h2>🎮 Game yang Saya Mainkan</h2>
+      <h2><span lang="id">🎮 Game yang Saya Mainkan</span><span lang="en">🎮 Games I Play</span></h2>
+      <div class="searchbar"><input id="gameSearch" type="search" placeholder="Cari game... / Search games..." aria-label="Cari game"></div>
       <div class="grid">
         <article class="card">
           <picture>
@@ -313,7 +322,7 @@
           <div class="card-body">
             <h3>GTA V</h3>
             <div class="tags"><span class="badge">Roleplay</span><span class="badge">Heist</span></div>
-            <p>Freeroam, roleplay, dan heist highlights. Live 1080p60, komunitas santai.</p>
+            <p>Freeroam, roleplay, dan heist highlights. Live 1080p60.</p>
             <div class="card-actions">
               <a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a>
               <a class="btn-primary" href="#" target="_blank" rel="noopener">Highlights</a>
@@ -353,58 +362,46 @@
       </div>
     </section>
 
-    <section id="stream" class="container section">
-      <h2>📺 Jadwal Live</h2>
-      <div class="schedule" aria-label="Jadwal siaran">
-        <div class="slot"><strong>Sen</strong><span>20:00–22:00 WIB</span></div>
-        <div class="slot"><strong>Rab</strong><span>20:00–22:00 WIB</span></div>
-        <div class="slot"><strong>Jum</strong><span>21:00–23:00 WIB</span></div>
-        <div class="slot"><strong>Min</strong><span>Collab random</span></div>
-      </div>
-      <p class="muted small">Jadwal fleksibel — DM untuk booking sesi live/sponsor.</p>
-    </section>
-
     <section id="donate" class="container section donate">
-      <h2>💝 Dukung Siaran — QRIS</h2>
+      <h2><span lang="id">💝 Dukung Siaran — QRIS</span><span lang="en">💝 Support Stream — QRIS</span></h2>
       <div class="qris-card">
         <div class="qr-wrap">
           <picture>
-            <source srcset="/Qris.png" type="image/png"/>
-            <img id="qrSmall" src="/Qris.png" alt="QRIS donasi — PENG, DIGITAL &amp; KREATIF" width="256" height="256" loading="eager"/>
+            <source id="qrSmallSrc" srcset="" type="image/png"/>
+            <img id="qrSmall" src="" alt="QRIS untuk donasi" width="256" height="256"/>
           </picture>
-          <button class="btn-ghost small" id="qrOpen" style="width:100%;margin-top:8px">Perbesar QR</button>
         </div>
-        <div class="text">
-          <p class="muted small">Nama Merchant: <strong>PENG, DIGITAL &amp; KREATIF</strong><br>NMID: <code>ID1025411263185</code></p>
-          <p>Terima kasih sudah mendukung siaran! Scan pakai <em>bank/e-wallet</em> berlogo QRIS. Nominal bebas.</p>
+        <div>
+          <p class="muted">Terima kasih sudah mendukung siaran! Scan pakai <em>bank/e-wallet</em> berlogo QRIS. Nominal bebas.</p>
           <div class="chips" id="donatePresets">
             <button class="btn-ghost" data-amt="10000">Rp10K</button>
             <button class="btn-ghost" data-amt="20000">Rp20K</button>
             <button class="btn-ghost" data-amt="50000">Rp50K</button>
           </div>
-          <div class="card-actions">
-            <button class="btn-primary" id="copyNmid">Salin NMID</button>
-            <a class="btn-ghost" id="downloadQris" href="/Qris.png" download="Qris.png">Download QR</a>
-            <a class="btn-ghost" href="#faq">Cara bayar?</a>
+          <div class="card-actions" style="margin-top:10px">
+            <button id="copyNmid" class="btn-ghost" type="button" aria-label="Salin NMID">Salin NMID</button>
+            <a id="downloadQris" class="btn-primary" href="#" download="Qris.png">Unduh QR</a>
+            <button id="qrOpen" class="btn-ghost" type="button">Perbesar QR</button>
           </div>
+          <p class="small muted">NMID: <strong>ID1025411263185</strong></p>
         </div>
       </div>
 
-      <dialog id="qrModal">
-        <div style="background:var(--panel);padding:14px;border-radius:14px">
+      <dialog id="qrModal" aria-label="QRIS ukuran besar">
+        <div style="padding:16px;background:var(--panel);border:1px solid #2b2b4a;border-radius:16px">
           <picture>
-            <source srcset="/Qris.png" type="image/png"/>
-            <img id="qrLarge" src="/Qris.png" alt="QRIS donasi — PENG, DIGITAL &amp; KREATIF" width="420" height="420"/>
+            <source id="qrLargeSrc" srcset="" type="image/png"/>
+            <img id="qrLarge" src="" alt="QRIS untuk donasi — besar" width="512" height="512"/>
           </picture>
-          <div style="display:flex;justify-content:flex-end;margin-top:8px">
-            <button class="btn-primary" id="qrClose">Tutup</button>
+          <div style="display:flex;justify-content:flex-end;margin-top:10px">
+            <button id="qrClose" class="btn-ghost" type="button">Tutup</button>
           </div>
         </div>
       </dialog>
     </section>
 
     <section id="contact" class="container section">
-      <h2>✉️ Kontak & Kerja Sama</h2>
+      <h2><span lang="id">✉️ Kontak & Kerja Sama</span><span lang="en">✉️ Contact & Partnerships</span></h2>
       <form class="contact" onsubmit="event.preventDefault(); alert('Static template — sambungkan ke Formspree atau backend kamu.');" aria-label="Formulir kontak">
         <div class="row">
           <input type="text" name="name" placeholder="Nama kamu" required aria-label="Nama">
@@ -433,8 +430,17 @@
       </div>
     </section>
 
+    <section id="newsletter" class="container section">
+      <h2><span lang="id">📬 Berlangganan Update</span><span lang="en">📬 Subscribe for Updates</span></h2>
+      <form id="newsletterForm" class="contact" aria-label="Form newsletter">
+        <input type="email" id="newsletterEmail" placeholder="Email kamu" required aria-label="Email">
+        <button class="btn-primary" type="submit"><span lang="id">Langganan</span><span lang="en">Subscribe</span></button>
+        <p class="small muted"><span lang="id">Privasi: tanpa spam. Bisa berhenti kapan saja.</span><span lang="en">Privacy: no spam. Unsubscribe anytime.</span></p>
+      </form>
+    </section>
+
     <section id="testimonials" class="container section">
-      <h2>💬 Testimoni & Sponsor</h2>
+      <h2><span lang="id">💬 Testimoni & Sponsor</span><span lang="en">💬 Testimonials & Sponsors</span></h2>
       <div class="grid">
         <article class="card"><div class="card-body"><p>“Streaming rapi dan interaktif. Overlay-nya clean.”</p><p class="small muted">— Viewer A</p></div></article>
         <article class="card"><div class="card-body"><p>“Kolaborasi profesional, deliver tepat waktu.”</p><p class="small muted">— Partner B</p></div></article>
@@ -464,96 +470,185 @@
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <a href="#donate" class="btn-primary cta-float">❤️ Donasi</a>
+  <a href="#contact" class="btn-ghost cta-chat" aria-label="Chat/Contact">💬 Chat</a>
 
   <script>
-    // Tahun otomatis
-    document.getElementById('year').textContent = new Date().getFullYear();
+  // Tahun otomatis
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Toggle hamburger + menu
-    const btn = document.getElementById('menuBtn');
-    const menu = document.getElementById('mainmenu');
-    btn.addEventListener('click', ()=>{
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      btn.classList.toggle('open');
-      menu.classList.toggle('show');
+  // Toggle hamburger + menu
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mainmenu');
+  btn.addEventListener('click', ()=>{
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    btn.classList.toggle('open');
+    menu.classList.toggle('show');
+  });
+  // Tutup menu saat klik link
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+    menu.classList.remove('show');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }));
+
+  // Theme toggle
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme');
+  if(savedTheme){ root.setAttribute('data-theme', savedTheme); }
+  themeBtn.addEventListener('click', ()=>{
+    const now = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', now);
+    localStorage.setItem('theme', now);
+  });
+
+  // Language toggle + URL param persist
+  const langBtn = document.getElementById('langToggle');
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  const savedLang = localStorage.getItem('lang') || urlLang || 'id';
+  root.setAttribute('data-lang', savedLang);
+  if(langBtn){ langBtn.textContent = savedLang.toUpperCase(); }
+  if(urlLang && urlLang!==savedLang){ const u=new URL(location); u.searchParams.set('lang', savedLang); history.replaceState(null,'',u); }
+  if(langBtn){ langBtn.addEventListener('click', ()=>{
+    const now = root.getAttribute('data-lang') === 'id' ? 'en' : 'id';
+    root.setAttribute('data-lang', now);
+    localStorage.setItem('lang', now);
+    langBtn.textContent = now.toUpperCase();
+    const u=new URL(location); u.searchParams.set('lang', now); history.replaceState(null,'',u);
+  }); }
+
+  // Share button (Web Share / Clipboard fallback)
+  const shareBtn = document.getElementById('shareBtn');
+  if(shareBtn){ shareBtn.addEventListener('click', async ()=>{
+    const data = {title:'Fery.my.id — Gamer & Live Streamer', text:'Cek live & konten Fery', url: location.href};
+    if(navigator.share){ try{ await navigator.share(data); }catch(e){} }
+    else{ try{ await navigator.clipboard.writeText(location.href); toast('Link disalin!'); }catch(e){ alert(location.href); } }
+  }); }
+
+  // Scroll progress bar
+  const prog = document.getElementById('progress');
+  function onScroll(){ const h=document.documentElement; const sc=h.scrollTop; const max=h.scrollHeight-h.clientHeight; const p=max? sc/max : 0; if(prog) prog.style.transform='scaleX('+p+')'; }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Simple on-page search (games)
+  const search = document.getElementById('gameSearch');
+  if(search){ const cards=[...document.querySelectorAll('#projects .card')]; search.addEventListener('input', ()=>{ const q=search.value.toLowerCase(); cards.forEach(c=>{ c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none'; }); }); }
+
+  // Scrollspy active nav
+  const sections=['about','projects','stream','donate','contact'].map(id=>document.getElementById(id)).filter(Boolean);
+  const navLinks=[...document.querySelectorAll('.menu a')];
+  const obs=new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ const id=e.target.id; navLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href')==='#'+id)); } }); },{threshold:0.6});
+  sections.forEach(s=>obs.observe(s));
+
+  // ---- Helper toast (global)
+  function toast(msg){ var t=document.getElementById('toast'); if(!t) return; t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1800); }
+
+  // Avatar auto-swap if /avatar.png exists
+  const avatarImg = document.getElementById('avatarImg');
+  if(avatarImg){
+    fetch('/avatar.png',{method:'HEAD', cache:'no-store'}).then(r=>{
+      if(r.ok){
+        avatarImg.style.display='block';
+        const svg = avatarImg.nextElementSibling;
+        if(svg && svg.tagName && svg.tagName.toLowerCase()==='svg'){ svg.remove(); }
+      }
+    }).catch(()=>{});
+  }
+
+  // Latest video lazy embed
+  const ytCard = document.getElementById('ytCard');
+  const ytPlay = document.getElementById('ytPlay');
+  if(ytCard && ytPlay){
+    ytPlay.addEventListener('click', ()=>{
+      const vid = (ytCard.dataset.video||'').trim();
+      if(/^[A-Za-z0-9_-]{11}$/.test(vid)){
+        const iframe=document.createElement('iframe');
+        iframe.className='video-iframe';
+        iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen=true;
+        iframe.src='https://www.youtube.com/embed/'+vid+'?autoplay=1&rel=0';
+        ytCard.replaceChildren(iframe);
+      } else {
+        window.open('https://youtube.com/@feryferlangga/videos','_blank');
+      }
     });
-    // Tutup menu saat klik link
-    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-      menu.classList.remove('show');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
+  }
+
+  // Newsletter fallback (mailto)
+  const newsForm = document.getElementById('newsletterForm');
+  if(newsForm){
+    newsForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const email = document.getElementById('newsletterEmail').value.trim();
+      if(!email){ return; }
+      const subject=encodeURIComponent('Subscribe newsletter');
+      const body=encodeURIComponent('Please subscribe me: '+email);
+      window.location.href = 'mailto:admin@fery.my.id?subject='+subject+'&body='+body;
+      toast('Terima kasih! Silakan konfirmasi di aplikasi email Anda.');
+    });
+  }
+
+  // Donate, presets, toast, live-dot, manifest, SW (IIFE)
+  (function(){
+    var copyBtn = document.getElementById('copyNmid');
+    var nmid = 'ID1025411263185';
+    if(copyBtn){
+      copyBtn.addEventListener('click', async function(){
+        try{ await navigator.clipboard.writeText(nmid); toast('NMID disalin!'); this.textContent = 'NMID disalin!'; setTimeout(()=>this.textContent='Salin NMID', 1500);}catch(e){ alert('NMID: '+nmid); }
+      });
+    }
+    var dl = document.getElementById('downloadQris');
+    if(dl){ dl.addEventListener('click', ()=> toast('Mengunduh QR...')); }
+
+    // Preset nominal
+    document.querySelectorAll('#donatePresets [data-amt]').forEach(b=>b.addEventListener('click', ()=>{
+      var amt = Number(b.dataset.amt||0).toLocaleString('id-ID');
+      toast('Pilih nominal di e-wallet: Rp'+amt);
     }));
 
-    // Theme toggle
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeToggle');
-    const saved = localStorage.getItem('theme');
-    if(saved){ root.setAttribute('data-theme', saved); }
-    themeBtn.addEventListener('click', ()=>{
-      const now = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', now);
-      localStorage.setItem('theme', now);
-    });
-    // Donate, presets, toast, live-dot, manifest, SW
-    (function(){
-      function showToast(msg){ var t=document.getElementById('toast'); if(!t) return; t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1800); }
+    var qrOpen = document.getElementById('qrOpen');
+    var qrModal = document.getElementById('qrModal');
+    var qrClose = document.getElementById('qrClose');
+    if(qrOpen && qrModal){ qrOpen.addEventListener('click', ()=> qrModal.showModal()); }
+    if(qrClose && qrModal){ qrClose.addEventListener('click', ()=> qrModal.close()); }
 
-      var copyBtn = document.getElementById('copyNmid');
-      var nmid = 'ID1025411263185';
-      if(copyBtn){
-        copyBtn.addEventListener('click', async function(){
-          try{ await navigator.clipboard.writeText(nmid); showToast('NMID disalin!'); copyBtn.textContent = 'NMID disalin!'; setTimeout(()=>copyBtn.textContent='Salin NMID', 1500);}catch(e){ alert('NMID: '+nmid); }
-        });
-      }
-      var dl = document.getElementById('downloadQris');
-      if(dl){ dl.addEventListener('click', ()=> showToast('Mengunduh QR...')); }
-
-      // Preset nominal
-      document.querySelectorAll('#donatePresets [data-amt]').forEach(b=>b.addEventListener('click', ()=>{
-        var amt = Number(b.dataset.amt||0).toLocaleString('id-ID');
-        showToast('Pilih nominal di e-wallet: Rp'+amt);
-      }));
-
-      var qrOpen = document.getElementById('qrOpen');
-      var qrModal = document.getElementById('qrModal');
-      var qrClose = document.getElementById('qrClose');
-      if(qrOpen && qrModal){ qrOpen.addEventListener('click', ()=> qrModal.showModal()); }
-      if(qrClose && qrModal){ qrClose.addEventListener('click', ()=> qrModal.close()); }
-
-      // Auto-detect base path for GitHub Pages vs custom domain
-      async function resolveQrisPath(){
-        var rootPath = '/Qris.png';
-        var relPath = 'Qris.png';
-        try{ const res = await fetch(rootPath, {method:'HEAD', cache:'no-store'}); if(res.ok) return rootPath; }catch(e){}
-        return relPath;
-      }
-      resolveQrisPath().then(function(path){
-        ['qrSmall','qrLarge'].forEach(function(id){
-          var img = document.getElementById(id);
-          if(img){ img.src = path; var pic = img.closest('picture'); var srcEl = pic && pic.querySelector('source'); if(srcEl){ srcEl.srcset = path; srcEl.type = 'image/png'; } }
-        });
-        var dl = document.getElementById('downloadQris');
-        if(dl){ dl.href = path; dl.setAttribute('download','Qris.png'); }
+    // Auto-detect base path for GitHub Pages vs custom domain
+    async function resolveQrisPath(){
+      var rootPath = '/Qris.png';
+      var relPath = 'Qris.png';
+      try{ const res = await fetch(rootPath, {method:'HEAD', cache:'no-store'}); if(res.ok) return rootPath; }catch(e){}
+      return relPath;
+    }
+    resolveQrisPath().then(function(path){
+      ['qrSmall','qrLarge'].forEach(function(id){
+        var img = document.getElementById(id);
+        if(img){ img.src = path; var pic = img.closest('picture'); var srcEl = pic && pic.querySelector('source'); if(srcEl){ srcEl.srcset = path; srcEl.type = 'image/png'; } }
       });
+      var dl = document.getElementById('downloadQris');
+      if(dl){ dl.href = path; dl.setAttribute('download','Qris.png'); }
+    });
 
-      // Live dot via ?live=1
-      var liveDot = document.getElementById('liveDot');
-      if(new URLSearchParams(location.search).get('live')==='1' && liveDot){ liveDot.hidden = false; }
-
-      // Inject manifest on the fly (so site works without extra files)
+    // Live dot via ?live=1 + JSON-LD
+    var liveDot = document.getElementById('liveDot');
+    if(new URLSearchParams(location.search).get('live')==='1' && liveDot){
+      liveDot.hidden = false;
       try{
-        var manifest = {"name":"Fery.my.id","short_name":"Fery","start_url":"/","display":"standalone","background_color":"#0e0e18","theme_color":"#0e0e18","icons":[{"src":"/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]};
-        var blob = new Blob([JSON.stringify(manifest)], {type:'application/manifest+json'});
-        var url = URL.createObjectURL(blob);
-        var link = document.querySelector('link[rel="manifest"]'); if(!link){ link=document.createElement('link'); link.rel='manifest'; document.head.appendChild(link); }
-        link.href = url;
+        var ld = {"@context":"https://schema.org","@type":"VideoObject","name":"Live stream by Fery","description":"Gaming live stream","isFamilyFriendly":true,"publication":[{"@type":"BroadcastEvent","isLiveBroadcast":true}],"thumbnailUrl":["https://fery.my.id/og-image.jpg"],"embedUrl":"https://youtube.com/@feryferlangga/live","url":"https://youtube.com/@feryferlangga/live"};
+        var s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(ld); document.head.appendChild(s);
       }catch(e){}
+    }
 
-      // Optional: service worker (silently ignore if missing)
-      if('serviceWorker' in navigator){ navigator.serviceWorker.register('/sw.js').catch(()=>{}); }
-    })();
-  </script>
-</body>
-</html>
+    // Inject manifest on the fly (so site works without extra files)
+    try{
+      var manifest = {"name":"Fery.my.id","short_name":"Fery","start_url":"/","display":"standalone","background_color":"#0e0e18","theme_color":"#0e0e18","icons":[{"src":"/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]};
+      var blob = new Blob([JSON.stringify(manifest)], {type:'application/manifest+json'});
+      var url = URL.createObjectURL(blob);
+      var link = document.querySelector('link[rel="manifest"]'); if(!link){ link=document.createElement('link'); link.rel='manifest'; document.head.appendChild(link); }
+      link.href = url;
+    }catch(e){}
+
+    // Optional: service worker (silently ignore if missing)
+    if('serviceWorker' in navigator){ navigator.serviceWorker.register('/sw.js').catch(()=>{}); }
+  })();
+</script>
