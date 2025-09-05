@@ -1,293 +1,559 @@
-<!DOCTYPE html>
-<html lang="id">
+<!doctype html>
+<html lang="id" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fery — Streamer</title>
-  <meta name="description" content="Website streamer Fery. Jadwal live, link sosial, dukungan QRIS, dan kontak." />
+  <meta charset="utf-8">
+  <title>Fery.my.id — Freelancer Gamer & Live Streamer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fery — Freelancer Gamer & Live Streamer. Portfolio, proyek, jadwal live, dan kontak. Tampilan neon rapi, cepat, responsif."/>
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://fery.my.id" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            base: { 50:'#f7f9fb', 100:'#eef2f7', 900:'#0b0f14' },
-            brand: { DEFAULT:'#8b5cf6', 600:'#7c3aed' }
-          },
-          boxShadow: {
-            glow: '0 0 0 2px rgba(139,92,246,.35), 0 0 30px rgba(139,92,246,.25)'
-          },
-          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] }
-        }
-      }
-    }
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;600;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Open Graph / Twitter SEO -->
+  <meta property="og:title" content="Fery.my.id — Freelancer Gamer & Live Streamer"/>
+  <meta property="og:description" content="Portfolio, proyek, jadwal live, dan kontak. Freelancer gamer & live streamer dengan tampilan neon responsif."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://fery.my.id"/>
+  <meta property="og:site_name" content="Fery.my.id"/>
+  <meta property="og:image" content="https://fery.my.id/og-image.jpg"/>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fery.my.id — Freelancer Gamer & Live Streamer" />
+  <meta name="twitter:description" content="Portfolio, proyek, jadwal live, dan kontak. Freelancer gamer & live streamer dengan tampilan neon responsif." />
+  <meta name="theme-color" content="#0e0e18"/>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Fery",
+    "url": "https://fery.my.id",
+    "sameAs": [
+      "https://tiktok.com/@feryferlangga",
+      "https://youtube.com/@feryferlangga",
+      "https://instagram.com/feryferlangga",
+      "https://github.com/feryferlangga"
+    ],
+    "email": "mailto:admin@fery.my.id",
+    "jobTitle": "Freelancer Gamer & Live Streamer"
+  }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://fery.my.id",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://fery.my.id/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Icons & Manifest -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23121228'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-size='16' fill='%2300ffe0' font-family='Arial' font-weight='700'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+  <!-- CSS inline -->
   <style>
-    :root { color-scheme: dark; }
-    html { scroll-behavior: smooth; }
-    .glass { background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); backdrop-filter: blur(10px); }
+    :root{
+      --bg:#0e0e18; --panel:#121228; --text:#e6e6ff; --muted:#a7a7c7;
+      --p:#8a2be2; --s:#00ffe0; --a:#ff0080; --ring:0 0 12px rgba(0,255,224,.35);
+      --maxw:1100px;
+      --heading: "Orbitron", system-ui, sans-serif;
+      --body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    /* Light theme overrides */
+    html[data-theme="light"]{
+      --bg:#f7f8ff; --panel:#ffffff; --text:#0c0c1a; --muted:#63637a;
+      --p:#6e3adb; --s:#0fb; --a:#ff2a89; --ring:0 0 8px rgba(0,0,0,.08);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--body)}
+    h1,h2,h3{font-family:var(--heading);letter-spacing:.02em}
+    img{display:block;max-width:100%;height:auto}
+    a{color:var(--s);text-decoration:none}
+    .container{width:min(var(--maxw),92%);margin-inline:auto}
+    .section{padding:56px 0;border-top:1px solid #1f1f39}
+    .muted{color:var(--muted)} .small{font-size:.9rem}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* Animated background */
+    .bg-anim{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1200px 800px at 15% 20%, rgba(0,255,224,.10), transparent 60%), radial-gradient(1000px 700px at 85% 70%, rgba(255,0,128,.10), transparent 60%), linear-gradient(120deg, #0b0b16, #0f0f2a 40%, #0b0b16); filter:saturate(115%)}
+    .bg-anim::after{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg, transparent 0 25%, rgba(138,43,226,.12) 25% 50%, transparent 50% 75%, rgba(0,255,224,.12) 75%);animation:spin 24s linear infinite;mix-blend-mode:soft-light;opacity:.35}
+    @keyframes spin{to{transform:rotate(1turn)}}
+
+    /* Header/Nav */
+    header{position:sticky;top:0;background:linear-gradient(180deg,var(--bg) 70%,transparent);backdrop-filter:saturate(120%) blur(6px);z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;flex-direction:column;gap:2px}
+    .logo{font-weight:900;letter-spacing:.12em;background:linear-gradient(90deg,var(--s),var(--p),var(--a));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 18px rgba(255,0,128,.25)}
+    .tagline{font-weight:600;color:var(--muted);font-size:.85rem}
+    .menu{display:flex;gap:10px;list-style:none;margin:0;padding:0}
+    .menu a{padding:10px 12px;border-radius:10px;display:inline-block}
+    .btn-primary{background:linear-gradient(90deg,var(--s),var(--p));color:#0b0b12;border:0;padding:10px 16px;border-radius:12px;font-weight:800;box-shadow:var(--ring)}
+    .btn-ghost{border:1px solid #2b2b4a;padding:10px 16px;border-radius:12px;color:var(--text)}
+
+    /* Theme toggle */
+    .theme-toggle{border:1px solid #2b2b4a;border-radius:999px;padding:6px 10px;cursor:pointer;font-size:.9rem;background:#111126;color:var(--text)}
+    html[data-theme="light"] .theme-toggle{background:#fff}
+
+    /* Hamburger (animated to X) */
+    .hamburger{display:none;position:relative;width:42px;height:38px;border:1px solid #2b2b4a;border-radius:10px;background:transparent;color:var(--text)}
+    .hamburger .bar{position:absolute;left:8px;right:8px;height:2px;background:var(--text);transition:transform .25s ease, opacity .2s ease, top .25s ease}
+    .hamburger .bar:nth-child(1){top:12px}
+    .hamburger .bar:nth-child(2){top:18px}
+    .hamburger .bar:nth-child(3){top:24px}
+    .hamburger.open .bar:nth-child(1){top:18px;transform:rotate(45deg)}
+    .hamburger.open .bar:nth-child(2){opacity:0}
+    .hamburger.open .bar:nth-child(3){top:18px;transform:rotate(-45deg)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:20px 0 36px}
+    .hero h1{font-size:clamp(28px,4vw,48px);margin:0 0 10px}
+    .neon{text-shadow:0 0 15px rgba(0,255,224,.4),0 0 30px rgba(122,0,255,.35)}
+    .gradient{background:linear-gradient(90deg,var(--s),var(--p),var(--a));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .actions{display:flex;gap:12px;margin:14px 0}
+    .hero-art{min-height:240px;border-radius:16px;overflow:hidden;border:1px solid #26264a;background:radial-gradient(circle at 30% 20%, rgba(0,255,224,.15), transparent 40%), radial-gradient(circle at 80% 60%, rgba(255,0,128,.12), transparent 40%)}
+    .hero-art svg{width:100%;height:auto;display:block;opacity:.9}
+
+    /* Social icon buttons */
+    .socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .icon-btn{display:inline-flex;align-items:center;gap:8px;background:#111126;border:1px solid #2b2b4a;border-radius:12px;padding:10px 14px;color:var(--text);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+    .icon-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.35), 0 0 18px rgba(0,255,224,.25);border-color:#3a3a66}
+    .icon-btn svg{width:20px;height:20px;display:block}
+    .icon-btn.tiktok{color:#ff0050}
+    .icon-btn.youtube{color:#ff0000}
+    .icon-btn.instagram{color:#e1306c}
+    .icon-btn.discord{color:#7289da}
+    .icon-btn.email{color:var(--s)}
+
+    /* Chips */
+    .chips{display:flex;gap:8px;flex-wrap:wrap;padding:0;margin:12px 0 0;list-style:none}
+    .chips li{padding:8px 12px;border:1px solid #2b2b4a;border-radius:999px;background:#12122866}
+
+    /* Projects (smaller cards + equal height + neon hover) */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .card{display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(18,18,40,.8),rgba(18,18,40,.5));border:1px solid #2b2b4a;border-radius:14px;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;max-width:300px;margin:auto}
+    .card:hover{transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.45), 0 0 24px rgba(0,255,224,.15);border-color:#3a3a66}
+    .card img{aspect-ratio:16/9;object-fit:cover}
+    .card-body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
+    .card-body h3{margin:4px 0;font-size:1rem}
+    .card-body p{font-size:.9rem;color:var(--muted)}
+    .card-actions{display:flex;gap:8px;margin-top:auto}
+
+    /* Extras: badges, tags, live dot, reduced motion, floating CTA, toast */
+    .tags{display:flex;gap:6px;flex-wrap:wrap}
+    .badge{display:inline-block;padding:2px 8px;border:1px solid #2b2b4a;border-radius:999px;font-size:.72rem;color:var(--muted)}
+    .dot{margin-left:8px;color:#ff4d4f;text-shadow:0 0 10px rgba(255,77,79,.6)}
+    .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#111126;border:1px solid #2b2b4a;color:var(--text);padding:10px 14px;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease}
+    .toast.show{opacity:1}
+    @media (prefers-reduced-motion: reduce){
+      .bg-anim::after{animation:none;opacity:.15}
+      .icon-btn:hover,.card:hover{transform:none;box-shadow:none}
+    }
+    @media (max-width:680px){ .cta-float{position:fixed;right:14px;bottom:14px;z-index:20} }
+
+    /* Donate */
+    .donate .qris-card{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:linear-gradient(180deg,rgba(18,18,40,.8),rgba(18,18,40,.5));border:1px solid #2b2b4a;border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .qr-wrap{background:#fff;border-radius:12px;padding:12px;box-shadow:0 0 0 6px rgba(255,255,255,.02) inset}
+    .qr-wrap img{display:block;width:256px;height:256px}
+    dialog::backdrop{background:rgba(0,0,0,.6)}
+    dialog{border:none;border-radius:16px;padding:0}
+
+    @media (max-width:680px){
+      .donate .qris-card{grid-template-columns:1fr;justify-items:center;text-align:center}
+      .qr-wrap img{width:220px;height:220px}
+    }
+
+    /* Stream */
+    .schedule{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+    .slot{background:#121228cc;border:1px solid #2b2b4a;border-radius:12px;padding:10px;display:flex;align-items:center;justify-content:space-between}
+
+    /* Contact */
+    .contact{display:flex;flex-direction:column;gap:10px}
+    .contact .row{display:flex;gap:10px}
+    .contact input,.contact textarea{width:100%;background:#111126;border:1px solid #2b2b4a;border-radius:12px;color:var(--text);padding:12px}
+
+    /* Footer */
+    .footer{padding:28px 0 50px;color:var(--muted)}
+    .footer .footgrid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+    .foot-links{display:flex;gap:14px}
+    .foot-socials{display:flex;gap:10px}
+    .foot-socials a{display:inline-flex;padding:8px;border:1px solid #2b2b4a;border-radius:10px}
+    .heart{color:var(--a);text-shadow:0 0 12px rgba(255,0,128,.6)}
+
+    /* Buttons */
+    .btn-primary{background:linear-gradient(90deg,var(--s),var(--p));color:#0b0b12;border:0;padding:8px 14px;border-radius:10px;font-weight:700;box-shadow:var(--ring);font-size:.85rem}
+    .btn-ghost{border:1px solid #2b2b4a;padding:8px 14px;border-radius:10px;color:var(--text);font-size:.85rem}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .schedule{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 680px){
+      .menu{display:none;flex-direction:column;position:absolute;right:4%;top:64px;background:var(--bg);border:1px solid #2b2b4a;border-radius:12px;padding:12px;width:min(260px,92%)}
+      .menu.show{display:flex}
+      .hamburger{display:inline-flex;align-items:center;justify-content:center}
+      .actions{flex-direction:column;align-items:flex-start}
+      .grid{grid-template-columns:1fr}
+      .schedule{grid-template-columns:1fr}
+      .section{padding:42px 0}
+      .container{width:94%}
+      .menu a{padding:12px}
+    }
   </style>
-  <meta name="theme-color" content="#0b0f14" />
-  <link rel="icon" href="/favicon.ico" />
 </head>
-<body class="bg-base-900 text-white font-sans">
-  <!-- NAV -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-base-900/70 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#top" class="font-extrabold tracking-tight text-xl">Fery<span class="text-brand">.my.id</span></a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#live" class="hover:text-brand">Live</a>
-        <a href="#schedule" class="hover:text-brand">Jadwal</a>
-        <a href="#support" class="hover:text-brand">Dukung</a>
-        <a href="#contact" class="hover:text-brand">Kontak</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <button id="themeToggle" class="px-3 py-1.5 rounded-lg border border-white/10 hover:border-white/20 text-xs">Tema</button>
-        <a href="#support" class="px-3 py-1.5 rounded-lg bg-brand hover:bg-brand-600 text-xs font-semibold shadow-glow">Dukung</a>
+<body>
+  <div class="bg-anim" aria-hidden="true"></div>
+  <a class="sr-only" href="#main">Lewati ke konten utama</a>
+
+  <header class="container" role="banner">
+    <nav class="nav" aria-label="Navigasi utama">
+      <div class="brand">
+        <span class="logo">FERY.MY.ID</span>
+        <span class="tagline">Freelancer Gamer & Live Streamer</span>
+        <span id="liveDot" class="dot" hidden>● Live</span>
       </div>
-    </div>
+      <div style="display:flex; gap:10px; align-items:center">
+        <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema">🌙/☀️</button>
+        <button class="hamburger" id="menuBtn" aria-expanded="false" aria-controls="mainmenu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+      <ul class="menu" id="mainmenu" role="menubar">
+        <li role="none"><a role="menuitem" href="#about">Tentang</a></li>
+        <li role="none"><a role="menuitem" href="#projects">Proyek</a></li>
+        <li role="none"><a role="menuitem" href="#stream">Jadwal</a></li>
+        <li role="none"><a role="menuitem" href="#donate">Donasi</a></li>
+        <li role="none"><a role="menuitem" href="#contact" class="btn-primary">Kontak</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <section id="top" class="relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="w-[900px] h-[900px] bg-brand/20 blur-3xl rounded-full absolute -top-40 -right-40"></div>
-    </div>
-    <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Halo, saya <span class="text-brand">Fery</span> 👋</h1>
-        <p class="mt-4 text-white/75 text-lg">Streamer & konten kreator. Live ngobrol santai, karaoke, dan Q&A. Ikuti untuk notifikasi live.</p>
-        <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a id="btnLive" href="#live" class="px-5 py-3 rounded-xl bg-brand hover:bg-brand-600 font-semibold shadow-glow">Tonton Live</a>
-          <a href="#support" class="px-5 py-3 rounded-xl border border-white/10 hover:border-white/20">Dukung</a>
+  <main id="main">
+    <section class="hero container">
+      <div class="hero-text">
+        <h1><span class="neon">Fery</span> — <span class="gradient">Freelancer Gamer & Live Streamer</span></h1>
+        <p class="muted">Freelancer gamer & live streamer. Bangun tools, produksi overlay, dan live secara konsisten. Portofolio, jadwal, dan kontak ada di sini.</p>
+        <div class="actions">
+          <a class="btn-primary" href="#donate">❤️ Donasi</a>
+          <a class="btn-ghost" href="#projects">Lihat Proyek</a>
+          <a class="btn-ghost" href="https://github.com/feryferlangga" target="_blank" rel="noopener" aria-label="Buka GitHub">GitHub</a>
         </div>
-        <div class="mt-6 flex items-center gap-4 text-sm text-white/70">
-          <a class="hover:text-brand" id="socTikTok" href="#" target="_blank" rel="noreferrer">TikTok</a>
-          <span>•</span>
-          <a class="hover:text-brand" id="socYouTube" href="#" target="_blank" rel="noreferrer">YouTube</a>
-          <span>•</span>
-          <a class="hover:text-brand" id="socInstagram" href="#" target="_blank" rel="noreferrer">Instagram</a>
+        <div class="socials" aria-label="Jejaring sosial">
+          <a class="icon-btn tiktok" href="https://tiktok.com/@feryferlangga" target="_blank" rel="noopener me" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 3c.3 2.2 1.7 3.9 3.8 4.2V10c-1.5 0-2.9-.5-4-1.3v5.4a5.6 5.6 0 1 1-2.8-4.9V11a2.8 2.8 0 1 0 1.4 2.4V3h1.6Z"/></svg>
+            <span>TikTok</span>
+          </a>
+          <a class="icon-btn youtube" href="https://youtube.com/@feryferlangga" target="_blank" rel="noopener me" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-2.3-.3-3.9-.6-4.6a2.5 2.5 0 0 0-1.8-1.8C18.9 5.2 12 5.2 12 5.2s-6.9 0-7.6.4A2.5 2.5 0 0 0 2.6 7.4C2.3 8.1 2 9.7 2 12s.3 3.9.6 4.6c.2.7.9 1.4 1.8 1.6.7.2 7.6.4 7.6.4s6.9 0 7.6-.4a2.5 2.5 0 0 0 1.8-1.6c.3-.7.6-2.3.6-4.6ZM10 9.8l5.2 2.2L10 14.2V9.8Z"/></svg>
+            <span>YouTube</span>
+          </a>
+          <a class="icon-btn instagram" href="https://instagram.com/feryferlangga" target="_blank" rel="noopener me" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a class="icon-btn discord" href="https://discord.gg/yourserver" target="_blank" rel="noopener" aria-label="Discord">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 6.6a14 14 0 0 0-3.6-1.2l-.3.6a12 12 0 0 1 2.8.9c-2.5-1.3-5.2-1.3-7.8 0a12 12 0 0 1 2.8-.9l-.3-.6A14 14 0 0 0 10 6.6C6.3 6.9 5 9.9 5 9.9s1.7 3.2 5.5 3.3l-.7-1.1c1.1 1 2.4 1 3.5 0l-.7 1.1c3.8-.1 5.5-3.3 5.5-3.3s-1.3-3-4.1-3.3Z"/></svg>
+            <span>Discord</span>
+          </a>
+          <a class="icon-btn email" href="mailto:admin@fery.my.id" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            <span>Email</span>
+          </a>
         </div>
       </div>
-      <div>
-        <!-- Kotak pratinjau 16:9 sederhana (tanpa embed, aman di semua platform) -->
-        <div class="aspect-video rounded-2xl border border-white/10 glass shadow-xl flex items-center justify-center">
-          <div class="text-center p-8">
-            <div class="text-xs uppercase tracking-widest text-white/60">Pratinjau</div>
-            <h3 class="mt-2 text-2xl font-bold">Area Video 16:9</h3>
-            <p class="mt-2 text-white/70">Gunakan tombol di bawah untuk membuka Live TikTok.</p>
-          </div>
-        </div>
-        <div class="mt-3">
-          <a id="openLive" href="#" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 font-semibold">Buka Live</a>
-        </div>
+      <div class="hero-art" aria-hidden="true">
+        <!-- Simple gamer avatar/illustration placeholder -->
+        <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gamer illustration">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#00ffe0" stop-opacity=".35"/>
+              <stop offset="1" stop-color="#8a2be2" stop-opacity=".35"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="320" fill="url(#g)"/>
+          <g fill="none" stroke="#00ffe0" opacity=".5">
+            <rect x="40" y="40" width="180" height="120" rx="12"/>
+            <circle cx="380" cy="120" r="60"/>
+            <path d="M280 220h200m-180 20h160m-140 20h120"/>
+          </g>
+        </svg>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- LIVE (info ringkas) -->
-  <section id="live" class="py-12 border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <div id="liveBadge" class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/10 text-white/70 border border-white/15 text-xs">
-            <span class="inline-block w-2 h-2 rounded-full bg-white/40" id="liveDot"></span>
-            <span id="liveText">OFFLINE</span>
-          </div>
-          <h2 class="text-3xl font-extrabold">Status Live</h2>
-        </div>
-        <a id="liveBtn" href="#" target="_blank" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 font-semibold">Buka Live</a>
-      </div>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="rounded-xl border border-white/10 p-6">
-          <h3 class="text-xl font-bold">Agenda</h3>
-          <ul class="mt-3 space-y-3 text-white/80">
-            <li><span class="inline-block w-20 text-white/50">Sekarang</span> Just chatting + Q&A</li>
-            <li><span class="inline-block w-20 text-white/50">Berikut</span> Karaoke ringan</li>
-            <li><span class="inline-block w-20 text-white/50">Besok</span> Ngobrol setup & tips live</li>
-          </ul>
-        </div>
-        <div class="rounded-xl border border-white/10 p-6">
-          <h3 class="text-xl font-bold">Catatan</h3>
-          <p class="text-white/70">TikTok membatasi embed langsung. Tombol di atas akan membuka ruang live.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="about" class="container section">
+      <h2>🕹️ Tentang</h2>
+      <p>Halo, saya <strong>Fery</strong> — <em>Freelancer Gamer & Live Streamer</em>. Saya membuat overlay neon, otomasi streaming, dan web tools untuk kreator. Tertarik kolaborasi? Hubungi lewat tombol di bawah.</p>
+      <ul class="chips">
+        <li>Live Streaming</li><li>OBS Overlay</li><li>Branding Neon</li><li>TypeScript</li><li>React</li><li>Node.js</li>
+      </ul>
+    </section>
 
-  <!-- SCHEDULE -->
-  <section id="schedule" class="py-12 border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-extrabold">Jadwal</h2>
-      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="rounded-xl border border-white/10 p-6">
-          <h4 class="font-semibold">Senin & Rabu</h4>
-          <p class="text-white/70">20.00 – 22.00 WIB</p>
-        </div>
-        <div class="rounded-xl border border-white/10 p-6">
-          <h4 class="font-semibold">Jumat</h4>
-          <p class="text-white/70">21.00 – 23.00 WIB</p>
-        </div>
-        <div class="rounded-xl border border-white/10 p-6">
-          <h4 class="font-semibold">Akhir Pekan</h4>
-          <p class="text-white/70">Random Pop-up</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SUPPORT -->
-  <section id="support" class="py-12 border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-3xl font-extrabold">Dukung Fery</h2>
-          <p class="text-white/70 mt-2">Suka kontennya? Kamu bisa kirim tip via QRIS / Saweria / Trakteer. Terima kasih! 🙌</p>
-          <div class="mt-5 flex flex-wrap gap-3">
-            <button id="copyLink" class="px-4 py-2 rounded-lg border border-white/10 hover:border-white/20 text-sm">Salin Link Tip</button>
-            <a id="tipLink" href="#" target="_blank" class="px-4 py-2 rounded-lg bg-brand hover:bg-brand-600 font-semibold">Buka Halaman Tip</a>
-            <button id="showQR" class="px-4 py-2 rounded-lg border border-white/10 hover:border-white/20">Tampilkan QRIS</button>
-          </div>
-          <div class="mt-5">
-            <div class="flex items-center justify-between text-sm text-white/70">
-              <span>Goal Bulanan</span>
-              <span id="goalLabel">Rp0 / Rp1.000.000</span>
-            </div>
-            <div class="mt-2 w-full h-3 rounded-full bg-white/10 overflow-hidden">
-              <div id="goalBar" class="h-full bg-emerald-500" style="width:0%"></div>
+    <section id="projects" class="container section">
+      <h2>🎮 Game yang Saya Mainkan</h2>
+      <div class="grid">
+        <article class="card">
+          <picture>
+            <source srcset="https://via.placeholder.com/300x180.webp?text=GTA+V" type="image/webp"/>
+            <img src="https://via.placeholder.com/300x180?text=GTA+V" alt="GTA V — freeroam, roleplay, heist highlights" loading="lazy" width="300" height="180" />
+          </picture>
+          <div class="card-body">
+            <h3>GTA V</h3>
+            <div class="tags"><span class="badge">Roleplay</span><span class="badge">Heist</span></div>
+            <p>Freeroam, roleplay, dan heist highlights. Live 1080p60, komunitas santai.</p>
+            <div class="card-actions">
+              <a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a>
+              <a class="btn-primary" href="#" target="_blank" rel="noopener">Highlights</a>
             </div>
           </div>
+        </article>
+        <article class="card">
+          <picture>
+            <source srcset="https://via.placeholder.com/300x180.webp?text=Genshin+Impact" type="image/webp"/>
+            <img src="https://via.placeholder.com/300x180?text=Genshin+Impact" alt="Genshin Impact — Spiral Abyss, quest, dan build karakter" loading="lazy" width="300" height="180" />
+          </picture>
+          <div class="card-body">
+            <h3>Genshin Impact</h3>
+            <div class="tags"><span class="badge">Abyss</span><span class="badge">Build</span></div>
+            <p>Spiral Abyss, quest, dan diskusi build. Fokus tim meta & eksplorasi.</p>
+            <div class="card-actions">
+              <a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a>
+              <a class="btn-primary" href="#" target="_blank" rel="noopener">Build</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <picture>
+            <source srcset="https://via.placeholder.com/300x180.webp?text=VALORANT" type="image/webp"/>
+            <img src="https://via.placeholder.com/300x180?text=VALORANT" alt="VALORANT — ranked live, aim training, dan clutch moments" loading="lazy" width="300" height="180" />
+          </picture>
+          <div class="card-body">
+            <h3>VALORANT</h3>
+            <div class="tags"><span class="badge">Ranked</span><span class="badge">Clutch</span></div>
+            <p>Ranked live, aim training, dan clutch moments. Crosshair & sens dibagikan.</p>
+            <div class="card-actions">
+              <a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a>
+              <a class="btn-primary" href="#" target="_blank" rel="noopener">Crosshair</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="stream" class="container section">
+      <h2>📺 Jadwal Live</h2>
+      <div class="schedule" aria-label="Jadwal siaran">
+        <div class="slot"><strong>Sen</strong><span>20:00–22:00 WIB</span></div>
+        <div class="slot"><strong>Rab</strong><span>20:00–22:00 WIB</span></div>
+        <div class="slot"><strong>Jum</strong><span>21:00–23:00 WIB</span></div>
+        <div class="slot"><strong>Min</strong><span>Collab random</span></div>
+      </div>
+      <p class="muted small">Jadwal fleksibel — DM untuk booking sesi live/sponsor.</p>
+    </section>
+
+    <section id="donate" class="container section donate">
+      <h2>💝 Dukung Siaran — QRIS</h2>
+      <div class="qris-card">
+        <div class="qr-wrap">
+          <picture>
+            <source srcset="/Qris.png" type="image/png"/>
+            <img id="qrSmall" src="/Qris.png" alt="QRIS donasi — PENG, DIGITAL &amp; KREATIF" width="256" height="256" loading="eager"/>
+          </picture>
+          <button class="btn-ghost small" id="qrOpen" style="width:100%;margin-top:8px">Perbesar QR</button>
         </div>
-        <div class="rounded-2xl border border-white/10 p-6 glass">
-          <div class="text-center text-white/70">Tempat QRIS (PNG/SVG).</div>
-          <div class="mt-4 aspect-square bg-white/5 rounded-xl flex items-center justify-center">
-            <span class="text-white/50 text-sm">Taruh <code>qris.png</code> di root & ganti <code>src</code> pada script modal.</span>
+        <div class="text">
+          <p class="muted small">Nama Merchant: <strong>PENG, DIGITAL &amp; KREATIF</strong><br>NMID: <code>ID1025411263185</code></p>
+          <p>Terima kasih sudah mendukung siaran! Scan pakai <em>bank/e-wallet</em> berlogo QRIS. Nominal bebas.</p>
+          <div class="chips" id="donatePresets">
+            <button class="btn-ghost" data-amt="10000">Rp10K</button>
+            <button class="btn-ghost" data-amt="20000">Rp20K</button>
+            <button class="btn-ghost" data-amt="50000">Rp50K</button>
+          </div>
+          <div class="card-actions">
+            <button class="btn-primary" id="copyNmid">Salin NMID</button>
+            <a class="btn-ghost" id="downloadQris" href="/Qris.png" download="Qris.png">Download QR</a>
+            <a class="btn-ghost" href="#faq">Cara bayar?</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- QR MODAL -->
-  <div id="qrModal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/70 p-6">
-    <div class="max-w-md w-full rounded-2xl border border-white/10 bg-base-900 p-5 relative">
-      <button id="closeQR" class="absolute right-3 top-3 text-white/60 hover:text-white">✕</button>
-      <h3 class="text-xl font-bold">QRIS</h3>
-      <p class="text-white/60 text-sm">Scan untuk dukung Fery.</p>
-      <img id="qrImg" src="Qris.png" alt="QRIS" class="mt-4 w-full rounded-lg"/>
-    </div>
-  </div>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-12 border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-extrabold">Kontak</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <form onsubmit="event.preventDefault(); alert('Terima kasih! Pesan terkirim.');" class="rounded-xl border border-white/10 p-6">
-          <label class="block text-sm">Nama</label>
-          <input class="mt-1 w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:border-brand outline-none" placeholder="Nama kamu" />
-          <label class="block text-sm mt-4">Email</label>
-          <input type="email" class="mt-1 w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:border-brand outline-none" placeholder="email@contoh.com" />
-          <label class="block text-sm mt-4">Pesan</label>
-          <textarea rows="4" class="mt-1 w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:border-brand outline-none" placeholder="Tulis pesan…"></textarea>
-          <button class="mt-4 px-4 py-2 rounded-lg bg-brand hover:bg-brand-600 font-semibold">Kirim</button>
-        </form>
-        <div class="rounded-xl border border-white/10 p-6">
-          <div class="font-semibold">Email</div>
-          <a class="text-brand hover:text-brand-600" id="contactEmail" href="#">halo@fery.my.id</a>
-          <div class="mt-4 font-semibold">Sosial</div>
-          <div class="mt-2 flex flex-wrap gap-3 text-white/80 text-sm">
-            <a class="hover:text-brand" id="socTelegram" href="#" target="_blank">Telegram</a>
-            <a class="hover:text-brand" id="socDiscord" href="#" target="_blank">Discord</a>
-            <a class="hover:text-brand" id="socTwitter" href="#" target="_blank">X (Twitter)</a>
+      <dialog id="qrModal">
+        <div style="background:var(--panel);padding:14px;border-radius:14px">
+          <picture>
+            <source srcset="/Qris.png" type="image/png"/>
+            <img id="qrLarge" src="/Qris.png" alt="QRIS donasi — PENG, DIGITAL &amp; KREATIF" width="420" height="420"/>
+          </picture>
+          <div style="display:flex;justify-content:flex-end;margin-top:8px">
+            <button class="btn-primary" id="qrClose">Tutup</button>
           </div>
-          <div class="mt-6 text-xs text-white/50">Sesuaikan tautan di bawah (lihat konfigurasi skrip).</div>
+        </div>
+      </dialog>
+    </section>
+
+    <section id="contact" class="container section">
+      <h2>✉️ Kontak & Kerja Sama</h2>
+      <form class="contact" onsubmit="event.preventDefault(); alert('Static template — sambungkan ke Formspree atau backend kamu.');" aria-label="Formulir kontak">
+        <div class="row">
+          <input type="text" name="name" placeholder="Nama kamu" required aria-label="Nama">
+          <input type="email" name="email" placeholder="Email kamu" required aria-label="Email">
+        </div>
+        <textarea name="msg" rows="5" placeholder="Pesanmu" aria-label="Pesan"></textarea>
+        <button class="btn-primary" type="submit">Kirim</button>
+      </form>
+      <p class="muted small">Atau langsung email: <a href="mailto:admin@fery.my.id">admin@fery.my.id</a></p>
+    </section>
+
+    <!-- FAQ + schema untuk rich snippet -->
+    <section id="faq" class="container section" itemscope itemtype="https://schema.org/FAQPage">
+      <h2>❓ FAQ</h2>
+      <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 itemprop="name">Apakah template ini mobile friendly?</h3>
+        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Ya. Layout menggunakan grid responsif, hamburger menu, gambar lazy-load, dan tap target besar.</p>
+        </div>
+      </div>
+      <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 itemprop="name">Bagaimana cara hubungkan form kontak?</h3>
+        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Gunakan layanan seperti Formspree atau endpoint backend sendiri. Ubah atribut <code>onsubmit</code> pada form.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="container section">
+      <h2>💬 Testimoni & Sponsor</h2>
+      <div class="grid">
+        <article class="card"><div class="card-body"><p>“Streaming rapi dan interaktif. Overlay-nya clean.”</p><p class="small muted">— Viewer A</p></div></article>
+        <article class="card"><div class="card-body"><p>“Kolaborasi profesional, deliver tepat waktu.”</p><p class="small muted">— Partner B</p></div></article>
+        <article class="card"><div class="card-body"><p>“Branding neon-nya khas dan mudah diingat.”</p><p class="small muted">— Sponsor C</p></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer" role="contentinfo">
+    <div class="footgrid">
+      <p>© <span id="year"></span> Fery.my.id — Built with <span class="heart">♥</span> Neon.</p>
+      <div class="foot-right" style="display:flex; gap:16px; align-items:center">
+        <nav class="foot-links" aria-label="Tautan footer">
+          <a href="#">Home</a>
+          <a href="#about">Tentang</a>
+          <a href="#projects">Proyek</a>
+          <a href="#donate">Donasi</a>
+          <a href="#contact">Kontak</a>
+        </nav>
+        <div class="foot-socials" aria-label="Sosial mini">
+          <a href="https://tiktok.com/@feryferlangga" aria-label="TikTok mini"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 3c.3 2.2 1.7 3.9 3.8 4.2V10c-1.5 0-2.9-.5-4-1.3v5.4a5.6 5.6 0 1 1-2.8-4.9V11a2.8 2.8 0 1 0 1.4 2.4V3h1.6Z"/></svg></a>
+          <a href="https://youtube.com/@feryferlangga" aria-label="YouTube mini"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12c0-2.3-.3-3.9-.6-4.6a2.5 2.5 0 0 0-1.8-1.8C18.9 5.2 12 5.2 12 5.2s-6.9 0-7.6.4A2.5 2.5 0 0 0 2.6 7.4C2.3 8.1 2 9.7 2 12s.3 3.9.6 4.6c.2.7.9 1.4 1.8 1.6.7.2 7.6.4 7.6.4s6.9 0 7.6-.4a2.5 2.5 0 0 0 1.8-1.6c.3-.7.6-2.3.6-4.6ZM10 9.8l5.2 2.2L10 14.2V9.8Z"/></svg></a>
+          <a href="https://instagram.com/feryferlangga" aria-label="Instagram mini"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="3.6"/></svg></a>
         </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <footer class="py-10 border-t border-white/10 text-center text-white/50 text-sm">© <span id="y"></span> Fery. Dibuat dengan ♥.</footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <a href="#donate" class="btn-primary cta-float">❤️ Donasi</a>
 
   <script>
-    // ======= KONFIGURASI SEDERHANA (EDIT DI SINI) =======
-    window.__SITE = {
-      liveUrl: 'https://www.tiktok.com/@feryferlangga/live',
-      tipUrl:  'https://saweria.co/F2PE',
-      contactEmail: 'mailto:admin@fery.my.id',
-      socials: {
-        tiktok: 'https://www.tiktok.com/@feryferlangga',
-        youtube: 'https://youtube.com/feryferlangga',
-        instagram: 'https://instagram.com/feryferlangga',
-        telegram: 'https://t.me/feryferlangga',
-        discord: 'https://discord.gg/',
-        twitter: 'https://x.com/Afuckingaa'
-      },
-      isLive: false, // ubah ke true saat live
-      tipGoal: { current: 0, target: 1000000 }
-    };
+    // Tahun otomatis
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ======= PENERAPAN KONFIGURASI =======
-    const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
-    const liveBtn = document.getElementById('liveBtn'); if (liveBtn) liveBtn.href = window.__SITE.liveUrl;
-    const openLive = document.getElementById('openLive'); if (openLive) openLive.href = window.__SITE.liveUrl;
-    const btnLive = document.getElementById('btnLive'); if (btnLive) btnLive.href = '#live';
-
-    const tipLink = document.getElementById('tipLink'); if (tipLink) tipLink.href = window.__SITE.tipUrl;
-    const copyLink = document.getElementById('copyLink'); if (copyLink) copyLink.addEventListener('click', ()=>{
-      navigator.clipboard.writeText(window.__SITE.tipUrl);
-      copyLink.textContent = 'Tersalin!'; setTimeout(()=>copyLink.textContent='Salin Link Tip',1500);
+    // Toggle hamburger + menu
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mainmenu');
+    btn.addEventListener('click', ()=>{
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.classList.toggle('open');
+      menu.classList.toggle('show');
     });
+    // Tutup menu saat klik link
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+      menu.classList.remove('show');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    }));
 
-    const contactEmail = document.getElementById('contactEmail'); if (contactEmail) contactEmail.href = window.__SITE.contactEmail;
-
-    const socTikTok = document.getElementById('socTikTok'); if (socTikTok) socTikTok.href = window.__SITE.socials.tiktok;
-    const socYouTube = document.getElementById('socYouTube'); if (socYouTube) socYouTube.href = window.__SITE.socials.youtube;
-    const socInstagram = document.getElementById('socInstagram'); if (socInstagram) socInstagram.href = window.__SITE.socials.instagram;
-    const socTelegram = document.getElementById('socTelegram'); if (socTelegram) socTelegram.href = window.__SITE.socials.telegram;
-    const socDiscord = document.getElementById('socDiscord'); if (socDiscord) socDiscord.href = window.__SITE.socials.discord;
-    const socTwitter = document.getElementById('socTwitter'); if (socTwitter) socTwitter.href = window.__SITE.socials.twitter;
-
-    const liveBadge = document.getElementById('liveBadge');
-    const liveText  = document.getElementById('liveText');
-    const liveDot   = document.getElementById('liveDot');
-    if (window.__SITE.isLive) {
-      liveBadge.className = 'flex items-center gap-2 px-2.5 py-1 rounded-full bg-red-500/15 text-red-400 border border-red-500/20 text-xs';
-      liveText.textContent = 'SEDANG LIVE';
-      liveDot.className = 'inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse';
-    } else {
-      liveBadge.className = 'flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/10 text-white/70 border border-white/15 text-xs';
-      liveText.textContent = 'OFFLINE';
-      liveDot.className = 'inline-block w-2 h-2 rounded-full bg-white/40';
-    }
-
-    const goalBar = document.getElementById('goalBar');
-    const goalLabel = document.getElementById('goalLabel');
-    if (goalBar && goalLabel) {
-      const cur = Math.max(0, window.__SITE.tipGoal.current);
-      const target = Math.max(1, window.__SITE.tipGoal.target);
-      const pct = Math.min(100, Math.round((cur/target)*100));
-      goalBar.style.width = pct + '%';
-      goalLabel.textContent = new Intl.NumberFormat('id-ID', { style:'currency', currency:'IDR', maximumFractionDigits:0 }).format(cur) + ' / ' + new Intl.NumberFormat('id-ID', { style:'currency', currency:'IDR', maximumFractionDigits:0 }).format(target);
-    }
-
-    // QR modal
-    const qrModal = document.getElementById('qrModal');
-    const showQR  = document.getElementById('showQR');
-    const closeQR = document.getElementById('closeQR');
-    showQR && showQR.addEventListener('click', ()=> qrModal.classList.remove('hidden'));
-    closeQR && closeQR.addEventListener('click', ()=> qrModal.classList.add('hidden'));
-    qrModal && qrModal.addEventListener('click', (e)=>{ if (e.target === qrModal) qrModal.classList.add('hidden'); });
-
-    // Tema
-    const themeToggle = document.getElementById('themeToggle');
-    themeToggle && themeToggle.addEventListener('click', ()=>{
-      document.body.classList.toggle('bg-base-900');
-      document.body.classList.toggle('bg-black');
+    // Theme toggle
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+    themeBtn.addEventListener('click', ()=>{
+      const now = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', now);
+      localStorage.setItem('theme', now);
     });
+    // Donate, presets, toast, live-dot, manifest, SW
+    (function(){
+      function showToast(msg){ var t=document.getElementById('toast'); if(!t) return; t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1800); }
+
+      var copyBtn = document.getElementById('copyNmid');
+      var nmid = 'ID1025411263185';
+      if(copyBtn){
+        copyBtn.addEventListener('click', async function(){
+          try{ await navigator.clipboard.writeText(nmid); showToast('NMID disalin!'); copyBtn.textContent = 'NMID disalin!'; setTimeout(()=>copyBtn.textContent='Salin NMID', 1500);}catch(e){ alert('NMID: '+nmid); }
+        });
+      }
+      var dl = document.getElementById('downloadQris');
+      if(dl){ dl.addEventListener('click', ()=> showToast('Mengunduh QR...')); }
+
+      // Preset nominal
+      document.querySelectorAll('#donatePresets [data-amt]').forEach(b=>b.addEventListener('click', ()=>{
+        var amt = Number(b.dataset.amt||0).toLocaleString('id-ID');
+        showToast('Pilih nominal di e-wallet: Rp'+amt);
+      }));
+
+      var qrOpen = document.getElementById('qrOpen');
+      var qrModal = document.getElementById('qrModal');
+      var qrClose = document.getElementById('qrClose');
+      if(qrOpen && qrModal){ qrOpen.addEventListener('click', ()=> qrModal.showModal()); }
+      if(qrClose && qrModal){ qrClose.addEventListener('click', ()=> qrModal.close()); }
+
+      // Auto-detect base path for GitHub Pages vs custom domain
+      async function resolveQrisPath(){
+        var rootPath = '/Qris.png';
+        var relPath = 'Qris.png';
+        try{ const res = await fetch(rootPath, {method:'HEAD', cache:'no-store'}); if(res.ok) return rootPath; }catch(e){}
+        return relPath;
+      }
+      resolveQrisPath().then(function(path){
+        ['qrSmall','qrLarge'].forEach(function(id){
+          var img = document.getElementById(id);
+          if(img){ img.src = path; var pic = img.closest('picture'); var srcEl = pic && pic.querySelector('source'); if(srcEl){ srcEl.srcset = path; srcEl.type = 'image/png'; } }
+        });
+        var dl = document.getElementById('downloadQris');
+        if(dl){ dl.href = path; dl.setAttribute('download','Qris.png'); }
+      });
+
+      // Live dot via ?live=1
+      var liveDot = document.getElementById('liveDot');
+      if(new URLSearchParams(location.search).get('live')==='1' && liveDot){ liveDot.hidden = false; }
+
+      // Inject manifest on the fly (so site works without extra files)
+      try{
+        var manifest = {"name":"Fery.my.id","short_name":"Fery","start_url":"/","display":"standalone","background_color":"#0e0e18","theme_color":"#0e0e18","icons":[{"src":"/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]};
+        var blob = new Blob([JSON.stringify(manifest)], {type:'application/manifest+json'});
+        var url = URL.createObjectURL(blob);
+        var link = document.querySelector('link[rel="manifest"]'); if(!link){ link=document.createElement('link'); link.rel='manifest'; document.head.appendChild(link); }
+        link.href = url;
+      }catch(e){}
+
+      // Optional: service worker (silently ignore if missing)
+      if('serviceWorker' in navigator){ navigator.serviceWorker.register('/sw.js').catch(()=>{}); }
+    })();
   </script>
 </body>
 </html>
