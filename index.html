@@ -23,6 +23,10 @@
   <meta property="og:image" content="https://fery.my.id/og-image.jpg"/>
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fery — Gamer & Live Streamer" />
+  <meta property="og:image:secure_url" content="https://fery.my.id/og-image.jpg">
+  <meta name="twitter:image" content="https://fery.my.id/og-image.jpg">
+  <meta name="twitter:image:alt" content="Fery — Gamer & Live Streamer">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Fery.my.id — Freelancer Gamer & Live Streamer" />
   <meta name="twitter:description" content="Portfolio, proyek, jadwal live, dan kontak. Freelancer gamer & live streamer dengan tampilan neon responsif." />
@@ -43,7 +47,10 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Fery",
+    "alternateName": ["Fery Ferlangga", "Fery Gamer"],
+    "additionalName": "Ferlangga",
     "url": "https://fery.my.id",
+    "image": "https://fery.my.id/og-image.jpg",
     "sameAs": [
       "https://tiktok.com/@feryferlangga",
       "https://youtube.com/@feryferlangga",
@@ -51,7 +58,8 @@
       "https://github.com/feryferlangga"
     ],
     "email": "mailto:admin@fery.my.id",
-    "jobTitle": "Freelancer Gamer & Live Streamer"
+    "jobTitle": "Freelancer Gamer & Live Streamer",
+    "knowsAbout": ["GTA V", "Genshin Impact", "Valorant", "Live Streaming", "OBS", "Overlay Design"]
   }
   </script>
   <script type="application/ld+json">
@@ -67,10 +75,17 @@
   }
   </script>
 
+  <!-- Identity links for verification / rel=me -->
+  <link rel="me" href="https://tiktok.com/@feryferlangga">
+  <link rel="me" href="https://youtube.com/@feryferlangga">
+  <link rel="me" href="https://instagram.com/feryferlangga">
+  <link rel="me" href="https://github.com/feryferlangga">
+
   <!-- Icons & Manifest -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23121228'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-size='16' fill='%2300ffe0' font-family='Arial' font-weight='700'%3EF%3C/text%3E%3C/svg%3E">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="preload" as="image" href="/og-image.jpg">
 
   <!-- CSS inline -->
   <style>
@@ -81,14 +96,8 @@
       --heading: "Orbitron", system-ui, sans-serif;
       --body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
-    /* Light theme overrides */
-    html[data-theme="light"]{
-      --bg:#f7f8ff; --panel:#ffffff; --text:#0c0c1a; --muted:#63637a;
-      --p:#6e3adb; --s:#0fb; --a:#ff2a89; --ring:0 0 8px rgba(0,0,0,.08);
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html[data-theme="light"]{ --bg:#f7f8ff; --panel:#ffffff; --text:#0c0c1a; --muted:#63637a; --p:#6e3adb; --s:#0fb; --a:#ff2a89; --ring:0 0 8px rgba(0,0,0,.08); }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--body)}
     h1,h2,h3{font-family:var(--heading);letter-spacing:.02em}
     img{display:block;max-width:100%;height:auto}
@@ -97,13 +106,9 @@
     .section{padding:56px 0;border-top:1px solid #1f1f39}
     .muted{color:var(--muted)} .small{font-size:.9rem}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-
-    /* Animated background */
     .bg-anim{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1200px 800px at 15% 20%, rgba(0,255,224,.10), transparent 60%), radial-gradient(1000px 700px at 85% 70%, rgba(255,0,128,.10), transparent 60%), linear-gradient(120deg, #0b0b16, #0f0f2a 40%, #0b0b16); filter:saturate(115%)}
     .bg-anim::after{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg, transparent 0 25%, rgba(138,43,226,.12) 25% 50%, transparent 50% 75%, rgba(0,255,224,.12) 75%);animation:spin 24s linear infinite;mix-blend-mode:soft-light;opacity:.35}
     @keyframes spin{to{transform:rotate(1turn)}}
-
-    /* Header/Nav */
     header{position:sticky;top:0;background:linear-gradient(180deg,var(--bg) 70%,transparent);backdrop-filter:saturate(120%) blur(6px);z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;flex-direction:column;gap:2px}
@@ -115,12 +120,8 @@
     .btn-ghost{border:1px solid #2b2b4a;padding:10px 16px;border-radius:12px;color:var(--text);background:#111126;font-weight:700;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
     .btn-ghost:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.35), 0 0 18px rgba(0,255,224,.12);border-color:#3a3a66}
     .chips button.btn-ghost{background:#121228;color:var(--text);border:1px solid #2b2b4a}
-
-    /* Theme toggle */
     .theme-toggle{border:1px solid #2b2b4a;border-radius:999px;padding:6px 10px;cursor:pointer;font-size:.9rem;background:#111126;color:var(--text)}
     html[data-theme="light"] .theme-toggle{background:#fff}
-
-    /* Hamburger (animated to X) */
     .hamburger{display:none;position:relative;width:42px;height:38px;border:1px solid #2b2b4a;border-radius:10px;background:transparent;color:var(--text)}
     .hamburger .bar{position:absolute;left:8px;right:8px;height:2px;background:var(--text);transition:transform .25s ease, opacity .2s ease, top .25s ease}
     .hamburger .bar:nth-child(1){top:12px}
@@ -129,8 +130,6 @@
     .hamburger.open .bar:nth-child(1){top:18px;transform:rotate(45deg)}
     .hamburger.open .bar:nth-child(2){opacity:0}
     .hamburger.open .bar:nth-child(3){top:18px;transform:rotate(-45deg)}
-
-    /* Hero */
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:20px 0 36px}
     .hero h1{font-size:clamp(28px,4vw,48px);margin:0 0 10px}
     .neon{text-shadow:0 0 15px rgba(0,255,224,.4),0 0 30px rgba(122,0,255,.35)}
@@ -138,112 +137,68 @@
     .actions{display:flex;gap:12px;margin:14px 0}
     .hero-art{min-height:240px;border-radius:16px;overflow:hidden;border:1px solid #26264a;background:radial-gradient(circle at 30% 20%, rgba(0,255,224,.15), transparent 40%), radial-gradient(circle at 80% 60%, rgba(255,0,128,.12), transparent 40%)}
     .hero-art svg{width:100%;height:auto;display:block;opacity:.9}
-
-    /* Social icon buttons */
     .socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
     .icon-btn{display:inline-flex;align-items:center;gap:8px;background:#111126;border:1px solid #2b2b4a;border-radius:12px;padding:10px 14px;color:var(--text);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
     .icon-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.35), 0 0 18px rgba(0,255,224,.25);border-color:#3a3a66}
     .icon-btn svg{width:20px;height:20px;display:block}
-    .icon-btn.tiktok{color:#ff0050}
-    .icon-btn.youtube{color:#ff0000}
-    .icon-btn.instagram{color:#e1306c}
-    .icon-btn.discord{color:#7289da}
-    .icon-btn.email{color:var(--s)}
-
-    /* Chips */
+    .icon-btn.tiktok{color:#ff0050}.icon-btn.youtube{color:#ff0000}.icon-btn.instagram{color:#e1306c}.icon-btn.discord{color:#7289da}.icon-btn.email{color:var(--s)}
     .chips{display:flex;gap:8px;flex-wrap:wrap;padding:0;margin:12px 0 0;list-style:none}
     .chips li{padding:8px 12px;border:1px solid #2b2b4a;border-radius:999px;background:#12122866}
-
-    /* Projects (smaller cards + equal height + neon hover) */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-    .card{display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(18,18,40,.8),rgba(18,18,40,.5));border:1px solid #2b2b4a;border-radius:14px;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;max-width:300px;margin:auto}
+    .card{display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(18,18,40,.8),rgba(18,18,40,.5));border:1px solid #2b2b4a;border-radius:14px;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;max-width:none;margin:0}
     .card:hover{transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.45), 0 0 24px rgba(0,255,224,.15);border-color:#3a3a66}
     .card img{aspect-ratio:16/9;object-fit:cover}
     .card-body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
     .card-body h3{margin:4px 0;font-size:1rem}
     .card-body p{font-size:.9rem;color:var(--muted)}
     .card-actions{display:flex;gap:8px;margin-top:auto}
-
-    /* Extras: badges, tags, live dot, reduced motion, floating CTA, toast */
     .tags{display:flex;gap:6px;flex-wrap:wrap}
     .badge{display:inline-block;padding:2px 8px;border:1px solid #2b2b4a;border-radius:999px;font-size:.72rem;color:var(--muted)}
     .dot{margin-left:8px;color:#ff4d4f;text-shadow:0 0 10px rgba(255,77,79,.6)}
-    .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#111126;border:1px solid #2b2b4a;color:var(--text);padding:10px 14px;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease}
+    .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#111126;border:1px solid #2b2b4a;color:#e6e6ff;padding:10px 14px;border-radius:10px;box-shadow:var(--ring);opacity:0;pointer-events:none;transition:opacity .2s ease}
     .toast.show{opacity:1}
-    /* Keyboard focus */
     :focus-visible{outline:2px solid var(--s); outline-offset:2px; border-radius:8px}
-    /* Language toggle display */
     :root[data-lang="id"] [lang="en"]{display:none}
     :root[data-lang="en"] [lang="id"]{display:none}
-    /* Nav active */
     .menu a.active{border-bottom:2px solid var(--s)}
-    /* Scroll progress */
     #progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--s),var(--p));transform:scaleX(0);transform-origin:left;z-index:999}
-    /* Search bar */
     .searchbar input{width:100%;background:#111126;border:1px solid #2b2b4a;border-radius:12px;color:var(--text);padding:10px 12px;margin:10px 0}
-    @media (prefers-reduced-motion: reduce){
-      .bg-anim::after{animation:none;opacity:.15}
-      .icon-btn:hover,.card:hover{transform:none;box-shadow:none}
-    }
+    @media (prefers-reduced-motion: reduce){ .bg-anim::after{animation:none;opacity:.15} .icon-btn:hover,.card:hover{transform:none;box-shadow:none} }
     @media (max-width:680px){ .cta-float{position:fixed;right:14px;bottom:14px;z-index:20} }
-
-    /* Video latest */
     .video-card{position:relative;max-width:760px;margin:auto;border:1px solid #2b2b4a;border-radius:16px;overflow:hidden;background:#0b0b16}
     .video-cover{display:block;width:100%;aspect-ratio:16/9;border:0;background:linear-gradient(135deg,#121228,#0b0b16);cursor:pointer;position:relative}
     .video-thumb{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%, rgba(0,255,224,.15), transparent 60%)}
     .video-cta{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:10px 14px;border-radius:12px;background:#111126;border:1px solid #2b2b4a;box-shadow:var(--ring)}
     .video-iframe{width:100%;aspect-ratio:16/9;border:0}
-    /* Floating chat */
+    .map-card{position:relative;max-width:760px;margin:auto;border:1px solid #2b2b4a;border-radius:16px;overflow:hidden;background:#0b0b16;box-shadow:var(--ring)}
+    .map-iframe{width:100%;aspect-ratio:16/9;border:0}
     .cta-chat{position:fixed;right:14px;bottom:60px;z-index:20}
     @media (min-width:681px){ .cta-chat{bottom:20px; right:120px;} }
     .donate .qris-card{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:linear-gradient(180deg,rgba(18,18,40,.8),rgba(18,18,40,.5));border:1px solid #2b2b4a;border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
     .qr-wrap{background:#fff;border-radius:12px;padding:12px;box-shadow:0 0 0 6px rgba(255,255,255,.02) inset}
     .qr-wrap img{display:block;width:256px;height:256px}
-    dialog::backdrop{background:rgba(0,0,0,.6)}
-    dialog{border:none;border-radius:16px;padding:0}
-
-    @media (max-width:680px){
-      .donate .qris-card{grid-template-columns:1fr;justify-items:center;text-align:center}
-      .qr-wrap img{width:220px;height:220px}
-    }
-
-    /* Stream */
-    .schedule{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
-    .slot{background:#121228cc;border:1px solid #2b2b4a;border-radius:12px;padding:10px;display:flex;align-items:center;justify-content:space-between}
-
-    /* Contact */
-    .contact{display:flex;flex-direction:column;gap:10px}
-    .contact .row{display:flex;gap:10px}
-    .contact input,.contact textarea{width:100%;background:#111126;border:1px solid #2b2b4a;border-radius:12px;color:var(--text);padding:12px}
-
-    /* Footer */
+    dialog::backdrop{background:rgba(0,0,0,.6)} dialog{border:none;border-radius:16px;padding:0}
+    @media (max-width:680px){ .donate .qris-card{grid-template-columns:1fr;justify-items:center;text-align:center} .qr-wrap img{width:220px;height:220px} }
     .footer{padding:28px 0 50px;color:var(--muted)}
     .footer .footgrid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
     .foot-links{display:flex;gap:14px}
     .foot-socials{display:flex;gap:10px}
     .foot-socials a{display:inline-flex;padding:8px;border:1px solid #2b2b4a;border-radius:10px}
     .heart{color:var(--a);text-shadow:0 0 12px rgba(255,0,128,.6)}
-
-    /* Buttons (merged with header styles; single source of truth) */
-
-    /* Responsive */
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr 1fr}
-      .schedule{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 680px){
-      .menu{display:none;flex-direction:column;position:absolute;right:4%;top:64px;background:var(--bg);border:1px solid #2b2b4a;border-radius:12px;padding:12px;width:min(260px,92%)}
-      .menu.show{display:flex}
-      .hamburger{display:inline-flex;align-items:center;justify-content:center}
-      .actions{flex-direction:column;align-items:flex-start}
-      .grid{grid-template-columns:1fr}
-      .schedule{grid-template-columns:1fr}
-      .section{padding:42px 0}
-      .container{width:94%}
-      .menu a{padding:12px}
-    }
+    .btn-primary,.btn-ghost,.menu a{min-height:44px}
+    .contact input,.contact textarea{min-height:44px}
+    .card{will-change:transform}
+    @media (min-width:1200px){ :root{--maxw:1200px} .hero h1{font-size:clamp(28px,3vw,64px)} }
+    @media (min-width:1600px){ :root{--maxw:1320px} }
+    @media (max-width:900px){ .menu{gap:8px} }
+    @media (max-width:480px){ .section{padding:36px 0} .tagline{font-size:.8rem} .card-body{padding:10px} }
+    @supports(padding:max(0px)){ header{padding-top:max(0px, env(safe-area-inset-top))} body{padding-bottom:max(0px, env(safe-area-inset-bottom))} .cta-chat{bottom:max(20px, env(safe-area-inset-bottom))} }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} }
+    @media (max-width: 680px){ .menu{display:none;flex-direction:column;position:absolute;right:4%;top:64px;background:var(--bg);border:1px solid #2b2b4a;border-radius:12px;padding:12px;width:min(260px,92%)} .menu.show{display:flex} .hamburger{display:inline-flex;align-items:center;justify-content:center} .actions{flex-direction:column;align-items:flex-start} .grid{grid-template-columns:1fr} .section{padding:42px 0} .container{width:94%} .menu a{padding:12px} }
   </style>
+  <script type="application/ld+json">
+  { "@context":"https://schema.org", "@type":"Place", "name":"Fery", "url":"https://fery.my.id", "hasMap":"https://maps.app.goo.gl/TYLFSXfuijFBHSAZA" }
+  </script>
 </head>
 <body>
   <div id="progress" aria-hidden="true"></div>
@@ -267,9 +222,8 @@
       <ul class="menu" id="mainmenu" role="menubar">
         <li role="none"><a role="menuitem" href="#about"><span lang="id">Tentang</span><span lang="en">About</span></a></li>
         <li role="none"><a role="menuitem" href="#projects"><span lang="id">Game</span><span lang="en">Games</span></a></li>
-        <li role="none"><a role="menuitem" href="#stream"><span lang="id">Jadwal</span><span lang="en">Schedule</span></a></li>
         <li role="none"><a role="menuitem" href="#donate"><span lang="id">Donasi</span><span lang="en">Donate</span></a></li>
-        <li role="none"><a role="menuitem" href="#contact" class="btn-primary"><span lang="id">Kontak</span><span lang="en">Contact</span></a></li>
+        <li role="none"><a role="menuitem" href="#contact" class="btn-primary"><span lang="id">Lokasi</span><span lang="en">Location</span></a></li>
       </ul>
     </nav>
   </header>
@@ -281,19 +235,13 @@
         <p class="muted"><span lang="id">Freelancer gamer & live streamer. Bangun tools, produksi overlay, dan live secara konsisten. Portofolio, jadwal, dan kontak ada di sini.</span><span lang="en">Freelance gamer & live streamer. I build tools, produce overlays, and stream consistently. Portfolio, schedule, and contact are here.</span></p>
         <div class="actions">
           <a class="btn-primary" href="#donate"><span lang="id">❤️ Donasi</span><span lang="en">❤️ Donate</span></a>
-          <a class="btn-ghost" href="#stream"><span lang="id">Jadwal</span><span lang="en">Schedule</span></a>
+          <a class="btn-ghost" href="#projects"><span lang="id">Game</span><span lang="en">Games</span></a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
         <img id="avatarImg" src="/avatar.png" alt="Avatar Fery" loading="lazy" style="display:none;width:100%;height:auto"/>
-        <!-- Placeholder SVG jika avatar belum ada -->
         <svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hero art">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0" stop-color="#00ffe0" stop-opacity=".3"/>
-              <stop offset="1" stop-color="#8a2be2" stop-opacity=".25"/>
-            </linearGradient>
-          </defs>
+          <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#00ffe0" stop-opacity=".3"/><stop offset="1" stop-color="#8a2be2" stop-opacity=".25"/></linearGradient></defs>
           <rect width="600" height="360" fill="url(#g1)"/>
           <circle cx="120" cy="100" r="80" fill="#00ffe022"/>
           <circle cx="520" cy="260" r="70" fill="#ff008022"/>
@@ -307,9 +255,7 @@
       <h2><span lang="id">🕹️ Tentang</span><span lang="en">🕹️ About</span></h2>
       <p class="muted">Halo! Saya <strong>Fery</strong>, seorang <em>Freelancer Gamer</em> dan <em>Live Streamer</em>. Fokus di konten <strong>GTA V</strong>, <strong>Genshin Impact</strong>, dan <strong>VALORANT</strong>. Terbuka untuk kolaborasi, sponsor, dan project freelance.</p>
       <ul class="chips" aria-label="Keahlian singkat">
-        <li>Editing & Overlay</li>
-        <li>Live Production</li>
-        <li>Community</li>
+        <li>Editing & Overlay</li><li>Live Production</li><li>Community</li>
       </ul>
     </section>
 
@@ -318,48 +264,30 @@
       <div class="searchbar"><input id="gameSearch" type="search" placeholder="Cari game... / Search games..." aria-label="Cari game"></div>
       <div class="grid">
         <article class="card">
-          <picture>
-            <source srcset="https://via.placeholder.com/300x180.webp?text=GTA+V" type="image/webp"/>
-            <img src="https://via.placeholder.com/300x180?text=GTA+V" alt="GTA V — freeroam, roleplay, heist highlights" loading="lazy" width="300" height="180" />
-          </picture>
+          <picture><source srcset="https://via.placeholder.com/300x180.webp?text=GTA+V" type="image/webp"/><img src="https://via.placeholder.com/300x180?text=GTA+V" alt="GTA V — freeroam, roleplay, heist highlights" loading="lazy" width="300" height="180" /></picture>
           <div class="card-body">
             <h3>GTA V</h3>
             <div class="tags"><span class="badge">Roleplay</span><span class="badge">Heist</span></div>
             <p>Freeroam, roleplay, dan heist highlights. Live 1080p60.</p>
-            <div class="card-actions">
-              <a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a>
-              <a class="btn-primary" href="#" target="_blank" rel="noopener">Highlights</a>
-            </div>
+            <div class="card-actions"><a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a><a class="btn-primary" href="#" target="_blank" rel="noopener">Highlights</a></div>
           </div>
         </article>
         <article class="card">
-          <picture>
-            <source srcset="https://via.placeholder.com/300x180.webp?text=Genshin+Impact" type="image/webp"/>
-            <img src="https://via.placeholder.com/300x180?text=Genshin+Impact" alt="Genshin Impact — Spiral Abyss, quest, dan build karakter" loading="lazy" width="300" height="180" />
-          </picture>
+          <picture><source srcset="https://via.placeholder.com/300x180.webp?text=Genshin+Impact" type="image/webp"/><img src="https://via.placeholder.com/300x180?text=Genshin+Impact" alt="Genshin Impact — Spiral Abyss, quest, dan build karakter" loading="lazy" width="300" height="180" /></picture>
           <div class="card-body">
             <h3>Genshin Impact</h3>
             <div class="tags"><span class="badge">Abyss</span><span class="badge">Build</span></div>
             <p>Spiral Abyss, quest, dan diskusi build. Fokus tim meta & eksplorasi.</p>
-            <div class="card-actions">
-              <a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a>
-              <a class="btn-primary" href="#" target="_blank" rel="noopener">Build</a>
-            </div>
+            <div class="card-actions"><a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a><a class="btn-primary" href="#" target="_blank" rel="noopener">Build</a></div>
           </div>
         </article>
         <article class="card">
-          <picture>
-            <source srcset="https://via.placeholder.com/300x180.webp?text=VALORANT" type="image/webp"/>
-            <img src="https://via.placeholder.com/300x180?text=VALORANT" alt="VALORANT — ranked live, aim training, dan clutch moments" loading="lazy" width="300" height="180" />
-          </picture>
+          <picture><source srcset="https://via.placeholder.com/300x180.webp?text=VALORANT" type="image/webp"/><img src="https://via.placeholder.com/300x180?text=VALORANT" alt="VALORANT — ranked live, aim training, dan clutch moments" loading="lazy" width="300" height="180" /></picture>
           <div class="card-body">
             <h3>VALORANT</h3>
             <div class="tags"><span class="badge">Ranked</span><span class="badge">Clutch</span></div>
             <p>Ranked live, aim training, dan clutch moments. Crosshair & sens dibagikan.</p>
-            <div class="card-actions">
-              <a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a>
-              <a class="btn-primary" href="#" target="_blank" rel="noopener">Crosshair</a>
-            </div>
+            <div class="card-actions"><a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a><a class="btn-primary" href="#" target="_blank" rel="noopener">Crosshair</a></div>
           </div>
         </article>
       </div>
@@ -369,56 +297,40 @@
       <h2><span lang="id">💝 Dukung Siaran — QRIS</span><span lang="en">💝 Support Stream — QRIS</span></h2>
       <div class="qris-card">
         <div class="qr-wrap">
-          <picture>
-            <source id="qrSmallSrc" srcset="" type="image/png"/>
-            <img id="qrSmall" src="" alt="QRIS untuk donasi" width="256" height="256"/>
-          </picture>
+          <picture><source id="qrSmallSrc" srcset="" type="image/png"/><img id="qrSmall" src="" alt="QRIS untuk donasi" width="256" height="256"/></picture>
         </div>
         <div>
           <p class="muted">Terima kasih sudah mendukung siaran! Scan pakai <em>bank/e-wallet</em> berlogo QRIS. Nominal bebas.</p>
-          <div class="chips" id="donatePresets">
-            <button class="btn-ghost" data-amt="10000">Rp10K</button>
-            <button class="btn-ghost" data-amt="20000">Rp20K</button>
-            <button class="btn-ghost" data-amt="50000">Rp50K</button>
-          </div>
-          <div class="card-actions" style="margin-top:10px">
-            <button id="copyNmid" class="btn-ghost" type="button" aria-label="Salin NMID">Salin NMID</button>
-            <a id="downloadQris" class="btn-primary" href="#" download="Qris.png">Unduh QR</a>
-            <button id="qrOpen" class="btn-ghost" type="button">Perbesar QR</button>
-          </div>
+          <div class="chips" id="donatePresets"><button class="btn-ghost" data-amt="10000">Rp10K</button><button class="btn-ghost" data-amt="20000">Rp20K</button><button class="btn-ghost" data-amt="50000">Rp50K</button></div>
+          <div class="card-actions" style="margin-top:10px"><button id="copyNmid" class="btn-ghost" type="button" aria-label="Salin NMID">Salin NMID</button><a id="downloadQris" class="btn-primary" href="#" download="Qris.png">Unduh QR</a><button id="qrOpen" class="btn-ghost" type="button">Perbesar QR</button></div>
           <p class="small muted">NMID: <strong>ID1025411263185</strong></p>
         </div>
       </div>
-
       <dialog id="qrModal" aria-label="QRIS ukuran besar">
         <div style="padding:16px;background:var(--panel);border:1px solid #2b2b4a;border-radius:16px">
-          <picture>
-            <source id="qrLargeSrc" srcset="" type="image/png"/>
-            <img id="qrLarge" src="" alt="QRIS untuk donasi — besar" width="512" height="512"/>
-          </picture>
-          <div style="display:flex;justify-content:flex-end;margin-top:10px">
-            <button id="qrClose" class="btn-ghost" type="button">Tutup</button>
-          </div>
+          <picture><source id="qrLargeSrc" srcset="" type="image/png"/><img id="qrLarge" src="" alt="QRIS untuk donasi — besar" width="512" height="512"/></picture>
+          <div style="display:flex;justify-content:flex-end;margin-top:10px"><button id="qrClose" class="btn-ghost" type="button">Tutup</button></div>
         </div>
       </dialog>
     </section>
 
     <section id="contact" class="container section">
-      <h2><span lang="id">✉️ Kontak & Kerja Sama</span><span lang="en">✉️ Contact & Partnerships</span></h2>
-      <form class="contact" onsubmit="event.preventDefault(); alert('Static template — sambungkan ke Formspree atau backend kamu.');" aria-label="Formulir kontak">
-        <div class="row">
-          <input type="text" name="name" placeholder="Nama kamu" required aria-label="Nama">
-          <input type="email" name="email" placeholder="Email kamu" required aria-label="Email">
-        </div>
-        <textarea name="msg" rows="5" placeholder="Pesanmu" aria-label="Pesan"></textarea>
-        <button class="btn-primary" type="submit">Kirim</button>
-      </form>
-      <p class="muted small">Atau langsung email: <a href="mailto:admin@fery.my.id">admin@fery.my.id</a></p>
+      <h2><span lang="id">🗺️ Lokasi</span><span lang="en">🗺️ Location</span></h2>
+      <div class="map-card">
+        <iframe class="map-iframe" src="https://www.google.com/maps?output=embed&q=https%3A%2F%2Fmaps.app.goo.gl%2FTYLFSXfuijFBHSAZA&hl=id&z=17" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" aria-label="Google Map"></iframe>
+      </div>
+      <div class="card-actions" style="margin-top:10px"><a class="btn-primary" href="https://maps.app.goo.gl/TYLFSXfuijFBHSAZA" target="_blank" rel="noopener"><span lang="id">Buka di Google Maps</span><span lang="en">Open in Google Maps</span></a><a class="btn-ghost" href="https://www.google.com/maps?q=https%3A%2F%2Fmaps.app.goo.gl%2FTYLFSXfuijFBHSAZA" target="_blank" rel="noopener">Google Maps (web)</a></div>
+      <p class="small muted"><span lang="id">Jika peta tidak tampil, klik tombol di atas untuk membuka langsung di aplikasi Google Maps.</span><span lang="en">If the map doesn't load, use the buttons above to open Google Maps directly.</span></p>
     </section>
 
-    <!-- FAQ + schema untuk rich snippet -->
     <section id="faq" class="container section" itemscope itemtype="https://schema.org/FAQPage">
       <h2>❓ FAQ</h2>
+      <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 itemprop="name">Siapa itu Fery?</h3>
+        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text"><strong>Fery</strong> adalah gamer dan live streamer Indonesia di platform YouTube/TikTok dengan fokus konten GTA V, Genshin Impact, dan VALORANT. Situs <a href="https://fery.my.id">fery.my.id</a> adalah pusat profil resmi (entity home) untuk brand "Fery".</p>
+        </div>
+      </div>
       <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 itemprop="name">Apakah template ini mobile friendly?</h3>
         <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
@@ -457,16 +369,14 @@
       <p>© <span id="year"></span> Fery.my.id — Built with <span class="heart">♥</span> Neon.</p>
       <div class="foot-right" style="display:flex; gap:16px; align-items:center">
         <nav class="foot-links" aria-label="Tautan footer">
-          <a href="#">Home</a>
-          <a href="#about">Tentang</a>
-          <a href="#projects">Proyek</a>
-          <a href="#donate">Donasi</a>
-          <a href="#contact">Kontak</a>
+          <a href="#">Home</a><a href="#about">Tentang</a><a href="#projects">Proyek</a><a href="#donate">Donasi</a><a href="#contact">Lokasi</a>
         </nav>
-        <div class="foot-socials" aria-label="Sosial mini">
-          <a href="https://tiktok.com/@feryferlangga" aria-label="TikTok mini"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 3c.3 2.2 1.7 3.9 3.8 4.2V10c-1.5 0-2.9-.5-4-1.3v5.4a5.6 5.6 0 1 1-2.8-4.9V11a2.8 2.8 0 1 0 1.4 2.4V3h1.6Z"/></svg></a>
-          <a href="https://youtube.com/@feryferlangga" aria-label="YouTube mini"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12c0-2.3-.3-3.9-.6-4.6a2.5 2.5 0 0 0-1.8-1.8C18.9 5.2 12 5.2 12 5.2s-6.9 0-7.6.4A2.5 2.5 0 0 0 2.6 7.4C2.3 8.1 2 9.7 2 12s.3 3.9.6 4.6c.2.7.9 1.4 1.8 1.6.7.2 7.6.4 7.6.4s6.9 0 7.6-.4a2.5 2.5 0 0 0 1.8-1.6c.3-.7.6-2.3.6-4.6ZM10 9.8l5.2 2.2L10 14.2V9.8Z"/></svg></a>
-          <a href="https://instagram.com/feryferlangga" aria-label="Instagram mini"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="3.6"/></svg></a>
+        <div id="devTools" style="display:none; gap:8px">
+          <button class="btn-ghost" id="dlSitemap" type="button">Download sitemap.xml</button>
+          <button class="btn-ghost" id="dl404" type="button">Download 404.html</button>
+          <button class="btn-ghost" id="dlRobots" type="button">Download robots.txt</button>
+          <button class="btn-ghost" id="genOG" type="button">Generate OG Image</button>
+          <button class="btn-ghost" id="checkSEO" type="button">Check SEO files</button>
         </div>
       </div>
     </div>
@@ -476,182 +386,33 @@
   <a href="#contact" class="btn-ghost cta-chat" aria-label="Chat/Contact">💬 Chat</a>
 
   <script>
-  // Tahun otomatis
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Toggle hamburger + menu
-  const btn = document.getElementById('menuBtn');
-  const menu = document.getElementById('mainmenu');
-  btn.addEventListener('click', ()=>{
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    btn.classList.toggle('open');
-    menu.classList.toggle('show');
-  });
-  // Tutup menu saat klik link
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-    menu.classList.remove('show');
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded','false');
-  }));
-
-  // Theme toggle
-  const root = document.documentElement;
-  const themeBtn = document.getElementById('themeToggle');
-  const savedTheme = localStorage.getItem('theme');
-  if(savedTheme){ root.setAttribute('data-theme', savedTheme); }
-  themeBtn.addEventListener('click', ()=>{
-    const now = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    root.setAttribute('data-theme', now);
-    localStorage.setItem('theme', now);
-  });
-
-  // Language toggle + URL param persist
-  const langBtn = document.getElementById('langToggle');
-  const urlLang = new URLSearchParams(location.search).get('lang');
-  const savedLang = localStorage.getItem('lang') || urlLang || 'id';
-  root.setAttribute('data-lang', savedLang);
-  if(langBtn){ langBtn.textContent = savedLang.toUpperCase(); }
-  if(urlLang && urlLang!==savedLang){ const u=new URL(location); u.searchParams.set('lang', savedLang); history.replaceState(null,'',u); }
-  if(langBtn){ langBtn.addEventListener('click', ()=>{
-    const now = root.getAttribute('data-lang') === 'id' ? 'en' : 'id';
-    root.setAttribute('data-lang', now);
-    localStorage.setItem('lang', now);
-    langBtn.textContent = now.toUpperCase();
-    const u=new URL(location); u.searchParams.set('lang', now); history.replaceState(null,'',u);
-  }); }
-
-  // Share button (Web Share / Clipboard fallback)
-  const shareBtn = document.getElementById('shareBtn');
-  if(shareBtn){ shareBtn.addEventListener('click', async ()=>{
-    const data = {title:'Fery.my.id — Gamer & Live Streamer', text:'Cek live & konten Fery', url: location.href};
-    if(navigator.share){ try{ await navigator.share(data); }catch(e){} }
-    else{ try{ await navigator.clipboard.writeText(location.href); toast('Link disalin!'); }catch(e){ alert(location.href); } }
-  }); }
-
-  // Scroll progress bar
-  const prog = document.getElementById('progress');
-  function onScroll(){ const h=document.documentElement; const sc=h.scrollTop; const max=h.scrollHeight-h.clientHeight; const p=max? sc/max : 0; if(prog) prog.style.transform='scaleX('+p+')'; }
-  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  // Simple on-page search (games)
-  const search = document.getElementById('gameSearch');
-  if(search){ const cards=[...document.querySelectorAll('#projects .card')]; search.addEventListener('input', ()=>{ const q=search.value.toLowerCase(); cards.forEach(c=>{ c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none'; }); }); }
-
-  // Scrollspy active nav
-  const sections=['about','projects','stream','donate','contact'].map(id=>document.getElementById(id)).filter(Boolean);
-  const navLinks=[...document.querySelectorAll('.menu a')];
-  const obs=new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ const id=e.target.id; navLinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href')==='#'+id)); } }); },{threshold:0.6});
-  sections.forEach(s=>obs.observe(s));
-
-  // ---- Helper toast (global)
-  function toast(msg){ var t=document.getElementById('toast'); if(!t) return; t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1800); }
-
-  // Avatar auto-swap if /avatar.png exists
-  const avatarImg = document.getElementById('avatarImg');
-  if(avatarImg){
-    fetch('/avatar.png',{method:'HEAD', cache:'no-store'}).then(r=>{
-      if(r.ok){
-        avatarImg.style.display='block';
-        const svg = avatarImg.nextElementSibling;
-        if(svg && svg.tagName && svg.tagName.toLowerCase()==='svg'){ svg.remove(); }
-      }
-    }).catch(()=>{});
-  }
-
-  // Latest video lazy embed
-  const ytCard = document.getElementById('ytCard');
-  const ytPlay = document.getElementById('ytPlay');
-  if(ytCard && ytPlay){
-    ytPlay.addEventListener('click', ()=>{
-      const vid = (ytCard.dataset.video||'').trim();
-      if(/^[A-Za-z0-9_-]{11}$/.test(vid)){
-        const iframe=document.createElement('iframe');
-        iframe.className='video-iframe';
-        iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-        iframe.allowFullscreen=true;
-        iframe.src='https://www.youtube.com/embed/'+vid+'?autoplay=1&rel=0';
-        ytCard.replaceChildren(iframe);
-      } else {
-        window.open('https://youtube.com/@feryferlangga/videos','_blank');
-      }
-    });
-  }
-
-  // Newsletter fallback (mailto)
-  const newsForm = document.getElementById('newsletterForm');
-  if(newsForm){
-    newsForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const email = document.getElementById('newsletterEmail').value.trim();
-      if(!email){ return; }
-      const subject=encodeURIComponent('Subscribe newsletter');
-      const body=encodeURIComponent('Please subscribe me: '+email);
-      window.location.href = 'mailto:admin@fery.my.id?subject='+subject+'&body='+body;
-      toast('Terima kasih! Silakan konfirmasi di aplikasi email Anda.');
-    });
-  }
-
-  // Donate, presets, toast, live-dot, manifest, SW (IIFE)
-  (function(){
-    var copyBtn = document.getElementById('copyNmid');
-    var nmid = 'ID1025411263185';
-    if(copyBtn){
-      copyBtn.addEventListener('click', async function(){
-        try{ await navigator.clipboard.writeText(nmid); toast('NMID disalin!'); this.textContent = 'NMID disalin!'; setTimeout(()=>this.textContent='Salin NMID', 1500);}catch(e){ alert('NMID: '+nmid); }
-      });
-    }
-    var dl = document.getElementById('downloadQris');
-    if(dl){ dl.addEventListener('click', ()=> toast('Mengunduh QR...')); }
-
-    // Preset nominal
-    document.querySelectorAll('#donatePresets [data-amt]').forEach(b=>b.addEventListener('click', ()=>{
-      var amt = Number(b.dataset.amt||0).toLocaleString('id-ID');
-      toast('Pilih nominal di e-wallet: Rp'+amt);
-    }));
-
-    var qrOpen = document.getElementById('qrOpen');
-    var qrModal = document.getElementById('qrModal');
-    var qrClose = document.getElementById('qrClose');
-    if(qrOpen && qrModal){ qrOpen.addEventListener('click', ()=> qrModal.showModal()); }
-    if(qrClose && qrModal){ qrClose.addEventListener('click', ()=> qrModal.close()); }
-
-    // Auto-detect base path for GitHub Pages vs custom domain
-    async function resolveQrisPath(){
-      var rootPath = '/Qris.png';
-      var relPath = 'Qris.png';
-      try{ const res = await fetch(rootPath, {method:'HEAD', cache:'no-store'}); if(res.ok) return rootPath; }catch(e){}
-      return relPath;
-    }
-    resolveQrisPath().then(function(path){
-      ['qrSmall','qrLarge'].forEach(function(id){
-        var img = document.getElementById(id);
-        if(img){ img.src = path; var pic = img.closest('picture'); var srcEl = pic && pic.querySelector('source'); if(srcEl){ srcEl.srcset = path; srcEl.type = 'image/png'; } }
-      });
-      var dl = document.getElementById('downloadQris');
-      if(dl){ dl.href = path; dl.setAttribute('download','Qris.png'); }
-    });
-
-    // Live dot via ?live=1 + JSON-LD
-    var liveDot = document.getElementById('liveDot');
-    if(new URLSearchParams(location.search).get('live')==='1' && liveDot){
-      liveDot.hidden = false;
-      try{
-        var ld = {"@context":"https://schema.org","@type":"VideoObject","name":"Live stream by Fery","description":"Gaming live stream","isFamilyFriendly":true,"publication":[{"@type":"BroadcastEvent","isLiveBroadcast":true}],"thumbnailUrl":["https://fery.my.id/og-image.jpg"],"embedUrl":"https://youtube.com/@feryferlangga/live","url":"https://youtube.com/@feryferlangga/live"};
-        var s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(ld); document.head.appendChild(s);
-      }catch(e){}
-    }
-
-    // Inject manifest on the fly (so site works without extra files)
-    try{
-      var manifest = {"name":"Fery.my.id","short_name":"Fery","start_url":"/","display":"standalone","background_color":"#0e0e18","theme_color":"#0e0e18","icons":[{"src":"/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]};
-      var blob = new Blob([JSON.stringify(manifest)], {type:'application/manifest+json'});
-      var url = URL.createObjectURL(blob);
-      var link = document.querySelector('link[rel="manifest"]'); if(!link){ link=document.createElement('link'); link.rel='manifest'; document.head.appendChild(link); }
-      link.href = url;
-    }catch(e){}
-
-    // Optional: service worker (silently ignore if missing)
-    if('serviceWorker' in navigator){ navigator.serviceWorker.register('/sw.js').catch(()=>{}); }
-  })();
-</script>
+(()=>{"use strict";
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],on=(el,ev,fn,opt)=>el&&el.addEventListener(ev,fn,opt),root=document.documentElement,qs=n=>new URLSearchParams(location.search).get(n),toast=m=>{const t=$("#toast");if(!t)return; t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800)};
+const y=$("#year"); if(y) y.textContent=new Date().getFullYear();
+const mb=$("#menuBtn"),mm=$("#mainmenu"); on(mb,"click",()=>{const e=mb.getAttribute("aria-expanded")==="true"; mb.setAttribute("aria-expanded",String(!e)); mb.classList.toggle("open"); mm.classList.toggle("show")}); $$("#mainmenu a").forEach(a=>on(a,"click",()=>{mm.classList.remove("show"); mb.classList.remove("open"); mb.setAttribute("aria-expanded","false")}));
+const tbtn=$("#themeToggle"),st=localStorage.getItem("theme"); if(st) root.setAttribute("data-theme",st); on(tbtn,"click",()=>{const v=root.getAttribute("data-theme")==="light"?"dark":"light"; root.setAttribute("data-theme",v); localStorage.setItem("theme",v)});
+const lbtn=$("#langToggle"),urlLang=qs("lang"),sl=localStorage.getItem("lang")||urlLang||"id"; root.setAttribute("data-lang",sl); if(lbtn) lbtn.textContent=sl.toUpperCase(); if(urlLang&&urlLang!==sl){const u=new URL(location); u.searchParams.set("lang",sl); history.replaceState(null,"",u)} on(lbtn,"click",()=>{const v=root.getAttribute("data-lang")==="id"?"en":"id"; root.setAttribute("data-lang",v); localStorage.setItem("lang",v); lbtn.textContent=v.toUpperCase(); const u=new URL(location); u.searchParams.set("lang",v); history.replaceState(null,"",u)});
+const pg=$("#progress"),scr=()=>{const h=document.documentElement,p=(h.scrollHeight-h.clientHeight)?h.scrollTop/(h.scrollHeight-h.clientHeight):0; if(pg) pg.style.transform="scaleX("+p+")"}; on(window,"scroll",scr,{passive:true}); scr();
+const sbox=$("#gameSearch"); if(sbox){const cards=$$("#projects .card"),f=()=>{const q=sbox.value.toLowerCase(); cards.forEach(c=>c.style.display=c.textContent.toLowerCase().includes(q)?"":"none")}; on(sbox,"input",f); const qp=qs("q"); if(qp){sbox.value=qp; f()}}
+const secs=["about","projects","donate","contact"].map(id=>document.getElementById(id)).filter(Boolean),links=$$(".menu a"); const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id; links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+id))}})},{threshold:0.6}); secs.forEach(s=>io.observe(s));
+const av=$("#avatarImg"); if(av) fetch("/avatar.png",{method:"HEAD",cache:"no-store"}).then(r=>{if(r.ok){av.style.display="block"; const svg=av.nextElementSibling; if(svg&&svg.tagName?.toLowerCase()==="svg") svg.remove()}}).catch(()=>{});
+const nf=$("#newsletterForm"); on(nf,"submit",e=>{e.preventDefault(); const em=$("#newsletterEmail")?.value.trim(); if(!em) return; location.href="mailto:admin@fery.my.id?subject="+encodeURIComponent("Subscribe newsletter")+"&body="+encodeURIComponent("Please subscribe me: "+em); toast("Terima kasih! Silakan konfirmasi di aplikasi email Anda.")});
+const cNM=$("#copyNmid"),nmid="ID1025411263185"; on(cNM,"click",async function(){try{await navigator.clipboard.writeText(nmid); toast("NMID disalin!"); this.textContent="NMID disalin!"; setTimeout(()=>this.textContent="Salin NMID",1500)}catch{alert("NMID: "+nmid)}});
+const dl=$("#downloadQris"); on(dl,"click",()=>toast("Mengunduh QR...")); $$("#donatePresets [data-amt]").forEach(b=>on(b,"click",()=>toast("Pilih nominal di e-wallet: Rp"+Number(b.dataset.amt||0).toLocaleString("id-ID"))));
+const qro=$("#qrOpen"),qrm=$("#qrModal"),qrc=$("#qrClose"); on(qro,"click",()=>qrm?.showModal()); on(qrc,"click",()=>qrm?.close());
+(async()=>{const root="/Qris.png"; let path=root; try{const r=await fetch(root,{method:"HEAD",cache:"no-store"}); if(!r.ok) path="Qris.png"}catch{path="Qris.png"} ["qrSmall","qrLarge"].forEach(id=>{const img=document.getElementById(id); if(!img) return; img.src=path; const s=img.closest("picture")?.querySelector("source"); if(s){s.srcset=path; s.type="image/png"}}); if(dl){dl.href=path; dl.setAttribute("download","Qris.png")}})();
+if(qs("live")==="1"){const dot=$("#liveDot"); if(dot) dot.hidden=false; try{const ld={"@context":"https://schema.org","@type":"VideoObject","name":"Live stream by Fery","description":"Gaming live stream","isFamilyFriendly":true,"publication":[{"@type":"BroadcastEvent","isLiveBroadcast":true}],"thumbnailUrl":["https://fery.my.id/og-image.jpg"],"embedUrl":"https://youtube.com/@feryferlangga/live","url":"https://youtube.com/@feryferlangga/live"}; const s=document.createElement("script"); s.type="application/ld+json"; s.textContent=JSON.stringify(ld); document.head.appendChild(s)}catch{}}
+const dev=qs('dev')==='1'; if(dev){ const dt=document.getElementById('devTools'); if(dt) dt.style.display='flex'; }
+const makeFile=(name,content,type)=>{ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([content],{type})); a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); };
+on($('#dlSitemap'),'click',()=>{ const base=location.origin.replace(/\/$/,''); const xml=`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>${base}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+</urlset>`; makeFile('sitemap.xml',xml,'application/xml'); toast('sitemap.xml dibuat'); });
+on($('#dl404'),'click',()=>{ const html='<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>404 — Fery.my.id</title><meta name="robots" content="noindex"><meta http-equiv="refresh" content="5; url=/"><style>body{margin:0;display:grid;place-items:center;height:100vh;background:#0e0e18;color:#e6e6ff;font-family:Inter,system-ui,sans-serif}.box{max-width:560px;text-align:center;padding:24px;border:1px solid #2b2b4a;border-radius:16px;background:#121228}</style></head><body><div class="box"><h1>404</h1><p>Halaman tidak ditemukan.</p><p><a href="/">Kembali ke beranda</a></p></div></body></html>'; makeFile('404.html',html,'text/html'); toast('404.html dibuat'); });
+on($('#dlRobots'),'click',()=>{ const base = location.origin.replace(/\/$/,''); const robots = ['User-agent: *','Allow: /','Disallow: /sw.js$','', 'Sitemap: ' + base + '/sitemap.xml'].join('\n'); makeFile('robots.txt', robots, 'text/plain'); toast('robots.txt dibuat'); });
+on($('#genOG'),'click',()=>{ const W=1200,H=630,cn=document.createElement('canvas'); cn.width=W; cn.height=H; const ctx=cn.getContext('2d'); const g=ctx.createLinearGradient(0,0,W,H); g.addColorStop(0,'#0b0b16'); g.addColorStop(1,'#121228'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H); const rg=ctx.createRadialGradient(W*0.25,H*0.35,60,W*0.25,H*0.35,400); rg.addColorStop(0,'rgba(0,255,224,.35)'); rg.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=rg; ctx.beginPath(); ctx.arc(W*0.25,H*0.35,400,0,Math.PI*2); ctx.fill(); const rg2=ctx.createRadialGradient(W*0.8,H*0.75,60,W*0.8,H*0.75,360); rg2.addColorStop(0,'rgba(255,0,128,.3)'); rg2.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=rg2; ctx.beginPath(); ctx.arc(W*0.8,H*0.75,360,0,Math.PI*2); ctx.fill(); ctx.shadowColor='rgba(0,255,224,.6)'; ctx.shadowBlur=30; ctx.fillStyle='#e6e6ff'; ctx.font='900 92px Inter, system-ui, sans-serif'; ctx.textAlign='center'; ctx.fillText('FERY.MY.ID', W/2, H/2 - 10); ctx.shadowColor='transparent'; ctx.font='600 34px Inter, system-ui, sans-serif'; ctx.fillStyle='rgba(230,230,255,.9)'; ctx.fillText('Freelancer Gamer & Live Streamer', W/2, H/2 + 48); const url=cn.toDataURL('image/png'); const a=document.createElement('a'); a.href=url; a.download='og-image.png'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000); toast('og-image.png dibuat'); });
+on($('#checkSEO'),'click',async()=>{ const targets=['/og-image.jpg','/sitemap.xml','/robots.txt']; const results = await Promise.all(targets.map(async p=>{ try{ const r=await fetch(p,{method:'HEAD',cache:'no-store'}); return (r.ok?'OK ':'MISS ')+p; } catch(e){ return 'MISS '+p; } })); toast(results.join(' | ')); });
+})();
+  </script>
+</body>
+</html>
