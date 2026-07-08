@@ -46,10 +46,36 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Bagaimana cara donasi ke PeNg.?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Scan kode QRIS di bagian Dukung pakai aplikasi e-wallet atau mobile banking apa pun yang mendukung QRIS." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kapan Fery live?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cek jadwal mingguan di bagian Jadwal, atau aktifkan notifikasi lewat tombol lonceng di navbar." }
+    },
+    {
+      "@type": "Question",
+      "name": "Di mana beli alat streaming yang dipakai Fery?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Semua alat streaming tersedia di TikTok Shop, linknya ada di halaman TikTok Fery." }
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#09090b">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <style>
   :root{
     --bg: #09090b;
@@ -66,6 +92,26 @@
     --font-display: 'Chakra Petch', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  [data-theme="light"]{
+    --bg: #f4f3f1;
+    --bg-panel: #ffffff;
+    --bg-panel-hover: #f0eeec;
+    --text: #17171a;
+    --text-dim: #55555e;
+    --text-faint: #8b8b93;
+    --line: #e2e0dd;
+    --line-bright: #c9c6c2;
+  }
+
+  body, .live-pill, .chat-window, .hud-panel, .qris-frame, .spec-panel, .support-panel{
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+
+  /* Custom cursor pada elemen interaktif */
+  a, button, .hud-panel, input, .chat-toggle{
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='3' fill='%23e10600'/%3E%3Ccircle cx='11' cy='11' r='9' fill='none' stroke='%23e10600' stroke-width='1.4' stroke-opacity='0.6'/%3E%3C/svg%3E") 11 11, pointer;
   }
 
   *{ margin:0; padding:0; box-sizing:border-box; }
@@ -93,10 +139,37 @@
     padding: 0 24px;
   }
 
-  /* background texture */
-  .grid-bg{
+  /* ============ LOADING SCREEN ============ */
+  #loadScreen{
     position: fixed;
     inset: 0;
+    background: var(--bg, #09090b);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+  }
+  #loadScreen.hide{ opacity: 0; pointer-events: none; }
+  #loadScreen .load-logo{
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: load-scan 1.1s ease forwards;
+  }
+  #loadScreen .load-logo span{ color: var(--red-glow); }
+  @keyframes load-scan{
+    0%{ opacity: 0; transform: translateY(8px); text-shadow: none; letter-spacing: 8px; }
+    60%{ opacity: 1; letter-spacing: 1px; }
+    100%{ opacity: 1; transform: translateY(0); text-shadow: 0 0 20px var(--red-glow); }
+  }
+
+  .grid-bg{
+    position: fixed;
+    inset: -5% -5%;
     z-index: 0;
     background-image:
       linear-gradient(var(--line) 1px, transparent 1px),
@@ -105,7 +178,37 @@
     opacity: 0.35;
     mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 10%, transparent 75%);
     pointer-events: none;
+    will-change: transform;
   }
+
+  /* Partikel klik hero */
+  .click-particle{
+    position: fixed;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--red-glow);
+    box-shadow: 0 0 6px var(--red-glow);
+    pointer-events: none;
+    z-index: 60;
+    animation: particle-burst 0.6s ease-out forwards;
+  }
+  @keyframes particle-burst{
+    0%{ opacity: 1; transform: translate(0,0) scale(1); }
+    100%{ opacity: 0; transform: translate(var(--px), var(--py)) scale(0.3); }
+  }
+
+  /* Toggle controls di nav */
+  .nav-controls{ display: flex; align-items: center; gap: 10px; }
+  .icon-btn{
+    width: 34px; height: 34px;
+    border: 1px solid var(--line-bright);
+    background: transparent;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-dim);
+  }
+  .icon-btn:hover{ border-color: var(--red-dim); color: var(--text); }
+  .icon-btn svg{ width: 16px; height: 16px; fill: currentColor; }
 
   /* ============ NAV ============ */
   header{
@@ -391,7 +494,123 @@
   }
   .panel-link:hover{ border-color: var(--red-glow); color: var(--red-glow); }
 
-  /* ============ SUPPORT ============ */
+  /* ============ STATS ============ */
+  .stats-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .stat-card{
+    border: 1px solid var(--line);
+    background: var(--bg-panel);
+    padding: 24px 18px;
+    text-align: center;
+  }
+  .stat-num{
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--red-glow);
+    text-shadow: 0 0 18px rgba(255,59,48,0.35);
+  }
+  .stat-label{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ============ SCHEDULE ============ */
+  .schedule-grid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .schedule-day{
+    border: 1px solid var(--line);
+    background: var(--bg-panel);
+    padding: 16px 8px;
+    text-align: center;
+  }
+  .schedule-day.active{ border-color: var(--red-dim); background: rgba(225,6,0,0.06); }
+  .schedule-day .day-name{ font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); text-transform: uppercase; }
+  .schedule-day .day-time{ font-family: var(--font-display); font-size: 14px; margin-top: 8px; }
+  .schedule-day.off .day-time{ color: var(--text-faint); }
+  @media (max-width: 700px){ .schedule-grid{ grid-template-columns: repeat(4, 1fr); } }
+
+  /* ============ TESTIMONIALS ============ */
+  .testi-wrap{ max-width: 720px; margin: 0 auto; position: relative; }
+  .testi-card{
+    border: 1px solid var(--line);
+    background: var(--bg-panel);
+    padding: 32px;
+    text-align: center;
+    display: none;
+  }
+  .testi-card.active{ display: block; }
+  .testi-quote{ font-size: 15.5px; color: var(--text); margin-bottom: 16px; line-height: 1.6; }
+  .testi-name{ font-family: var(--font-mono); font-size: 12px; color: var(--red-glow); }
+  .testi-dots{ display: flex; gap: 8px; justify-content: center; margin-top: 20px; }
+  .testi-dot{ width: 8px; height: 8px; border-radius: 50%; background: var(--line-bright); border: none; cursor: pointer; }
+  .testi-dot.active{ background: var(--red-glow); }
+
+  /* ============ GALLERY ============ */
+  .gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .gallery-item{
+    border: 1px solid var(--line);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: zoom-in;
+    background: var(--bg-panel);
+  }
+  .gallery-item img{ width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+  .gallery-item:hover img{ transform: scale(1.06); }
+
+  /* ============ FAQ ============ */
+  .faq-list{ max-width: 760px; margin: 0 auto; }
+  .faq-item{ border-bottom: 1px solid var(--line); }
+  .faq-question{
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px 4px;
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-question .icon{ color: var(--red-glow); font-size: 20px; transition: transform 0.2s ease; }
+  .faq-item.open .faq-question .icon{ transform: rotate(45deg); }
+  .faq-answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    color: var(--text-dim);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .faq-answer p{ padding: 0 4px 20px; }
+
+  /* ============ DONATION PROGRESS ============ */
+  .donation-goal{ margin-top: 24px; }
+  .donation-goal-labels{ display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-bottom: 8px; }
+  .donation-bar-track{ height: 10px; background: #1a1a1e; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .donation-bar-fill{ height: 100%; width: 0%; background: linear-gradient(90deg, var(--red-dim), var(--red-glow)); transition: width 1.2s ease; }
   .support-panel{
     max-width: 1160px;
     margin: 0 auto;
@@ -747,6 +966,8 @@
 </head>
 <body>
 
+<div id="loadScreen"><div class="load-logo">PENG<span>.</span></div></div>
+
 <div class="grid-bg"></div>
 
 <header>
@@ -755,11 +976,24 @@
     <ul class="nav-links">
       <li><a href="#tentang">Tentang</a></li>
       <li><a href="#proyek">Proyek</a></li>
+      <li><a href="#jadwal">Jadwal</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#dukung">Dukung</a></li>
     </ul>
-    <div class="live-pill" id="livePill">
-      <span class="dot"></span>
-      <span id="liveText">OFFLINE</span>
+    <div class="nav-controls">
+      <button class="icon-btn" id="notifBtn" aria-label="Aktifkan notifikasi live" title="Notifikasi saat live">
+        <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+      </button>
+      <button class="icon-btn" id="soundBtn" aria-label="Aktifkan/matikan suara" title="Suara UI">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-.77-3.29-2-4.29v8.58c1.23-1 2-2.52 2-4.29z"/></svg>
+      </button>
+      <button class="icon-btn" id="themeBtn" aria-label="Ganti tema terang/gelap" title="Mode terang/gelap">
+        <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+      </button>
+      <div class="live-pill" id="livePill">
+        <span class="dot"></span>
+        <span id="liveText">OFFLINE</span>
+      </div>
     </div>
   </nav>
 </header>
@@ -799,6 +1033,22 @@
         <div class="spec-row"><span>KARAKTER VOKAL</span><b>Cempreng</b></div>
         <div class="spec-row"><span>BASIS</span><b>Tekad, ID</b></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="statistik">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Statistik</div>
+      <h2>Angka dari layar live</h2>
+      <p>Data ini bisa disambungkan ke API status TikTok kamu yang sudah ada — sekarang tampil sebagai contoh.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-num" data-count="1400">0</div><div class="stat-label">Jam Live</div></div>
+      <div class="stat-card"><div class="stat-num" data-count="52000">0</div><div class="stat-label">Follower</div></div>
+      <div class="stat-card"><div class="stat-num" data-count="8600">0</div><div class="stat-label">Total Gift</div></div>
+      <div class="stat-card"><div class="stat-num" data-count="310">0</div><div class="stat-label">Produk Terjual</div></div>
     </div>
   </div>
 </section>
@@ -854,6 +1104,52 @@
         <span class="panel-link">Segera hadir</span>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Testimoni</div>
+      <h2>Kata pembeli alat streaming</h2>
+      <p>Ganti dengan review asli dari pembeli TikTok Shop kamu.</p>
+    </div>
+    <div class="testi-wrap">
+      <div class="testi-card active">
+        <p class="testi-quote">"Soundcard-nya mantap, suara jadi lebih cempreng dan jernih waktu live. Pengiriman juga cepat."</p>
+        <div class="testi-name">— Pembeli TikTok Shop</div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"Overlay-nya keren banget, langsung jadi ciri khas stream saya sendiri."</p>
+        <div class="testi-name">— Sesama Streamer</div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"Respon fast, barangnya sesuai deskripsi. Bakal order lagi."</p>
+        <div class="testi-name">— Pembeli TikTok Shop</div>
+      </div>
+      <div class="testi-dots" id="testiDots"></div>
+    </div>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Galeri</div>
+      <h2>Overlay & setup streaming</h2>
+      <p>Ganti gambar di bawah dengan screenshot overlay/produk asli kamu. Klik untuk perbesar.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openGalleryLightbox('https://fery.my.id/gallery-1.jpg')">
+        <img src="https://fery.my.id/gallery-1.jpg" alt="Overlay streaming PeNg." loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openGalleryLightbox('https://fery.my.id/gallery-2.jpg')">
+        <img src="https://fery.my.id/gallery-2.jpg" alt="Setup alat streaming PeNg." loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openGalleryLightbox('https://fery.my.id/gallery-3.jpg')">
+        <img src="https://fery.my.id/gallery-3.jpg" alt="Produk audio PeNg." loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -915,6 +1211,52 @@
   </div>
 </section>
 
+<section id="jadwal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Jadwal</div>
+      <h2>Jadwal live mingguan</h2>
+      <p>Sesuaikan jam di bawah dengan jadwal live kamu yang sebenarnya.</p>
+    </div>
+    <div class="schedule-grid">
+      <div class="schedule-day active"><div class="day-name">Sen</div><div class="day-time">20:00</div></div>
+      <div class="schedule-day off"><div class="day-name">Sel</div><div class="day-time">Libur</div></div>
+      <div class="schedule-day active"><div class="day-name">Rab</div><div class="day-time">20:00</div></div>
+      <div class="schedule-day active"><div class="day-name">Kam</div><div class="day-time">20:00</div></div>
+      <div class="schedule-day off"><div class="day-name">Jum</div><div class="day-time">Libur</div></div>
+      <div class="schedule-day active"><div class="day-name">Sab</div><div class="day-time">21:00</div></div>
+      <div class="schedule-day active"><div class="day-name">Min</div><div class="day-time">21:00</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">FAQ</div>
+      <h2>Pertanyaan umum</h2>
+    </div>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <button class="faq-question">Bagaimana cara donasi ke PeNg.?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>Scan kode QRIS di bagian "Dukung" pakai aplikasi e-wallet atau mobile banking apa pun yang mendukung QRIS.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Kapan Fery live?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>Cek jadwal mingguan di bagian "Jadwal" di atas, atau aktifkan notifikasi lewat tombol lonceng di navbar.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Di mana beli alat streaming yang dipakai Fery?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>Semua alat streaming (soundcard, mixer, DAW hardware) tersedia di TikTok Shop, linknya ada di halaman TikTok kamu.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Apakah proyek/overlay yang dibuat Fery bisa dibeli?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>Beberapa template overlay dan preset OBS tersedia sebagai produk digital, hubungi lewat sosial media untuk info lebih lanjut.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="dukung">
   <div class="support-panel">
     <div>
@@ -922,6 +1264,10 @@
       <h2 class="neon-text">Bantu PeNg. terus berkembang</h2>
       <p>Setiap dukungan dipakai langsung untuk upgrade alat streaming dan biaya server proyek-proyek di atas. Scan kode di samping atau lewat tombol dukung saat live.</p>
       <a href="#" class="btn btn-primary">Kirim Dukungan</a>
+      <div class="donation-goal" id="donationGoal" data-target="65">
+        <div class="donation-goal-labels"><span>Target Bulan Ini</span><span id="donationPct">0%</span></div>
+        <div class="donation-bar-track"><div class="donation-bar-fill" id="donationFill"></div></div>
+      </div>
     </div>
     <div class="qris-frame">
       <img src="https://fery.my.id/Qris.png" alt="Kode QRIS untuk donasi ke PeNg. milik Fery" loading="lazy" id="qrisImg" onclick="openQrisLightbox()">
@@ -937,6 +1283,13 @@
     </div>
   </div>
 </section>
+
+<div class="qris-lightbox" id="galleryLightbox" onclick="closeGalleryLightbox(event)">
+  <div class="qris-lightbox-inner" style="background:#0d0d10; padding:8px;">
+    <button class="qris-lightbox-close" onclick="closeGalleryLightbox(event)" aria-label="Tutup">&times;</button>
+    <img id="galleryLightboxImg" src="" alt="Galeri diperbesar" style="border-radius:4px;">
+  </div>
+</div>
 </main>
 
 <footer>
@@ -988,6 +1341,193 @@
       });
     }, { threshold: 0.3 });
     shadowObserver.observe(shadowFigure);
+  }
+
+  // ===== LOADING SCREEN =====
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loadScreen').classList.add('hide');
+    }, 700);
+  });
+
+  // ===== SOUND TOGGLE (Web Audio API — tanpa file eksternal) =====
+  let soundOn = localStorage.getItem('peng_sound') === 'on';
+  const soundBtn = document.getElementById('soundBtn');
+  function updateSoundBtn(){ soundBtn.style.color = soundOn ? 'var(--red-glow)' : ''; }
+  updateSoundBtn();
+  function playClickSound(){
+    if (!soundOn) return;
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(880, ctx.currentTime);
+      gain.gain.setValueAtTime(0.06, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.12);
+    } catch(e) {}
+  }
+  soundBtn.addEventListener('click', () => {
+    soundOn = !soundOn;
+    localStorage.setItem('peng_sound', soundOn ? 'on' : 'off');
+    updateSoundBtn();
+    playClickSound();
+  });
+  document.querySelectorAll('button, .btn, .foot-links a').forEach(el => {
+    el.addEventListener('click', playClickSound);
+  });
+
+  // ===== THEME TOGGLE (dark/light) =====
+  const themeBtn = document.getElementById('themeBtn');
+  let currentTheme = localStorage.getItem('peng_theme') || 'dark';
+  function applyTheme(t){
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    else document.documentElement.removeAttribute('data-theme');
+    currentTheme = t;
+    localStorage.setItem('peng_theme', t);
+  }
+  applyTheme(currentTheme);
+  themeBtn.addEventListener('click', () => {
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+
+  // ===== NOTIFIKASI LIVE (Notification API, aktif selama tab terbuka) =====
+  const notifBtn = document.getElementById('notifBtn');
+  notifBtn.addEventListener('click', async () => {
+    if (!('Notification' in window)) {
+      alert('Browser ini tidak mendukung notifikasi.');
+      return;
+    }
+    const perm = await Notification.requestPermission();
+    if (perm === 'granted') {
+      notifBtn.style.color = 'var(--red-glow)';
+      new Notification('PeNg.', { body: 'Notifikasi diaktifkan. Kamu akan diberi tahu saat live dimulai (selama tab ini terbuka).' });
+      // Sambungkan ke polling status TikTok asli kamu di sini,
+      // lalu panggil new Notification('PeNg. sedang LIVE!') saat status berubah jadi live.
+    }
+  });
+
+  // ===== PARALLAX GRID BACKGROUND =====
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        document.querySelector('.grid-bg').style.transform = `translateY(${y * 0.08}px)`;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // ===== PARTIKEL KLIK DI HERO =====
+  document.querySelector('.hero').addEventListener('click', (e) => {
+    for (let i = 0; i < 6; i++) {
+      const p = document.createElement('span');
+      p.className = 'click-particle';
+      const angle = (Math.PI * 2 * i) / 6;
+      const dist = 30 + Math.random() * 20;
+      p.style.setProperty('--px', `${Math.cos(angle) * dist}px`);
+      p.style.setProperty('--py', `${Math.sin(angle) * dist}px`);
+      p.style.left = `${e.clientX}px`;
+      p.style.top = `${e.clientY}px`;
+      document.body.appendChild(p);
+      p.addEventListener('animationend', () => p.remove());
+    }
+  });
+
+  // ===== STATISTIK COUNT-UP =====
+  const statNums = document.querySelectorAll('.stat-num');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const duration = 1200;
+        const startTime = performance.now();
+        function tick(now){
+          const progress = Math.min((now - startTime) / duration, 1);
+          el.textContent = Math.floor(progress * target).toLocaleString('id-ID');
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target.toLocaleString('id-ID');
+        }
+        requestAnimationFrame(tick);
+        statObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  statNums.forEach(el => statObserver.observe(el));
+
+  // ===== TESTIMONIAL CAROUSEL =====
+  const testiCards = document.querySelectorAll('.testi-card');
+  const testiDotsWrap = document.getElementById('testiDots');
+  let testiIndex = 0;
+  testiCards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => showTesti(i));
+    testiDotsWrap.appendChild(dot);
+  });
+  function showTesti(i){
+    testiCards.forEach(c => c.classList.remove('active'));
+    testiDotsWrap.querySelectorAll('.testi-dot').forEach(d => d.classList.remove('active'));
+    testiCards[i].classList.add('active');
+    testiDotsWrap.children[i].classList.add('active');
+    testiIndex = i;
+  }
+  setInterval(() => { showTesti((testiIndex + 1) % testiCards.length); }, 6000);
+
+  // ===== FAQ ACCORDION =====
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ===== DONATION PROGRESS BAR =====
+  const donationGoal = document.getElementById('donationGoal');
+  if (donationGoal) {
+    const donationObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const pct = parseInt(donationGoal.dataset.target, 10);
+          document.getElementById('donationFill').style.width = pct + '%';
+          document.getElementById('donationPct').textContent = pct + '%';
+          donationObserver.unobserve(donationGoal);
+        }
+      });
+    }, { threshold: 0.4 });
+    donationObserver.observe(donationGoal);
+  }
+
+  // ===== GALLERY LIGHTBOX =====
+  function openGalleryLightbox(src){
+    document.getElementById('galleryLightboxImg').src = src;
+    document.getElementById('galleryLightbox').classList.add('open');
+  }
+  function closeGalleryLightbox(e){
+    if (e.target.closest('.qris-lightbox-inner') && !e.target.closest('.qris-lightbox-close')) return;
+    document.getElementById('galleryLightbox').classList.remove('open');
+  }
+
+  // ===== REGISTER SERVICE WORKER (PWA) =====
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+    });
   }
 </script>
 
