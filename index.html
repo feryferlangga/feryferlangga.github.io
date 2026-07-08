@@ -1,418 +1,602 @@
-<!doctype html>
-<html lang="id" data-theme="dark" data-lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="utf-8">
-  <title>Fery.my.id — Freelancer Gamer & Live Streamer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Fery — Freelancer Gamer & Live Streamer. Portfolio, proyek, jadwal live, dan kontak. Tampilan neon rapi, cepat, responsif."/>
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://fery.my.id" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PeNg. — Fery | Streaming, Alat & Eksperimen Digital</title>
+<meta name="description" content="Kanal streaming dan lab eksperimen digital milik Fery dari Tekad, Bengkulu. Alat streaming, sistem donasi, overlay TikTok LIVE, dan proyek open-source.">
+<meta name="keywords" content="PeNg, Fery, streamer TikTok, alat streaming, overlay OBS, sistem donasi, Tekad Bengkulu">
+<meta name="author" content="Fery">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fery.my.id/">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;600;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet"></noscript>
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fery.my.id/">
+<meta property="og:title" content="PeNg. — Fery | Streaming, Alat & Eksperimen Digital">
+<meta property="og:description" content="Kanal streaming dan lab eksperimen digital milik Fery dari Tekad, Bengkulu. Alat streaming, sistem donasi, overlay TikTok LIVE, dan proyek open-source.">
+<meta property="og:image" content="https://fery.my.id/og-image.jpg">
+<meta property="og:locale" content="id_ID">
 
-  <!-- Open Graph / Twitter SEO -->
-  <meta property="og:title" content="Fery.my.id — Freelancer Gamer & Live Streamer"/>
-  <meta property="og:description" content="Portfolio, proyek, jadwal live, dan kontak. Freelancer gamer & live streamer dengan tampilan neon responsif."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://fery.my.id"/>
-  <meta property="og:site_name" content="Fery.my.id"/>
-  <meta property="og:image" content="https://fery.my.id/og-image.jpg"/>
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Fery — Gamer & Live Streamer" />
-  <meta property="og:image:secure_url" content="https://fery.my.id/og-image.jpg">
-  <meta name="twitter:image" content="https://fery.my.id/og-image.jpg">
-  <meta name="twitter:image:alt" content="Fery — Gamer & Live Streamer">
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fery.my.id — Freelancer Gamer & Live Streamer" />
-  <meta name="twitter:description" content="Portfolio, proyek, jadwal live, dan kontak. Freelancer gamer & live streamer dengan tampilan neon responsif." />
-  <meta name="theme-color" content="#0e0e18"/>
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@AfuckingAA">
+<meta name="twitter:title" content="PeNg. — Fery | Streaming, Alat & Eksperimen Digital">
+<meta name="twitter:description" content="Kanal streaming dan lab eksperimen digital milik Fery dari Tekad, Bengkulu.">
+<meta name="twitter:image" content="https://fery.my.id/og-image.jpg">
 
-  <!-- i18n & SEO locales -->
-  <link rel="alternate" hreflang="id" href="https://fery.my.id/">
-  <link rel="alternate" hreflang="en" href="https://fery.my.id/?lang=en">
-  <link rel="alternate" hreflang="x-default" href="https://fery.my.id/">
-  <meta property="og:locale" content="id_ID">
-  <meta property="og:locale:alternate" content="en_US">
-  <!-- Privacy-friendly analytics (remove if not used) -->
-  <script defer data-domain="fery.my.id" src="https://plausible.io/js/script.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Fery",
+  "alternateName": "PeNg.",
+  "url": "https://fery.my.id/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tekad",
+    "addressRegion": "Bengkulu",
+    "addressCountry": "ID"
+  },
+  "sameAs": [
+    "https://www.tiktok.com/@feryferlanggaa",
+    "https://instagram.com/feryferlangga",
+    "https://facebook.com/feryferlangga",
+    "https://x.com/AfuckingAA"
+  ]
+}
+</script>
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Fery",
-    "alternateName": ["Fery Ferlangga", "Fery Gamer"],
-    "additionalName": "Ferlangga",
-    "url": "https://fery.my.id",
-    "image": "https://fery.my.id/og-image.jpg",
-    "sameAs": [
-      "https://tiktok.com/@feryferlangga",
-      "https://youtube.com/@feryferlangga",
-      "https://instagram.com/feryferlangga",
-      "https://github.com/feryferlangga"
-    ],
-    "email": "mailto:admin@fery.my.id",
-    "jobTitle": "Freelancer Gamer & Live Streamer",
-    "knowsAbout": ["GTA V", "Genshin Impact", "Valorant", "Live Streaming", "OBS", "Overlay Design"]
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #09090b;
+    --bg-panel: #131316;
+    --bg-panel-hover: #18181c;
+    --red: #e10600;
+    --red-dim: #4a0a08;
+    --red-glow: #ff3b30;
+    --text: #f2f0ee;
+    --text-dim: #93939c;
+    --text-faint: #55555e;
+    --line: #232328;
+    --line-bright: #3a3a42;
+    --font-display: 'Chakra Petch', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://fery.my.id",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://fery.my.id/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    overflow-x: hidden;
   }
-  </script>
 
-  <!-- Identity links for verification / rel=me -->
-  <link rel="me" href="https://tiktok.com/@feryferlangga">
-  <link rel="me" href="https://youtube.com/@feryferlangga">
-  <link rel="me" href="https://instagram.com/feryferlangga">
-  <link rel="me" href="https://github.com/feryferlangga">
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
 
-  <!-- Icons & Manifest -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23121228'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-size='16' fill='%2300ffe0' font-family='Arial' font-weight='700'%3EF%3C/text%3E%3C/svg%3E">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  <link rel="preload" as="image" href="/og-image.jpg">
+  a{ color: inherit; text-decoration: none; }
+  ul{ list-style: none; }
 
-  <!-- CSS inline -->
-  <style>
-    :root{
-      --bg:#0e0e18; --panel:#121228; --text:#e6e6ff; --muted:#a7a7c7;
-      --p:#8a2be2; --s:#00ffe0; --a:#ff0080; --ring:0 0 12px rgba(0,255,224,.35);
-      --maxw:1100px;
-      --heading: "Orbitron", system-ui, sans-serif;
-      --body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  .wrap{
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* background texture */
+  .grid-bg{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.35;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 10%, transparent 75%);
+    pointer-events: none;
+  }
+
+  /* ============ NAV ============ */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(9,9,11,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .logo{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+  }
+  .logo span{ color: var(--red-glow); }
+  .nav-links{
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+  .nav-links a:hover{ color: var(--text); }
+  .live-pill{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 6px 12px;
+    border: 1px solid var(--line-bright);
+    border-radius: 3px;
+    color: var(--text-dim);
+  }
+  .dot{
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
+  .live-pill.on .dot{
+    background: var(--red-glow);
+    box-shadow: 0 0 8px var(--red-glow);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  .live-pill.on{ color: var(--text); border-color: var(--red-dim); }
+  @keyframes pulse{
+    0%,100%{ opacity: 1; transform: scale(1); }
+    50%{ opacity: 0.4; transform: scale(0.8); }
+  }
+  @media (max-width: 720px){ .nav-links{ display:none; } }
+
+  /* ============ HERO ============ */
+  .hero{
+    position: relative;
+    padding: 100px 24px 70px;
+    text-align: center;
+    z-index: 1;
+  }
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--red-glow);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero h1{
+    font-family: var(--font-display);
+    font-size: clamp(52px, 11vw, 108px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 .glow{
+    color: var(--red);
+    text-shadow: 0 0 30px rgba(225,6,0,0.5), 0 0 60px rgba(255,59,48,0.25);
+  }
+
+  /* ============ NEON TEXT ============ */
+  .neon-text{
+    color: #fff;
+    text-shadow:
+      0 0 4px rgba(255,255,255,0.8),
+      0 0 12px var(--red-glow),
+      0 0 26px var(--red-glow),
+      0 0 48px var(--red);
+  }
+  .neon-flicker{
+    animation: neon-flicker 4.5s infinite;
+  }
+  @keyframes neon-flicker{
+    0%, 3%, 6%, 100%{
+      text-shadow:
+        0 0 4px rgba(255,255,255,0.85),
+        0 0 14px var(--red-glow),
+        0 0 30px var(--red-glow),
+        0 0 55px var(--red);
+      opacity: 1;
     }
-    html[data-theme="light"]{ --bg:#f7f8ff; --panel:#ffffff; --text:#0c0c1a; --muted:#63637a; --p:#6e3adb; --s:#0fb; --a:#ff2a89; --ring:0 0 8px rgba(0,0,0,.08); }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--body)}
-    h1,h2,h3{font-family:var(--heading);letter-spacing:.02em}
-    img{display:block;max-width:100%;height:auto}
-    a{color:var(--s);text-decoration:none}
-    .container{width:min(var(--maxw),92%);margin-inline:auto}
-    .section{padding:56px 0;border-top:1px solid #1f1f39}
-    .muted{color:var(--muted)} .small{font-size:.9rem}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .bg-anim{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1200px 800px at 15% 20%, rgba(0,255,224,.10), transparent 60%), radial-gradient(1000px 700px at 85% 70%, rgba(255,0,128,.10), transparent 60%), linear-gradient(120deg, #0b0b16, #0f0f2a 40%, #0b0b16); filter:saturate(115%)}
-    .bg-anim::after{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg, transparent 0 25%, rgba(138,43,226,.12) 25% 50%, transparent 50% 75%, rgba(0,255,224,.12) 75%);animation:spin 24s linear infinite;mix-blend-mode:soft-light;opacity:.35}
-    @keyframes spin{to{transform:rotate(1turn)}}
-    header{position:sticky;top:0;background:linear-gradient(180deg,var(--bg) 70%,transparent);backdrop-filter:saturate(120%) blur(6px);z-index:10}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;flex-direction:column;gap:2px}
-    .logo{font-weight:900;letter-spacing:.12em;background:linear-gradient(90deg,var(--s),var(--p),var(--a));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 18px rgba(255,0,128,.25)}
-    .tagline{font-weight:600;color:var(--muted);font-size:.85rem}
-    .menu{display:flex;gap:10px;list-style:none;margin:0;padding:0}
-    .menu a{padding:10px 12px;border-radius:10px;display:inline-block}
-    .btn-primary{background:linear-gradient(90deg,var(--s),var(--p));color:#0b0b12;border:0;padding:10px 16px;border-radius:12px;font-weight:800;box-shadow:var(--ring)}
-    .btn-ghost{border:1px solid #2b2b4a;padding:10px 16px;border-radius:12px;color:var(--text);background:#111126;font-weight:700;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
-    .btn-ghost:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.35), 0 0 18px rgba(0,255,224,.12);border-color:#3a3a66}
-    .chips button.btn-ghost{background:#121228;color:var(--text);border:1px solid #2b2b4a}
-    .theme-toggle{border:1px solid #2b2b4a;border-radius:999px;padding:6px 10px;cursor:pointer;font-size:.9rem;background:#111126;color:var(--text)}
-    html[data-theme="light"] .theme-toggle{background:#fff}
-    .hamburger{display:none;position:relative;width:42px;height:38px;border:1px solid #2b2b4a;border-radius:10px;background:transparent;color:var(--text)}
-    .hamburger .bar{position:absolute;left:8px;right:8px;height:2px;background:var(--text);transition:transform .25s ease, opacity .2s ease, top .25s ease}
-    .hamburger .bar:nth-child(1){top:12px}
-    .hamburger .bar:nth-child(2){top:18px}
-    .hamburger .bar:nth-child(3){top:24px}
-    .hamburger.open .bar:nth-child(1){top:18px;transform:rotate(45deg)}
-    .hamburger.open .bar:nth-child(2){opacity:0}
-    .hamburger.open .bar:nth-child(3){top:18px;transform:rotate(-45deg)}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:20px 0 36px}
-    .hero h1{font-size:clamp(28px,4vw,48px);margin:0 0 10px}
-    .neon{text-shadow:0 0 15px rgba(0,255,224,.4),0 0 30px rgba(122,0,255,.35)}
-    .gradient{background:linear-gradient(90deg,var(--s),var(--p),var(--a));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .actions{display:flex;gap:12px;margin:14px 0}
-    .hero-art{min-height:240px;border-radius:16px;overflow:hidden;border:1px solid #26264a;background:radial-gradient(circle at 30% 20%, rgba(0,255,224,.15), transparent 40%), radial-gradient(circle at 80% 60%, rgba(255,0,128,.12), transparent 40%)}
-    .hero-art svg{width:100%;height:auto;display:block;opacity:.9}
-    .socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-    .icon-btn{display:inline-flex;align-items:center;gap:8px;background:#111126;border:1px solid #2b2b4a;border-radius:12px;padding:10px 14px;color:var(--text);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
-    .icon-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.35), 0 0 18px rgba(0,255,224,.25);border-color:#3a3a66}
-    .icon-btn svg{width:20px;height:20px;display:block}
-    .icon-btn.tiktok{color:#ff0050}.icon-btn.youtube{color:#ff0000}.icon-btn.instagram{color:#e1306c}.icon-btn.discord{color:#7289da}.icon-btn.email{color:var(--s)}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;padding:0;margin:12px 0 0;list-style:none}
-    .chips li{padding:8px 12px;border:1px solid #2b2b4a;border-radius:999px;background:#12122866}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-    .card{display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(18,18,40,.8),rgba(18,18,40,.5));border:1px solid #2b2b4a;border-radius:14px;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;max-width:none;margin:0}
-    .card:hover{transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.45), 0 0 24px rgba(0,255,224,.15);border-color:#3a3a66}
-    .card img{aspect-ratio:16/9;object-fit:cover}
-    .card-body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
-    .card-body h3{margin:4px 0;font-size:1rem}
-    .card-body p{font-size:.9rem;color:var(--muted)}
-    .card-actions{display:flex;gap:8px;margin-top:auto}
-    .tags{display:flex;gap:6px;flex-wrap:wrap}
-    .badge{display:inline-block;padding:2px 8px;border:1px solid #2b2b4a;border-radius:999px;font-size:.72rem;color:var(--muted)}
-    .dot{margin-left:8px;color:#ff4d4f;text-shadow:0 0 10px rgba(255,77,79,.6)}
-    .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#111126;border:1px solid #2b2b4a;color:#e6e6ff;padding:10px 14px;border-radius:10px;box-shadow:var(--ring);opacity:0;pointer-events:none;transition:opacity .2s ease}
-    .toast.show{opacity:1}
-    :focus-visible{outline:2px solid var(--s); outline-offset:2px; border-radius:8px}
-    :root[data-lang="id"] [lang="en"]{display:none}
-    :root[data-lang="en"] [lang="id"]{display:none}
-    .menu a.active{border-bottom:2px solid var(--s)}
-    #progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--s),var(--p));transform:scaleX(0);transform-origin:left;z-index:999}
-    .searchbar input{width:100%;background:#111126;border:1px solid #2b2b4a;border-radius:12px;color:var(--text);padding:10px 12px;margin:10px 0}
-    @media (prefers-reduced-motion: reduce){ .bg-anim::after{animation:none;opacity:.15} .icon-btn:hover,.card:hover{transform:none;box-shadow:none} }
-    @media (max-width:680px){ .cta-float{position:fixed;right:14px;bottom:14px;z-index:20} }
-    .video-card{position:relative;max-width:760px;margin:auto;border:1px solid #2b2b4a;border-radius:16px;overflow:hidden;background:#0b0b16}
-    .video-cover{display:block;width:100%;aspect-ratio:16/9;border:0;background:linear-gradient(135deg,#121228,#0b0b16);cursor:pointer;position:relative}
-    .video-thumb{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%, rgba(0,255,224,.15), transparent 60%)}
-    .video-cta{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:10px 14px;border-radius:12px;background:#111126;border:1px solid #2b2b4a;box-shadow:var(--ring)}
-    .video-iframe{width:100%;aspect-ratio:16/9;border:0}
-    .map-card{position:relative;max-width:760px;margin:auto;border:1px solid #2b2b4a;border-radius:16px;overflow:hidden;background:#0b0b16;box-shadow:var(--ring)}
-    .map-iframe{width:100%;aspect-ratio:16/9;border:0}
-    .cta-chat{position:fixed;right:14px;bottom:60px;z-index:20}
-    @media (min-width:681px){ .cta-chat{bottom:20px; right:120px;} }
-    .donate .qris-card{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:linear-gradient(180deg,rgba(18,18,40,.8),rgba(18,18,40,.5));border:1px solid #2b2b4a;border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    .qr-wrap{background:#fff;border-radius:12px;padding:12px;box-shadow:0 0 0 6px rgba(255,255,255,.02) inset}
-    .qr-wrap img{display:block;width:256px;height:256px}
-    dialog::backdrop{background:rgba(0,0,0,.6)} dialog{border:none;border-radius:16px;padding:0}
-    @media (max-width:680px){ .donate .qris-card{grid-template-columns:1fr;justify-items:center;text-align:center} .qr-wrap img{width:220px;height:220px} }
-    .footer{padding:28px 0 50px;color:var(--muted)}
-    .footer .footgrid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
-    .foot-links{display:flex;gap:14px}
-    .foot-socials{display:flex;gap:10px}
-    .foot-socials a{display:inline-flex;padding:8px;border:1px solid #2b2b4a;border-radius:10px}
-    .heart{color:var(--a);text-shadow:0 0 12px rgba(255,0,128,.6)}
-    .btn-primary,.btn-ghost,.menu a{min-height:44px}
-    .contact input,.contact textarea{min-height:44px}
-    .card{will-change:transform}
-    @media (min-width:1200px){ :root{--maxw:1200px} .hero h1{font-size:clamp(28px,3vw,64px)} }
-    @media (min-width:1600px){ :root{--maxw:1320px} }
-    @media (max-width:900px){ .menu{gap:8px} }
-    @media (max-width:480px){ .section{padding:36px 0} .tagline{font-size:.8rem} .card-body{padding:10px} }
-    @supports(padding:max(0px)){ header{padding-top:max(0px, env(safe-area-inset-top))} body{padding-bottom:max(0px, env(safe-area-inset-bottom))} .cta-chat{bottom:max(20px, env(safe-area-inset-bottom))} }
-    @media (max-width: 900px){ .hero{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} }
-    @media (max-width: 680px){ .menu{display:none;flex-direction:column;position:absolute;right:4%;top:64px;background:var(--bg);border:1px solid #2b2b4a;border-radius:12px;padding:12px;width:min(260px,92%)} .menu.show{display:flex} .hamburger{display:inline-flex;align-items:center;justify-content:center} .actions{flex-direction:column;align-items:flex-start} .grid{grid-template-columns:1fr} .section{padding:42px 0} .container{width:94%} .menu a{padding:12px} }
-  </style>
-  <script type="application/ld+json">
-  { "@context":"https://schema.org", "@type":"Place", "name":"Fery", "url":"https://fery.my.id", "hasMap":"https://maps.app.goo.gl/TYLFSXfuijFBHSAZA" }
-  </script>
+    4%, 5%{ opacity: 0.55; text-shadow: none; }
+    7%{ opacity: 0.9; }
+  }
+  .neon-sign{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 0 6px var(--red-glow), 0 0 18px var(--red);
+    border: 1px solid var(--red-dim);
+    border-radius: 3px;
+    padding: 8px 16px;
+  }
+  .neon-sign .dot-on{
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--red-glow);
+    box-shadow: 0 0 8px var(--red-glow), 0 0 16px var(--red);
+  }
+  .hero p{
+    max-width: 520px;
+    margin: 22px auto 0;
+    color: var(--text-dim);
+    font-size: 16px;
+  }
+  .hero-ctas{
+    margin-top: 36px;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn{
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px 26px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-primary{ background: var(--red); color: #fff; }
+  .btn-primary:hover{ background: var(--red-glow); }
+  .btn-ghost{ border-color: var(--line-bright); color: var(--text); }
+  .btn-ghost:hover{ border-color: var(--red-glow); }
+
+  /* ============ TICKER ============ */
+  .ticker-bar{
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-panel);
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+  }
+  .ticker-track{
+    display: inline-flex;
+    animation: scroll-left 28s linear infinite;
+    padding: 12px 0;
+  }
+  .ticker-track span{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    padding: 0 28px;
+    border-right: 1px solid var(--line-bright);
+    letter-spacing: 0.5px;
+  }
+  @keyframes scroll-left{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  /* ============ SECTION SHARED ============ */
+  section{ position: relative; z-index: 1; padding: 90px 24px; }
+  .section-head{ margin-bottom: 48px; max-width: 640px; }
+  .section-tag{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--red-glow);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-head h2{
+    font-family: var(--font-display);
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+  .section-head p{ color: var(--text-dim); margin-top: 12px; font-size: 15px; }
+
+  /* ============ ABOUT ============ */
+  .about-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .about-grid p{ color: var(--text-dim); font-size: 15px; margin-bottom: 14px; }
+  .spec-panel{
+    border: 1px solid var(--line);
+    background: var(--bg-panel);
+    padding: 22px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .spec-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--text-dim);
+  }
+  .spec-row:last-child{ border-bottom: none; }
+  .spec-row b{ color: var(--text); font-weight: 500; }
+  @media (max-width: 800px){ .about-grid{ grid-template-columns: 1fr; } }
+
+  /* ============ PROJECTS - HUD PANELS ============ */
+  .panel-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .hud-panel{
+    position: relative;
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    padding: 26px 24px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .hud-panel:hover{ border-color: var(--red-dim); background: var(--bg-panel-hover); }
+  .hud-panel::before, .hud-panel::after{
+    content: '';
+    position: absolute;
+    width: 12px; height: 12px;
+    border-color: var(--line-bright);
+    transition: border-color 0.2s ease;
+  }
+  .hud-panel::before{ top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
+  .hud-panel::after{ bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; }
+  .hud-panel:hover::before, .hud-panel:hover::after{ border-color: var(--red-glow); }
+  .panel-status{
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .status-live{ background: rgba(225,6,0,0.15); color: var(--red-glow); }
+  .status-dev{ background: rgba(147,147,156,0.12); color: var(--text-dim); }
+  .hud-panel h3{ font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .hud-panel p{ color: var(--text-dim); font-size: 13.5px; margin-bottom: 16px; }
+  .panel-link{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text);
+    border-bottom: 1px solid var(--red-dim);
+    padding-bottom: 2px;
+  }
+  .panel-link:hover{ border-color: var(--red-glow); color: var(--red-glow); }
+
+  /* ============ SUPPORT ============ */
+  .support-panel{
+    max-width: 1160px;
+    margin: 0 auto;
+    border: 1px solid var(--line);
+    background: linear-gradient(135deg, var(--bg-panel), #0f0f12);
+    padding: 56px 40px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .support-panel h2{ font-family: var(--font-display); font-size: 28px; margin-bottom: 14px; }
+  .support-panel p{ color: var(--text-dim); font-size: 14.5px; margin-bottom: 22px; }
+  .qris-box{
+    aspect-ratio: 1;
+    max-width: 220px;
+    border: 1px dashed var(--line-bright);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-faint);
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  @media (max-width: 800px){ .support-panel{ grid-template-columns: 1fr; text-align: center; } }
+
+  /* ============ FOOTER ============ */
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  footer p{ color: var(--text-faint); font-size: 12px; font-family: var(--font-mono); }
+  .foot-links{ display: flex; gap: 20px; justify-content: center; margin-bottom: 14px; }
+  .foot-links a{ color: var(--text-dim); font-size: 13px; }
+  .foot-links a:hover{ color: var(--red-glow); }
+</style>
 </head>
 <body>
-  <div id="progress" aria-hidden="true"></div>
-  <div class="bg-anim" aria-hidden="true"></div>
-  <a class="sr-only" href="#main">Lewati ke konten utama</a>
 
-  <header class="container" role="banner">
-    <nav class="nav" aria-label="Navigasi utama">
-      <div class="brand">
-        <span class="logo">FERY.MY.ID</span>
-        <span class="tagline">Freelancer Gamer & Live Streamer</span>
-        <span id="liveDot" class="dot" hidden>● Live</span>
-      </div>
-      <div style="display:flex; gap:10px; align-items:center">
-        <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema">🌙/☀️</button>
-        <button class="theme-toggle" id="langToggle" aria-label="Ganti bahasa">ID</button>
-        <button class="hamburger" id="menuBtn" aria-expanded="false" aria-controls="mainmenu">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-      </div>
-      <ul class="menu" id="mainmenu" role="menubar">
-        <li role="none"><a role="menuitem" href="#about"><span lang="id">Tentang</span><span lang="en">About</span></a></li>
-        <li role="none"><a role="menuitem" href="#projects"><span lang="id">Game</span><span lang="en">Games</span></a></li>
-        <li role="none"><a role="menuitem" href="#donate"><span lang="id">Donasi</span><span lang="en">Donate</span></a></li>
-        <li role="none"><a role="menuitem" href="#contact" class="btn-primary"><span lang="id">Lokasi</span><span lang="en">Location</span></a></li>
-      </ul>
-    </nav>
-  </header>
+<div class="grid-bg"></div>
 
-  <main id="main">
-    <section class="hero container">
-      <div class="hero-text">
-        <h1><span class="neon">Fery</span> — <span class="gradient"><span lang="id">Freelancer Gamer & Live Streamer</span><span lang="en">Freelance Gamer & Live Streamer</span></span></h1>
-        <p class="muted"><span lang="id">Freelancer gamer & live streamer. Bangun tools, produksi overlay, dan live secara konsisten. Portofolio, jadwal, dan kontak ada di sini.</span><span lang="en">Freelance gamer & live streamer. I build tools, produce overlays, and stream consistently. Portfolio, schedule, and contact are here.</span></p>
-        <div class="actions">
-          <a class="btn-primary" href="#donate"><span lang="id">❤️ Donasi</span><span lang="en">❤️ Donate</span></a>
-          <a class="btn-ghost" href="#projects"><span lang="id">Game</span><span lang="en">Games</span></a>
-        </div>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <img id="avatarImg" src="/avatar.png" alt="Avatar Fery" loading="lazy" style="display:none;width:100%;height:auto"/>
-        <svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hero art">
-          <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#00ffe0" stop-opacity=".3"/><stop offset="1" stop-color="#8a2be2" stop-opacity=".25"/></linearGradient></defs>
-          <rect width="600" height="360" fill="url(#g1)"/>
-          <circle cx="120" cy="100" r="80" fill="#00ffe022"/>
-          <circle cx="520" cy="260" r="70" fill="#ff008022"/>
-          <rect x="180" y="140" width="240" height="80" rx="12" fill="#121228" stroke="#2b2b4a"/>
-          <text x="300" y="190" fill="#e6e6ff" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">Gamer • Streamer</text>
-        </svg>
-      </div>
-    </section>
+<header>
+  <nav>
+    <div class="logo">PeNg<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#proyek">Proyek</a></li>
+      <li><a href="#dukung">Dukung</a></li>
+    </ul>
+    <div class="live-pill" id="livePill">
+      <span class="dot"></span>
+      <span id="liveText">OFFLINE</span>
+    </div>
+  </nav>
+</header>
 
-    <section id="about" class="container section">
-      <h2><span lang="id">🕹️ Tentang</span><span lang="en">🕹️ About</span></h2>
-      <p class="muted">Halo! Saya <strong>Fery</strong>, seorang <em>Freelancer Gamer</em> dan <em>Live Streamer</em>. Fokus di konten <strong>GTA V</strong>, <strong>Genshin Impact</strong>, dan <strong>VALORANT</strong>. Terbuka untuk kolaborasi, sponsor, dan project freelance.</p>
-      <ul class="chips" aria-label="Keahlian singkat">
-        <li>Editing & Overlay</li><li>Live Production</li><li>Community</li>
-      </ul>
-    </section>
+<main>
+<section class="hero">
+  <div class="eyebrow">STREAMER · DEVELOPER · TEKAD, ID</div>
+  <h1 class="neon-text neon-flicker">PENG<span class="glow">.</span></h1>
+  <p>Kanal streaming milik Fery — sekaligus lab tempat semua alat streaming, sistem donasi, dan eksperimen digital dibangun sendiri dari nol.</p>
+  <div class="hero-ctas">
+    <a href="https://www.tiktok.com/@feryferlanggaa" target="_blank" class="btn btn-primary">Tonton di TikTok</a>
+    <a href="#proyek" class="btn btn-ghost">Lihat Proyek</a>
+  </div>
+  <div style="margin-top:32px;">
+    <span class="neon-sign"><span class="dot-on"></span>SIARAN LANGSUNG SETIAP HARI</span>
+  </div>
+</section>
 
-    <section id="projects" class="container section">
-      <h2><span lang="id">🎮 Game yang Saya Mainkan</span><span lang="en">🎮 Games I Play</span></h2>
-      <div class="searchbar"><input id="gameSearch" type="search" placeholder="Cari game... / Search games..." aria-label="Cari game"></div>
-      <div class="grid">
-        <article class="card">
-          <picture><source srcset="https://via.placeholder.com/300x180.webp?text=GTA+V" type="image/webp"/><img src="https://via.placeholder.com/300x180?text=GTA+V" alt="GTA V — freeroam, roleplay, heist highlights" loading="lazy" width="300" height="180" /></picture>
-          <div class="card-body">
-            <h3>GTA V</h3>
-            <div class="tags"><span class="badge">Roleplay</span><span class="badge">Heist</span></div>
-            <p>Freeroam, roleplay, dan heist highlights. Live 1080p60.</p>
-            <div class="card-actions"><a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a><a class="btn-primary" href="#" target="_blank" rel="noopener">Highlights</a></div>
-          </div>
-        </article>
-        <article class="card">
-          <picture><source srcset="https://via.placeholder.com/300x180.webp?text=Genshin+Impact" type="image/webp"/><img src="https://via.placeholder.com/300x180?text=Genshin+Impact" alt="Genshin Impact — Spiral Abyss, quest, dan build karakter" loading="lazy" width="300" height="180" /></picture>
-          <div class="card-body">
-            <h3>Genshin Impact</h3>
-            <div class="tags"><span class="badge">Abyss</span><span class="badge">Build</span></div>
-            <p>Spiral Abyss, quest, dan diskusi build. Fokus tim meta & eksplorasi.</p>
-            <div class="card-actions"><a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a><a class="btn-primary" href="#" target="_blank" rel="noopener">Build</a></div>
-          </div>
-        </article>
-        <article class="card">
-          <picture><source srcset="https://via.placeholder.com/300x180.webp?text=VALORANT" type="image/webp"/><img src="https://via.placeholder.com/300x180?text=VALORANT" alt="VALORANT — ranked live, aim training, dan clutch moments" loading="lazy" width="300" height="180" /></picture>
-          <div class="card-body">
-            <h3>VALORANT</h3>
-            <div class="tags"><span class="badge">Ranked</span><span class="badge">Clutch</span></div>
-            <p>Ranked live, aim training, dan clutch moments. Crosshair & sens dibagikan.</p>
-            <div class="card-actions"><a class="btn-ghost" href="#" target="_blank" rel="noopener">Playlist</a><a class="btn-primary" href="#" target="_blank" rel="noopener">Crosshair</a></div>
-          </div>
-        </article>
-      </div>
-    </section>
+<div class="ticker-bar">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
 
-    <section id="donate" class="container section donate">
-      <h2><span lang="id">💝 Dukung Siaran — QRIS</span><span lang="en">💝 Support Stream — QRIS</span></h2>
-      <div class="qris-card">
-        <div class="qr-wrap">
-          <picture><source id="qrSmallSrc" srcset="" type="image/png"/><img id="qrSmall" src="" alt="QRIS untuk donasi" width="256" height="256"/></picture>
-        </div>
-        <div>
-          <p class="muted">Terima kasih sudah mendukung siaran! Scan pakai <em>bank/e-wallet</em> berlogo QRIS. Nominal bebas.</p>
-          <div class="chips" id="donatePresets"><button class="btn-ghost" data-amt="10000">Rp10K</button><button class="btn-ghost" data-amt="20000">Rp20K</button><button class="btn-ghost" data-amt="50000">Rp50K</button></div>
-          <div class="card-actions" style="margin-top:10px"><button id="copyNmid" class="btn-ghost" type="button" aria-label="Salin NMID">Salin NMID</button><a id="downloadQris" class="btn-primary" href="#" download="Qris.png">Unduh QR</a><button id="qrOpen" class="btn-ghost" type="button">Perbesar QR</button></div>
-          <p class="small muted">NMID: <strong>ID1025411263185</strong></p>
-        </div>
+<section id="tentang">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="section-tag">Tentang</div>
+        <h2 style="font-family:var(--font-display);font-size:32px;font-weight:600;margin-bottom:16px;">Bukan cuma live streaming</h2>
+        <p>Fery membangun brand PeNg. dari dua sisi sekaligus: di depan kamera sebagai streamer TikTok Live, dan di balik layar sebagai developer yang merancang sendiri semua sistem pendukungnya — mulai dari overlay, alert donasi, sampai bot trading.</p>
+        <p>Semua proyek dibangun self-hosted, bukan sekadar pakai layanan siap pakai, supaya setiap bagian bisa dikontrol dan disesuaikan dengan identitas visual PeNg.: merah-hitam, tegas, ala HUD game kompetitif.</p>
       </div>
-      <dialog id="qrModal" aria-label="QRIS ukuran besar">
-        <div style="padding:16px;background:var(--panel);border:1px solid #2b2b4a;border-radius:16px">
-          <picture><source id="qrLargeSrc" srcset="" type="image/png"/><img id="qrLarge" src="" alt="QRIS untuk donasi — besar" width="512" height="512"/></picture>
-          <div style="display:flex;justify-content:flex-end;margin-top:10px"><button id="qrClose" class="btn-ghost" type="button">Tutup</button></div>
-        </div>
-      </dialog>
-    </section>
-
-    <section id="contact" class="container section">
-      <h2><span lang="id">🗺️ Lokasi</span><span lang="en">🗺️ Location</span></h2>
-      <div class="map-card">
-        <iframe class="map-iframe" src="https://www.google.com/maps?output=embed&q=https%3A%2F%2Fmaps.app.goo.gl%2FTYLFSXfuijFBHSAZA&hl=id&z=17" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" aria-label="Google Map"></iframe>
-      </div>
-      <div class="card-actions" style="margin-top:10px"><a class="btn-primary" href="https://maps.app.goo.gl/TYLFSXfuijFBHSAZA" target="_blank" rel="noopener"><span lang="id">Buka di Google Maps</span><span lang="en">Open in Google Maps</span></a><a class="btn-ghost" href="https://www.google.com/maps?q=https%3A%2F%2Fmaps.app.goo.gl%2FTYLFSXfuijFBHSAZA" target="_blank" rel="noopener">Google Maps (web)</a></div>
-      <p class="small muted"><span lang="id">Jika peta tidak tampil, klik tombol di atas untuk membuka langsung di aplikasi Google Maps.</span><span lang="en">If the map doesn't load, use the buttons above to open Google Maps directly.</span></p>
-    </section>
-
-    <section id="faq" class="container section" itemscope itemtype="https://schema.org/FAQPage">
-      <h2>❓ FAQ</h2>
-      <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Siapa itu Fery?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text"><strong>Fery</strong> adalah gamer dan live streamer Indonesia di platform YouTube/TikTok dengan fokus konten GTA V, Genshin Impact, dan VALORANT. Situs <a href="https://fery.my.id">fery.my.id</a> adalah pusat profil resmi (entity home) untuk brand "Fery".</p>
-        </div>
-      </div>
-      <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Apakah template ini mobile friendly?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Ya. Layout menggunakan grid responsif, hamburger menu, gambar lazy-load, dan tap target besar.</p>
-        </div>
-      </div>
-      <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Bagaimana cara hubungkan form kontak?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Gunakan layanan seperti Formspree atau endpoint backend sendiri. Ubah atribut <code>onsubmit</code> pada form.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="newsletter" class="container section">
-      <h2><span lang="id">📬 Berlangganan Update</span><span lang="en">📬 Subscribe for Updates</span></h2>
-      <form id="newsletterForm" class="contact" aria-label="Form newsletter">
-        <input type="email" id="newsletterEmail" placeholder="Email kamu" required aria-label="Email">
-        <button class="btn-primary" type="submit"><span lang="id">Langganan</span><span lang="en">Subscribe</span></button>
-        <p class="small muted"><span lang="id">Privasi: tanpa spam. Bisa berhenti kapan saja.</span><span lang="en">Privacy: no spam. Unsubscribe anytime.</span></p>
-      </form>
-    </section>
-
-    <section id="testimonials" class="container section">
-      <h2><span lang="id">💬 Testimoni & Sponsor</span><span lang="en">💬 Testimonials & Sponsors</span></h2>
-      <div class="grid">
-        <article class="card"><div class="card-body"><p>“Streaming rapi dan interaktif. Overlay-nya clean.”</p><p class="small muted">— Viewer A</p></div></article>
-        <article class="card"><div class="card-body"><p>“Kolaborasi profesional, deliver tepat waktu.”</p><p class="small muted">— Partner B</p></div></article>
-        <article class="card"><div class="card-body"><p>“Branding neon-nya khas dan mudah diingat.”</p><p class="small muted">— Sponsor C</p></div></article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="container footer" role="contentinfo">
-    <div class="footgrid">
-      <p>© <span id="year"></span> Fery.my.id — Built with <span class="heart">♥</span> Neon.</p>
-      <div class="foot-right" style="display:flex; gap:16px; align-items:center">
-        <nav class="foot-links" aria-label="Tautan footer">
-          <a href="#">Home</a><a href="#about">Tentang</a><a href="#projects">Proyek</a><a href="#donate">Donasi</a><a href="#contact">Lokasi</a>
-        </nav>
-        <div id="devTools" style="display:none; gap:8px">
-          <button class="btn-ghost" id="dlSitemap" type="button">Download sitemap.xml</button>
-          <button class="btn-ghost" id="dl404" type="button">Download 404.html</button>
-          <button class="btn-ghost" id="dlRobots" type="button">Download robots.txt</button>
-          <button class="btn-ghost" id="genOG" type="button">Generate OG Image</button>
-          <button class="btn-ghost" id="checkSEO" type="button">Check SEO files</button>
-        </div>
+      <div class="spec-panel">
+        <div class="spec-row"><span>SETUP MIC</span><b>GG PRO 2</b></div>
+        <div class="spec-row"><span>SOUNDCARD</span><b>F999</b></div>
+        <div class="spec-row"><span>PERANGKAT</span><b>POCO X7 Pro</b></div>
+        <div class="spec-row"><span>PLATFORM</span><b>TikTok LIVE</b></div>
+        <div class="spec-row"><span>KARAKTER VOKAL</span><b>Cempreng</b></div>
+        <div class="spec-row"><span>BASIS</span><b>Tekad, ID</b></div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <a href="#contact" class="btn-ghost cta-chat" aria-label="Chat/Contact">💬 Chat</a>
+<section id="proyek">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Sistem</div>
+      <h2 class="neon-text">Semua dirancang dari nol</h2>
+      <p>Setiap sistem di bawah ini dibangun dan dikelola langsung, dirancang khusus untuk kebutuhan streaming dan brand PeNg.</p>
+    </div>
+    <div class="panel-grid">
 
-  <script>
-(()=>{"use strict";
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],on=(el,ev,fn,opt)=>el&&el.addEventListener(ev,fn,opt),root=document.documentElement,qs=n=>new URLSearchParams(location.search).get(n),toast=m=>{const t=$("#toast");if(!t)return; t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800)};
-const y=$("#year"); if(y) y.textContent=new Date().getFullYear();
-const mb=$("#menuBtn"),mm=$("#mainmenu"); on(mb,"click",()=>{const e=mb.getAttribute("aria-expanded")==="true"; mb.setAttribute("aria-expanded",String(!e)); mb.classList.toggle("open"); mm.classList.toggle("show")}); $$("#mainmenu a").forEach(a=>on(a,"click",()=>{mm.classList.remove("show"); mb.classList.remove("open"); mb.setAttribute("aria-expanded","false")}));
-const tbtn=$("#themeToggle"),st=localStorage.getItem("theme"); if(st) root.setAttribute("data-theme",st); on(tbtn,"click",()=>{const v=root.getAttribute("data-theme")==="light"?"dark":"light"; root.setAttribute("data-theme",v); localStorage.setItem("theme",v)});
-const lbtn=$("#langToggle"),urlLang=qs("lang"),sl=localStorage.getItem("lang")||urlLang||"id"; root.setAttribute("data-lang",sl); if(lbtn) lbtn.textContent=sl.toUpperCase(); if(urlLang&&urlLang!==sl){const u=new URL(location); u.searchParams.set("lang",sl); history.replaceState(null,"",u)} on(lbtn,"click",()=>{const v=root.getAttribute("data-lang")==="id"?"en":"id"; root.setAttribute("data-lang",v); localStorage.setItem("lang",v); lbtn.textContent=v.toUpperCase(); const u=new URL(location); u.searchParams.set("lang",v); history.replaceState(null,"",u)});
-const pg=$("#progress"),scr=()=>{const h=document.documentElement,p=(h.scrollHeight-h.clientHeight)?h.scrollTop/(h.scrollHeight-h.clientHeight):0; if(pg) pg.style.transform="scaleX("+p+")"}; on(window,"scroll",scr,{passive:true}); scr();
-const sbox=$("#gameSearch"); if(sbox){const cards=$$("#projects .card"),f=()=>{const q=sbox.value.toLowerCase(); cards.forEach(c=>c.style.display=c.textContent.toLowerCase().includes(q)?"":"none")}; on(sbox,"input",f); const qp=qs("q"); if(qp){sbox.value=qp; f()}}
-const secs=["about","projects","donate","contact"].map(id=>document.getElementById(id)).filter(Boolean),links=$$(".menu a"); const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id; links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+id))}})},{threshold:0.6}); secs.forEach(s=>io.observe(s));
-const av=$("#avatarImg"); if(av) fetch("/avatar.png",{method:"HEAD",cache:"no-store"}).then(r=>{if(r.ok){av.style.display="block"; const svg=av.nextElementSibling; if(svg&&svg.tagName?.toLowerCase()==="svg") svg.remove()}}).catch(()=>{});
-const nf=$("#newsletterForm"); on(nf,"submit",e=>{e.preventDefault(); const em=$("#newsletterEmail")?.value.trim(); if(!em) return; location.href="mailto:admin@fery.my.id?subject="+encodeURIComponent("Subscribe newsletter")+"&body="+encodeURIComponent("Please subscribe me: "+em); toast("Terima kasih! Silakan konfirmasi di aplikasi email Anda.")});
-const cNM=$("#copyNmid"),nmid="ID1025411263185"; on(cNM,"click",async function(){try{await navigator.clipboard.writeText(nmid); toast("NMID disalin!"); this.textContent="NMID disalin!"; setTimeout(()=>this.textContent="Salin NMID",1500)}catch{alert("NMID: "+nmid)}});
-const dl=$("#downloadQris"); on(dl,"click",()=>toast("Mengunduh QR...")); $$("#donatePresets [data-amt]").forEach(b=>on(b,"click",()=>toast("Pilih nominal di e-wallet: Rp"+Number(b.dataset.amt||0).toLocaleString("id-ID"))));
-const qro=$("#qrOpen"),qrm=$("#qrModal"),qrc=$("#qrClose"); on(qro,"click",()=>qrm?.showModal()); on(qrc,"click",()=>qrm?.close());
-(async()=>{const root="/Qris.png"; let path=root; try{const r=await fetch(root,{method:"HEAD",cache:"no-store"}); if(!r.ok) path="Qris.png"}catch{path="Qris.png"} ["qrSmall","qrLarge"].forEach(id=>{const img=document.getElementById(id); if(!img) return; img.src=path; const s=img.closest("picture")?.querySelector("source"); if(s){s.srcset=path; s.type="image/png"}}); if(dl){dl.href=path; dl.setAttribute("download","Qris.png")}})();
-if(qs("live")==="1"){const dot=$("#liveDot"); if(dot) dot.hidden=false; try{const ld={"@context":"https://schema.org","@type":"VideoObject","name":"Live stream by Fery","description":"Gaming live stream","isFamilyFriendly":true,"publication":[{"@type":"BroadcastEvent","isLiveBroadcast":true}],"thumbnailUrl":["https://fery.my.id/og-image.jpg"],"embedUrl":"https://youtube.com/@feryferlangga/live","url":"https://youtube.com/@feryferlangga/live"}; const s=document.createElement("script"); s.type="application/ld+json"; s.textContent=JSON.stringify(ld); document.head.appendChild(s)}catch{}}
-const dev=qs('dev')==='1'; if(dev){ const dt=document.getElementById('devTools'); if(dt) dt.style.display='flex'; }
-const makeFile=(name,content,type)=>{ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([content],{type})); a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); };
-on($('#dlSitemap'),'click',()=>{ const base=location.origin.replace(/\/$/,''); const xml=`<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>${base}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-</urlset>`; makeFile('sitemap.xml',xml,'application/xml'); toast('sitemap.xml dibuat'); });
-on($('#dl404'),'click',()=>{ const html='<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>404 — Fery.my.id</title><meta name="robots" content="noindex"><meta http-equiv="refresh" content="5; url=/"><style>body{margin:0;display:grid;place-items:center;height:100vh;background:#0e0e18;color:#e6e6ff;font-family:Inter,system-ui,sans-serif}.box{max-width:560px;text-align:center;padding:24px;border:1px solid #2b2b4a;border-radius:16px;background:#121228}</style></head><body><div class="box"><h1>404</h1><p>Halaman tidak ditemukan.</p><p><a href="/">Kembali ke beranda</a></p></div></body></html>'; makeFile('404.html',html,'text/html'); toast('404.html dibuat'); });
-on($('#dlRobots'),'click',()=>{ const base = location.origin.replace(/\/$/,''); const robots = ['User-agent: *','Allow: /','Disallow: /sw.js$','', 'Sitemap: ' + base + '/sitemap.xml'].join('\n'); makeFile('robots.txt', robots, 'text/plain'); toast('robots.txt dibuat'); });
-on($('#genOG'),'click',()=>{ const W=1200,H=630,cn=document.createElement('canvas'); cn.width=W; cn.height=H; const ctx=cn.getContext('2d'); const g=ctx.createLinearGradient(0,0,W,H); g.addColorStop(0,'#0b0b16'); g.addColorStop(1,'#121228'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H); const rg=ctx.createRadialGradient(W*0.25,H*0.35,60,W*0.25,H*0.35,400); rg.addColorStop(0,'rgba(0,255,224,.35)'); rg.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=rg; ctx.beginPath(); ctx.arc(W*0.25,H*0.35,400,0,Math.PI*2); ctx.fill(); const rg2=ctx.createRadialGradient(W*0.8,H*0.75,60,W*0.8,H*0.75,360); rg2.addColorStop(0,'rgba(255,0,128,.3)'); rg2.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=rg2; ctx.beginPath(); ctx.arc(W*0.8,H*0.75,360,0,Math.PI*2); ctx.fill(); ctx.shadowColor='rgba(0,255,224,.6)'; ctx.shadowBlur=30; ctx.fillStyle='#e6e6ff'; ctx.font='900 92px Inter, system-ui, sans-serif'; ctx.textAlign='center'; ctx.fillText('FERY.MY.ID', W/2, H/2 - 10); ctx.shadowColor='transparent'; ctx.font='600 34px Inter, system-ui, sans-serif'; ctx.fillStyle='rgba(230,230,255,.9)'; ctx.fillText('Freelancer Gamer & Live Streamer', W/2, H/2 + 48); const url=cn.toDataURL('image/png'); const a=document.createElement('a'); a.href=url; a.download='og-image.png'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000); toast('og-image.png dibuat'); });
-on($('#checkSEO'),'click',async()=>{ const targets=['/og-image.jpg','/sitemap.xml','/robots.txt']; const results = await Promise.all(targets.map(async p=>{ try{ const r=await fetch(p,{method:'HEAD',cache:'no-store'}); return (r.ok?'OK ':'MISS ')+p; } catch(e){ return 'MISS '+p; } })); toast(results.join(' | ')); });
-})();
-  </script>
+      <div class="hud-panel">
+        <span class="panel-status status-live">Aktif</span>
+        <h3>Sistem Alert Donasi</h3>
+        <p>Notifikasi donasi real-time di layar stream, terhubung ke QRIS, GoPay, DANA, OVO, dan ShopeePay lewat Tripay.</p>
+        <span class="panel-link">Node.js + Socket.IO</span>
+      </div>
+
+      <div class="hud-panel">
+        <span class="panel-status status-live">Aktif</span>
+        <h3>Overlay Gift TikTok LIVE</h3>
+        <p>Menampilkan gift yang masuk secara langsung di overlay stream, terhubung langsung ke TikTok LIVE.</p>
+        <span class="panel-link">tiktok-live-connector</span>
+      </div>
+
+      <div class="hud-panel">
+        <span class="panel-status status-live">Aktif</span>
+        <h3>Pemendek Tautan</h3>
+        <p>Layanan pemendek link sendiri di link.fery.my.id, dengan data tersimpan di Google Sheets.</p>
+        <span class="panel-link">link.fery.my.id →</span>
+      </div>
+
+      <div class="hud-panel">
+        <span class="panel-status status-live">Aktif</span>
+        <h3>Overlay Gaming OBS</h3>
+        <p>Overlay ticker dengan animasi dipercepat GPU, dipakai langsung di OBS dan TikTok LIVE Studio.</p>
+        <span class="panel-link">HTML + CSS Animation</span>
+      </div>
+
+      <div class="hud-panel">
+        <span class="panel-status status-dev">Dikembangkan</span>
+        <h3>Bot Trading Binance Futures</h3>
+        <p>Strategi EMA crossover + RSI, leverage bisa diatur, mendukung banyak koin sekaligus.</p>
+        <span class="panel-link">Python</span>
+      </div>
+
+      <div class="hud-panel">
+        <span class="panel-status status-dev">Dikembangkan</span>
+        <h3>Platform Tools Indonesia</h3>
+        <p>Ratusan alat online — kalkulator, konverter, PDF, teks, developer, sampai crypto — dalam satu platform.</p>
+        <span class="panel-link">Segera hadir</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="dukung">
+  <div class="support-panel">
+    <div>
+      <div class="section-tag">Dukung</div>
+      <h2 class="neon-text">Bantu PeNg. terus berkembang</h2>
+      <p>Setiap dukungan dipakai langsung untuk upgrade alat streaming dan biaya server proyek-proyek di atas. Scan kode di samping atau lewat tombol dukung saat live.</p>
+      <a href="#" class="btn btn-primary">Kirim Dukungan</a>
+    </div>
+    <div class="qris-box">QRIS<br>DITAMPILKAN<br>DI SINI</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot-links">
+    <a href="https://www.tiktok.com/@feryferlanggaa" target="_blank" rel="noopener" aria-label="TikTok Fery">TikTok</a>
+    <a href="https://instagram.com/feryferlangga" target="_blank" rel="noopener" aria-label="Instagram Fery">Instagram</a>
+    <a href="https://facebook.com/feryferlangga" target="_blank" rel="noopener" aria-label="Facebook Page Fery">Facebook</a>
+    <a href="https://x.com/AfuckingAA" target="_blank" rel="noopener" aria-label="X Fery">X</a>
+  </div>
+  <p>© 2026 PENG. — DIBANGUN OLEH FERY DI TEKAD, BENGKULU, INDONESIA</p>
+</footer>
+
+<script>
+  // Ticker content — duplicated for seamless loop
+  const tickerItems = [
+    "SETUP: POCO X7 PRO + F999 + GG PRO 2",
+    "ALAT STREAMING TERSEDIA DI TIKTOK SHOP",
+    "SISTEM DONASI QRIS · GOPAY · DANA · OVO",
+    "PROYEK BARU: BOT TRADING BINANCE FUTURES",
+    "OVERLAY GAMING SIAP PAKAI DI OBS",
+  ];
+  const track = document.getElementById('tickerTrack');
+  const doubled = [...tickerItems, ...tickerItems];
+  track.innerHTML = doubled.map(t => `<span>${t}</span>`).join('');
+
+  // Live status placeholder — ganti dengan fetch ke endpoint status TikTok asli
+  function setLiveStatus(isLive){
+    const pill = document.getElementById('livePill');
+    const text = document.getElementById('liveText');
+    if(isLive){
+      pill.classList.add('on');
+      text.textContent = 'SEDANG LIVE';
+    } else {
+      pill.classList.remove('on');
+      text.textContent = 'OFFLINE';
+    }
+  }
+  // Demo statis — sambungkan ke API status TikTok Fery yang sudah ada di fery.my.id
+  setLiveStatus(false);
+</script>
+
 </body>
 </html>
