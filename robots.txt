@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /sw.js$
 
 Sitemap: https://fery.my.id/sitemap.xml
