@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fery.my.id/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://fery.my.id/#about</loc></url>
-  <url><loc>https://fery.my.id/#projects</loc></url>
-  <url><loc>https://fery.my.id/#stream</loc></url>
-  <url><loc>https://fery.my.id/#donate</loc></url>
-  <url><loc>https://fery.my.id/#contact</loc></url>
-  <url><loc>https://fery.my.id/#faq</loc></url>
+  <url>
+    <loc>https://fery.my.id/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 </urlset>
