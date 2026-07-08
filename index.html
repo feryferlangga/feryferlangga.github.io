@@ -422,6 +422,121 @@
   @media (max-width: 800px){ .support-panel{ grid-template-columns: 1fr; text-align: center; } }
 
   /* ============ FOOTER ============ */
+  /* ============ SHADOW SILHOUETTE SECTION ============ */
+  .shadow-section{
+    position: relative;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 60% 70% at 75% 50%, rgba(225,6,0,0.10), transparent 65%),
+      #08080a;
+  }
+  /* stage light beams — pure CSS, no images */
+  .shadow-section::before{
+    content: '';
+    position: absolute;
+    inset: -20% -10%;
+    background:
+      repeating-conic-gradient(
+        from 200deg at 82% 45%,
+        rgba(225,6,0,0.10) 0deg 3deg,
+        transparent 3deg 9deg
+      );
+    -webkit-mask-image: radial-gradient(ellipse 55% 60% at 78% 45%, black 0%, transparent 70%);
+    mask-image: radial-gradient(ellipse 55% 60% at 78% 45%, black 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* hex/tech grid pattern, lightweight inline SVG tile */
+  .shadow-section::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.32;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 0 L56 16 L56 50 L28 66 L0 50 L0 16 Z' fill='none' stroke='%23e10600' stroke-width='0.9' stroke-opacity='0.55'/%3E%3C/svg%3E");
+    background-size: 56px 100px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .shadow-section .wrap{ z-index: 2; }
+  /* floating embers — CSS-only, no JS animation loop */
+  .ember{
+    position: absolute;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--red-glow);
+    box-shadow: 0 0 8px var(--red-glow), 0 0 18px var(--red);
+    opacity: 0;
+    animation: ember-rise linear infinite;
+    z-index: 1;
+    pointer-events: none;
+  }
+  @keyframes ember-rise{
+    0%{ opacity: 0; transform: translateY(0) translateX(0); }
+    10%{ opacity: 0.8; }
+    90%{ opacity: 0.4; }
+    100%{ opacity: 0; transform: translateY(-260px) translateX(14px); }
+  }
+  .shadow-copy{
+    position: relative;
+    z-index: 2;
+    max-width: 440px;
+  }
+  .shadow-copy p{ color: var(--text-dim); font-size: 15px; margin-top: 14px; }
+  .shadow-figure-wrap{
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    width: min(420px, 55vw);
+    opacity: 0;
+    transform: translateY(-50%) translateX(50px) scale(0.94);
+    transition: opacity 1.1s ease, transform 1.1s ease;
+    z-index: 1;
+  }
+  .shadow-figure-wrap::before{
+    content: '';
+    position: absolute;
+    inset: -15%;
+    background: radial-gradient(ellipse 55% 55% at 50% 45%, rgba(225,6,0,0.35), transparent 70%);
+    z-index: -1;
+  }
+  .shadow-figure-wrap.in-view{
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+  }
+  .shadow-figure-wrap svg{ width: 100%; height: auto; display: block; }
+  .eye{ opacity: 0.9; }
+  .shadow-figure-wrap.in-view .eye{
+    animation: eye-pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes eye-pulse{
+    0%,100%{ filter: drop-shadow(0 0 3px var(--red-glow)) drop-shadow(0 0 7px var(--red)); }
+    50%{ filter: drop-shadow(0 0 7px var(--red-glow)) drop-shadow(0 0 16px var(--red)); }
+  }
+  .blade-highlight{
+    opacity: 0;
+    animation: blade-glint 1.6s ease-in-out;
+    animation-play-state: paused;
+  }
+  .shadow-figure-wrap.in-view .blade-highlight{
+    animation-play-state: running;
+  }
+  @keyframes blade-glint{
+    0%{ opacity: 0; }
+    45%{ opacity: 1; }
+    100%{ opacity: 0; }
+  }
+  @media (max-width: 860px){
+    .shadow-figure-wrap{ position: relative; right: auto; top: auto; width: 62vw; margin: 32px auto 0; transform: translateX(0) translateY(30px) scale(0.94); }
+    .shadow-figure-wrap.in-view{ transform: translateX(0) translateY(0) scale(1); }
+    .shadow-section{ flex-direction: column; text-align: center; padding: 60px 24px; }
+    .shadow-copy{ max-width: 100%; }
+  }
+
   footer{
     border-top: 1px solid var(--line);
     padding: 32px 24px;
@@ -546,6 +661,63 @@
   </div>
 </section>
 
+<section class="shadow-section" id="shadow" aria-label="Ilustrasi karakter bayangan bertema arena esports">
+  <span class="ember" style="left:15%; bottom:10%; animation-duration:7s; animation-delay:0s;"></span>
+  <span class="ember" style="left:35%; bottom:5%; animation-duration:9s; animation-delay:1.5s;"></span>
+  <span class="ember" style="left:60%; bottom:15%; animation-duration:6.5s; animation-delay:3s;"></span>
+  <span class="ember" style="left:75%; bottom:8%; animation-duration:8s; animation-delay:0.8s;"></span>
+  <span class="ember" style="left:88%; bottom:20%; animation-duration:7.5s; animation-delay:2.2s;"></span>
+  <span class="ember" style="left:50%; bottom:2%; animation-duration:10s; animation-delay:4s;"></span>
+  <div class="wrap" style="position:relative;">
+    <div class="shadow-copy">
+      <div class="section-tag">Identitas</div>
+      <h2 class="neon-text">Diam. Bergerak. Menentukan.</h2>
+      <p>Sama seperti karakter assassin yang menunggu di kegelapan sebelum menyerang, PeNg. dibangun pelan-pelan di balik layar — sampai semua sistem siap dan langsung tampil maksimal saat live dimulai.</p>
+    </div>
+
+    <div class="shadow-figure-wrap" id="shadowFigure">
+      <svg viewBox="0 0 400 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Siluet karakter assassin merah-hitam">
+        <defs>
+          <linearGradient id="capeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3a0605"/>
+            <stop offset="100%" stop-color="#0a0a0c"/>
+          </linearGradient>
+          <linearGradient id="bladeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- flowing cape -->
+        <path d="M55,555 C35,375 115,235 195,155 C255,95 335,120 385,55
+                 C345,175 300,255 260,315 C220,375 155,460 115,555 Z"
+              fill="url(#capeGradient)" opacity="0.92"/>
+
+        <!-- body silhouette -->
+        <g fill="#07070a">
+          <path d="M168,180 Q200,158 232,180 L246,300 Q200,332 154,300 Z"/>
+          <path d="M154,300 L118,472 L150,483 L190,332 Z"/>
+          <path d="M246,300 L292,452 L260,467 L208,332 Z"/>
+          <path d="M228,188 L302,138 L314,156 L252,212 Z"/>
+        </g>
+
+        <!-- hood -->
+        <path d="M168,180 Q168,108 200,88 Q232,108 232,180 Q200,202 168,180 Z" fill="#050506"/>
+        <path d="M200,88 L217,50 L200,68 L183,50 Z" fill="#050506"/>
+
+        <!-- glowing eyes -->
+        <circle class="eye" cx="187" cy="150" r="4.5" fill="var(--red-glow)"/>
+        <circle class="eye" cx="213" cy="150" r="4.5" fill="var(--red-glow)"/>
+
+        <!-- katana blade + glint -->
+        <rect x="255" y="80" width="110" height="5" rx="2" transform="rotate(-35 255 80)" fill="#151517"/>
+        <rect class="blade-highlight" x="255" y="79" width="110" height="7" rx="2" transform="rotate(-35 255 80)" fill="url(#bladeGradient)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
 <section id="dukung">
   <div class="support-panel">
     <div>
@@ -596,6 +768,19 @@
   }
   // Demo statis — sambungkan ke API status TikTok Fery yang sudah ada di fery.my.id
   setLiveStatus(false);
+
+  // Reveal karakter bayangan saat discroll ke section-nya
+  const shadowFigure = document.getElementById('shadowFigure');
+  if (shadowFigure) {
+    const shadowObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          shadowFigure.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.3 });
+    shadowObserver.observe(shadowFigure);
+  }
 </script>
 
 </body>
