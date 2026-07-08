@@ -431,6 +431,64 @@
     background: #fff;
     border-radius: 4px;
     padding: 10px;
+    cursor: zoom-in;
+    transition: transform 0.15s ease;
+  }
+  .qris-frame img:hover{ transform: scale(1.02); }
+
+  /* Lightbox untuk perbesar QRIS */
+  .qris-lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(5,5,6,0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 24px;
+    cursor: zoom-out;
+    backdrop-filter: blur(4px);
+  }
+  .qris-lightbox.open{ display: flex; }
+  .qris-lightbox-inner{
+    position: relative;
+    max-width: min(420px, 90vw);
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 0 0 1px var(--red-dim), 0 0 60px rgba(225,6,0,0.35);
+  }
+  .qris-lightbox-inner img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+  .qris-lightbox-close{
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--red);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(225,6,0,0.5);
+  }
+  .qris-lightbox-close:hover{ background: var(--red-glow); }
+  .qris-lightbox-caption{
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #333;
+    text-transform: uppercase;
+    margin-top: 14px;
   }
   .qris-label{
     text-align: center;
@@ -866,9 +924,17 @@
       <a href="#" class="btn btn-primary">Kirim Dukungan</a>
     </div>
     <div class="qris-frame">
-      <img src="https://fery.my.id/Qris.png" alt="Kode QRIS untuk donasi ke PeNg. milik Fery" loading="lazy">
+      <img src="https://fery.my.id/Qris.png" alt="Kode QRIS untuk donasi ke PeNg. milik Fery" loading="lazy" id="qrisImg" onclick="openQrisLightbox()">
     </div>
     <div class="qris-label">Scan untuk <span>Dukung PeNg.</span></div>
+
+    <div class="qris-lightbox" id="qrisLightbox" onclick="closeQrisLightbox(event)">
+      <div class="qris-lightbox-inner">
+        <button class="qris-lightbox-close" onclick="closeQrisLightbox(event)" aria-label="Tutup">&times;</button>
+        <img src="https://fery.my.id/Qris.png" alt="Kode QRIS untuk donasi ke PeNg. milik Fery diperbesar">
+        <div class="qris-lightbox-caption">Scan untuk Dukung PeNg.</div>
+      </div>
+    </div>
   </div>
 </section>
 </main>
@@ -1015,6 +1081,18 @@
   chatSend.addEventListener('click', sendMessage);
   chatInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') sendMessage();
+  });
+
+  // Lightbox perbesar QRIS
+  function openQrisLightbox(){
+    document.getElementById('qrisLightbox').classList.add('open');
+  }
+  function closeQrisLightbox(e){
+    if (e.target.closest('.qris-lightbox-inner') && !e.target.closest('.qris-lightbox-close')) return;
+    document.getElementById('qrisLightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') document.getElementById('qrisLightbox').classList.remove('open');
   });
 </script>
 
