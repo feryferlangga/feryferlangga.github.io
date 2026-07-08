@@ -405,20 +405,43 @@
   }
   .support-panel h2{ font-family: var(--font-display); font-size: 28px; margin-bottom: 14px; }
   .support-panel p{ color: var(--text-dim); font-size: 14.5px; margin-bottom: 22px; }
-  .qris-box{
-    aspect-ratio: 1;
-    max-width: 220px;
-    border: 1px dashed var(--line-bright);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--text-faint);
-    text-align: center;
-    padding: 20px;
+  .qris-frame{
+    position: relative;
+    max-width: 240px;
     margin: 0 auto;
+    background: #0d0d10;
+    border: 1px solid var(--line-bright);
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 0 0 1px rgba(225,6,0,0.15), 0 0 30px rgba(225,6,0,0.12);
   }
+  .qris-frame::before, .qris-frame::after{
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    border-color: var(--red-glow);
+  }
+  .qris-frame::before{ top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
+  .qris-frame::after{ bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; }
+  .qris-frame img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  .qris-label{
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+  .qris-label span{ color: var(--red-glow); }
   @media (max-width: 800px){ .support-panel{ grid-template-columns: 1fr; text-align: center; } }
 
   /* ============ FOOTER ============ */
@@ -536,6 +559,122 @@
     .shadow-section{ flex-direction: column; text-align: center; padding: 60px 24px; }
     .shadow-copy{ max-width: 100%; }
   }
+
+  /* ============ CHAT WIDGET ============ */
+  .chat-toggle{
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--red);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px var(--red-dim), 0 8px 24px rgba(0,0,0,0.5), 0 0 20px rgba(225,6,0,0.4);
+    z-index: 100;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .chat-toggle:hover{ transform: scale(1.06); background: var(--red-glow); }
+  .chat-toggle svg{ width: 26px; height: 26px; fill: #fff; }
+  .chat-toggle .close-icon{ display: none; }
+  .chat-toggle.open .chat-icon{ display: none; }
+  .chat-toggle.open .close-icon{ display: block; }
+
+  .chat-window{
+    position: fixed;
+    bottom: 96px;
+    right: 24px;
+    width: min(360px, calc(100vw - 32px));
+    height: min(500px, calc(100vh - 140px));
+    background: var(--bg-panel);
+    border: 1px solid var(--line-bright);
+    border-radius: 6px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 99;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  }
+  .chat-window.open{ display: flex; }
+
+  .chat-header{
+    background: linear-gradient(135deg, var(--red-dim), #1a0403);
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .chat-header .dot{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--red-glow);
+    box-shadow: 0 0 8px var(--red-glow);
+  }
+  .chat-header-text{ font-family: var(--font-display); font-weight: 600; font-size: 14px; }
+  .chat-header-sub{ font-family: var(--font-mono); font-size: 10.5px; color: var(--text-dim); margin-top: 2px; }
+
+  .chat-messages{
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13.5px;
+  }
+  .chat-msg{
+    max-width: 85%;
+    padding: 9px 12px;
+    border-radius: 10px;
+    line-height: 1.4;
+  }
+  .chat-msg.bot{
+    align-self: flex-start;
+    background: #1c1c20;
+    border: 1px solid var(--line);
+    border-bottom-left-radius: 3px;
+  }
+  .chat-msg.user{
+    align-self: flex-end;
+    background: var(--red);
+    color: #fff;
+    border-bottom-right-radius: 3px;
+  }
+  .chat-msg.typing{ color: var(--text-dim); font-style: italic; }
+
+  .chat-input-row{
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .chat-input-row input{
+    flex: 1;
+    background: #1a1a1e;
+    border: 1px solid var(--line-bright);
+    border-radius: 4px;
+    padding: 10px 12px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+  }
+  .chat-input-row input:focus{ outline: none; border-color: var(--red-dim); }
+  .chat-input-row button{
+    background: var(--red);
+    border: none;
+    color: #fff;
+    padding: 0 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .chat-input-row button:hover{ background: var(--red-glow); }
+  .chat-input-row button:disabled{ opacity: 0.5; cursor: not-allowed; }
 
   footer{
     border-top: 1px solid var(--line);
@@ -726,7 +865,10 @@
       <p>Setiap dukungan dipakai langsung untuk upgrade alat streaming dan biaya server proyek-proyek di atas. Scan kode di samping atau lewat tombol dukung saat live.</p>
       <a href="#" class="btn btn-primary">Kirim Dukungan</a>
     </div>
-    <div class="qris-box"><img src="https://fery.my.id/Qris.png"></div>
+    <div class="qris-frame">
+      <img src="https://fery.my.id/Qris.png" alt="Kode QRIS untuk donasi ke PeNg. milik Fery" loading="lazy">
+    </div>
+    <div class="qris-label">Scan untuk <span>Dukung PeNg.</span></div>
   </div>
 </section>
 </main>
@@ -781,6 +923,99 @@
     }, { threshold: 0.3 });
     shadowObserver.observe(shadowFigure);
   }
+</script>
+
+<!-- ============ CHAT WIDGET ============ -->
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <span class="dot"></span>
+    <div>
+      <div class="chat-header-text">PeNg. Assistant</div>
+      <div class="chat-header-sub">Biasanya balas dalam beberapa detik</div>
+    </div>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg bot">Halo! Ada yang bisa dibantu soal PeNg., alat streaming, atau proyek Fery?</div>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Tulis pertanyaan..." maxlength="500">
+    <button id="chatSend">Kirim</button>
+  </div>
+</div>
+
+<button class="chat-toggle" id="chatToggle" aria-label="Buka chat">
+  <svg class="chat-icon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  <svg class="close-icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+<script>
+  // GANTI dengan URL backend chat kamu setelah deploy ke Railway/Render
+  const CHAT_BACKEND_URL = 'https://ganti-dengan-url-backend-kamu.up.railway.app/api/chat';
+
+  const chatToggle = document.getElementById('chatToggle');
+  const chatWindow = document.getElementById('chatWindow');
+  const chatMessages = document.getElementById('chatMessages');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+
+  let history = [];
+  let isSending = false;
+
+  chatToggle.addEventListener('click', () => {
+    chatWindow.classList.toggle('open');
+    chatToggle.classList.toggle('open');
+    if (chatWindow.classList.contains('open')) chatInput.focus();
+  });
+
+  function addMessage(text, role){
+    const div = document.createElement('div');
+    div.className = `chat-msg ${role}`;
+    div.textContent = text;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return div;
+  }
+
+  async function sendMessage(){
+    const text = chatInput.value.trim();
+    if (!text || isSending) return;
+
+    isSending = true;
+    chatSend.disabled = true;
+    addMessage(text, 'user');
+    history.push({ role: 'user', content: text });
+    chatInput.value = '';
+
+    const typingEl = addMessage('Mengetik...', 'bot typing');
+
+    try {
+      const res = await fetch(CHAT_BACKEND_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
+      });
+      const data = await res.json();
+      typingEl.remove();
+
+      if (!res.ok) {
+        addMessage(data.error || 'Maaf, terjadi kesalahan. Coba lagi ya.', 'bot');
+      } else {
+        addMessage(data.reply, 'bot');
+        history.push({ role: 'assistant', content: data.reply });
+      }
+    } catch (err) {
+      typingEl.remove();
+      addMessage('Tidak bisa terhubung ke server chat. Coba lagi nanti.', 'bot');
+    } finally {
+      isSending = false;
+      chatSend.disabled = false;
+    }
+  }
+
+  chatSend.addEventListener('click', sendMessage);
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
 </script>
 
 </body>
