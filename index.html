@@ -586,20 +586,62 @@
   .schedule-day .day-name{ font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); text-transform: uppercase; }
   .schedule-day .day-time{ font-family: var(--font-display); font-size: 14px; margin-top: 8px; }
   .schedule-day.off .day-time{ color: var(--text-faint); }
+  .schedule-day.today{
+    border-color: var(--red-glow);
+    background: rgba(225,6,0,0.12);
+    box-shadow: 0 0 0 1px var(--red-glow), 0 0 16px rgba(255,59,48,0.25);
+    position: relative;
+  }
+  .schedule-day.today .day-name{ color: var(--red-glow); }
+  .schedule-day.today .day-name::before{
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--red-glow);
+    margin-right: 5px;
+    animation: pulse-dot 1.4s infinite;
+  }
+  @keyframes pulse-dot{
+    0%{ box-shadow: 0 0 0 0 rgba(255,59,48,0.5); }
+    70%{ box-shadow: 0 0 0 6px rgba(255,59,48,0); }
+    100%{ box-shadow: 0 0 0 0 rgba(255,59,48,0); }
+  }
+  .schedule-countdown{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--red-glow);
+    text-align: center;
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+  }
   @media (max-width: 700px){ .schedule-grid{ grid-template-columns: repeat(4, 1fr); } }
 
   /* ============ TESTIMONIALS ============ */
-  .testi-wrap{ max-width: 720px; margin: 0 auto; position: relative; }
+  .testi-wrap{ max-width: 560px; margin: 0 auto; position: relative; }
   .testi-card{
-    border: 1px solid var(--line);
-    background: var(--bg-panel);
-    padding: 32px;
-    text-align: center;
     display: none;
   }
-  .testi-card.active{ display: block; }
-  .testi-quote{ font-size: 15.5px; color: var(--text); margin-bottom: 16px; line-height: 1.6; }
-  .testi-name{ font-family: var(--font-mono); font-size: 12px; color: var(--red-glow); }
+  .testi-card.active{ display: flex; gap: 12px; align-items: flex-start; }
+  .testi-avatar{
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--red-dim), var(--red));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: #fff;
+  }
+  .testi-bubble{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    border-top-left-radius: 3px;
+    padding: 16px 18px;
+    text-align: left;
+  }
+  .testi-quote{ font-size: 14.5px; color: var(--text); margin-bottom: 10px; line-height: 1.6; }
+  .testi-name{ font-family: var(--font-mono); font-size: 11.5px; color: var(--red-glow); }
   .testi-dots{ display: flex; gap: 8px; justify-content: center; margin-top: 20px; }
   .testi-dot{ width: 8px; height: 8px; border-radius: 50%; background: var(--line-bright); border: none; cursor: pointer; }
   .testi-dot.active{ background: var(--red-glow); }
@@ -607,37 +649,62 @@
   /* ============ GALLERY ============ */
   .gallery-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 140px;
     gap: 14px;
     max-width: 1160px;
     margin: 0 auto;
   }
   .gallery-item{
+    position: relative;
     border: 1px solid var(--line);
     overflow: hidden;
-    aspect-ratio: 4/3;
     cursor: zoom-in;
     background: var(--bg-panel);
   }
+  .gallery-item:nth-child(1){ grid-column: span 2; grid-row: span 2; }
+  .gallery-item:nth-child(2){ grid-column: span 2; grid-row: span 1; }
+  .gallery-item:nth-child(3){ grid-column: span 2; grid-row: span 1; }
   .gallery-item img{ width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
   .gallery-item:hover img{ transform: scale(1.06); }
+  .gallery-item::before, .gallery-item::after{
+    content: '';
+    position: absolute;
+    width: 22px; height: 22px;
+    border-color: var(--red-glow);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .gallery-item::before{ top: 8px; left: 8px; border-top: 2px solid; border-left: 2px solid; }
+  .gallery-item::after{ bottom: 8px; right: 8px; border-bottom: 2px solid; border-right: 2px solid; }
+  .gallery-item:hover::before, .gallery-item:hover::after{ opacity: 1; }
+  @media (max-width: 700px){
+    .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .gallery-item:nth-child(1){ grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(2), .gallery-item:nth-child(3){ grid-column: span 1; grid-row: span 1; }
+  }
 
   /* ============ FAQ ============ */
   .faq-list{ max-width: 760px; margin: 0 auto; }
-  .faq-item{ border-bottom: 1px solid var(--line); }
+  .faq-item{ border-bottom: 1px solid var(--line); border-left: 2px solid transparent; transition: border-color 0.2s ease, background 0.2s ease; }
+  .faq-item.open{ border-left-color: var(--red-glow); background: rgba(225,6,0,0.04); }
   .faq-question{
     width: 100%;
     background: none;
     border: none;
     text-align: left;
-    padding: 20px 4px;
+    padding: 20px 4px 20px 14px;
     font-family: var(--font-display);
     font-size: 16px;
     color: var(--text);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: color 0.2s ease;
   }
+  .faq-item.open .faq-question{ color: var(--red-glow); }
   .faq-question .icon{ color: var(--red-glow); font-size: 20px; transition: transform 0.2s ease; }
   .faq-item.open .faq-question .icon{ transform: rotate(45deg); }
   .faq-answer{
@@ -648,13 +715,36 @@
     font-size: 14px;
     line-height: 1.6;
   }
-  .faq-answer p{ padding: 0 4px 20px; }
+  .faq-answer p{ padding: 0 4px 20px 14px; }
 
   /* ============ DONATION PROGRESS ============ */
   .donation-goal{ margin-top: 24px; }
   .donation-goal-labels{ display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-bottom: 8px; }
-  .donation-bar-track{ height: 10px; background: #1a1a1e; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
-  .donation-bar-fill{ height: 100%; width: 0%; background: linear-gradient(90deg, var(--red-dim), var(--red-glow)); transition: width 1.2s ease; }
+  .donation-bar-track{
+    position: relative;
+    height: 14px;
+    background: #1a1a1e;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    overflow: hidden;
+    background-image: repeating-linear-gradient(90deg, transparent, transparent calc(10% - 1px), rgba(255,255,255,0.06) 10%);
+  }
+  .donation-bar-fill{
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--red-dim), var(--red-glow));
+    box-shadow: 0 0 10px var(--red-glow), 0 0 3px rgba(255,255,255,0.4) inset;
+    transition: width 1.2s ease;
+    position: relative;
+  }
+  .donation-bar-fill::after{
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0; width: 3px;
+    background: #fff;
+    opacity: 0.85;
+    box-shadow: 0 0 8px #fff;
+  }
   .support-panel{
     max-width: 1160px;
     margin: 0 auto;
@@ -965,7 +1055,7 @@
     color: #fff;
     border-bottom-right-radius: 3px;
   }
-  .chat-msg.typing{ color: var(--text-dim); font-style: italic; }
+  .chat-msg.typing{ color: var(--text-dim); font-family: var(--font-mono); font-style: normal; font-size: 12.5px; letter-spacing: 0.5px; }
 
   .chat-input-row{
     display: flex;
@@ -1187,16 +1277,25 @@
     </div>
     <div class="testi-wrap">
       <div class="testi-card active">
-        <p class="testi-quote">"Soundcard-nya mantap, suara jadi lebih cempreng dan jernih waktu live. Pengiriman juga cepat."</p>
-        <div class="testi-name">— Pembeli TikTok Shop</div>
+        <div class="testi-avatar">TS</div>
+        <div class="testi-bubble">
+          <p class="testi-quote">"Soundcard-nya mantap, suara jadi lebih cempreng dan jernih waktu live. Pengiriman juga cepat."</p>
+          <div class="testi-name">— Pembeli TikTok Shop</div>
+        </div>
       </div>
       <div class="testi-card">
-        <p class="testi-quote">"Overlay-nya keren banget, langsung jadi ciri khas stream saya sendiri."</p>
-        <div class="testi-name">— Sesama Streamer</div>
+        <div class="testi-avatar">SS</div>
+        <div class="testi-bubble">
+          <p class="testi-quote">"Overlay-nya keren banget, langsung jadi ciri khas stream saya sendiri."</p>
+          <div class="testi-name">— Sesama Streamer</div>
+        </div>
       </div>
       <div class="testi-card">
-        <p class="testi-quote">"Respon fast, barangnya sesuai deskripsi. Bakal order lagi."</p>
-        <div class="testi-name">— Pembeli TikTok Shop</div>
+        <div class="testi-avatar">TS</div>
+        <div class="testi-bubble">
+          <p class="testi-quote">"Respon fast, barangnya sesuai deskripsi. Bakal order lagi."</p>
+          <div class="testi-name">— Pembeli TikTok Shop</div>
+        </div>
       </div>
       <div class="testi-dots" id="testiDots"></div>
     </div>
@@ -1288,14 +1387,15 @@
       <h2>Jadwal live mingguan</h2>
       <p>Sesuaikan jam di bawah dengan jadwal live kamu yang sebenarnya.</p>
     </div>
-    <div class="schedule-grid">
-      <div class="schedule-day active"><div class="day-name">Sen</div><div class="day-time">20:00</div></div>
-      <div class="schedule-day off"><div class="day-name">Sel</div><div class="day-time">Libur</div></div>
-      <div class="schedule-day active"><div class="day-name">Rab</div><div class="day-time">20:00</div></div>
-      <div class="schedule-day active"><div class="day-name">Kam</div><div class="day-time">20:00</div></div>
-      <div class="schedule-day off"><div class="day-name">Jum</div><div class="day-time">Libur</div></div>
-      <div class="schedule-day active"><div class="day-name">Sab</div><div class="day-time">21:00</div></div>
-      <div class="schedule-day active"><div class="day-name">Min</div><div class="day-time">21:00</div></div>
+    <div class="schedule-countdown" id="scheduleCountdown"></div>
+    <div class="schedule-grid" id="scheduleGrid">
+      <div class="schedule-day active" data-day="1" data-hour="20"><div class="day-name">Sen</div><div class="day-time">20:00</div></div>
+      <div class="schedule-day off" data-day="2"><div class="day-name">Sel</div><div class="day-time">Libur</div></div>
+      <div class="schedule-day active" data-day="3" data-hour="20"><div class="day-name">Rab</div><div class="day-time">20:00</div></div>
+      <div class="schedule-day active" data-day="4" data-hour="20"><div class="day-name">Kam</div><div class="day-time">20:00</div></div>
+      <div class="schedule-day off" data-day="5"><div class="day-name">Jum</div><div class="day-time">Libur</div></div>
+      <div class="schedule-day active" data-day="6" data-hour="21"><div class="day-name">Sab</div><div class="day-time">21:00</div></div>
+      <div class="schedule-day active" data-day="0" data-hour="21"><div class="day-name">Min</div><div class="day-time">21:00</div></div>
     </div>
   </div>
 </section>
@@ -1512,6 +1612,49 @@
       p.addEventListener('animationend', () => p.remove());
     }
   });
+
+  // ===== JADWAL: highlight hari ini + countdown =====
+  (function(){
+    const days = document.querySelectorAll('#scheduleGrid .schedule-day');
+    const countdownEl = document.getElementById('scheduleCountdown');
+    if (!days.length || !countdownEl) return;
+
+    const now = new Date();
+    const todayNum = now.getDay();
+    let todayEl = null;
+    days.forEach(d => {
+      if (parseInt(d.dataset.day, 10) === todayNum) {
+        d.classList.add('today');
+        todayEl = d;
+      }
+    });
+
+    // Cari sesi live berikutnya (termasuk hari ini kalau jamnya belum lewat)
+    const activeDays = Array.from(days).filter(d => d.classList.contains('active'));
+    let next = null, minDiff = Infinity;
+    activeDays.forEach(d => {
+      const day = parseInt(d.dataset.day, 10);
+      const hour = parseInt(d.dataset.hour, 10);
+      let diffDays = (day - todayNum + 7) % 7;
+      const target = new Date(now);
+      target.setDate(now.getDate() + diffDays);
+      target.setHours(hour, 0, 0, 0);
+      if (target <= now) target.setDate(target.getDate() + 7);
+      const diff = target - now;
+      if (diff < minDiff) { minDiff = diff; next = target; }
+    });
+
+    if (next) {
+      const totalMin = Math.floor(minDiff / 60000);
+      const h = Math.floor(totalMin / 60);
+      const m = totalMin % 60;
+      if (h < 24 && next.toDateString() === now.toDateString()) {
+        countdownEl.textContent = `LIVE DALAM ${h} JAM ${m} MENIT`;
+      } else {
+        countdownEl.textContent = `SESI BERIKUTNYA: ${h < 24 ? h + ' JAM ' + m + ' MENIT LAGI' : next.toLocaleDateString('id-ID', { weekday: 'long', hour: '2-digit', minute: '2-digit' })}`;
+      }
+    }
+  })();
 
   // ===== STATISTIK COUNT-UP =====
   const statNums = document.querySelectorAll('.stat-num');
